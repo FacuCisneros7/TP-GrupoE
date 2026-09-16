@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+</head>
+<body>
+
+  <img class="usuario_idiomas" src="../img/imagenUsuario.png" alt="usuario_con_idiomas">
+
+  <div class="card">
+
+    <header class="banner">
+      <div class="imagotipo">
+        <img class="isologo" src="../img/isotipo-lingoweb.svg" alt="imagotipo">
+        <h1>LingoWeb</h1>
+      </div>
+      <p>Aprende inglés, alemán y chino gratis y de forma divertida</p>
+    </header>
+
+    <main class="form">
+      <form action="dashboard.html" method="get">
+      
+        <div class="campo">
+          <label for="usuario">Usuario o email</label>
+          <input type="text" id="usuario" name="usuario" required >
+        </div>
+        
+        <div class="campo">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required >
+        </div>
+
+        <button class="btn" type="submit">Iniciar sesión</button>
+      </form>
+
+      <hr>
+
+      <nav>
+        <a href="recoverPassword/index.html">¿Olvidaste tu contraseña?</a>
+        <div class="register">
+          <p>¿No tienes cuenta? </p>
+          <a href="register/index.html">Creala aquí</a>
+        </div>
+      </nav>
+    </main>
+
+  </div>
+</body>
+</html>
