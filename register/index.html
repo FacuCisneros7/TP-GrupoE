@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recover password</title>
+    <title>Register</title>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../../fonts/fonts.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
 </head>
 <body>
     
     <header class="header">
         <div class="imagotipo">
-            <img class="isologo" src="../../img/isotipo-lingoweb.svg" alt="imagotipo">
+            <img class="isologo" src="../img/isotipo-lingoweb.svg" alt="imagotipo">
             <h1>LingoWeb</h1>
         </div>
     </header>
@@ -20,7 +20,7 @@
 
         <section class="seccion_formulario">
 
-            <img class="img_principal" src="../../img/imagenUsuario.png" alt="usuario_con_idiomas">
+            <img class="img_principal" src="../img/imagenUsuario.webp" alt="usuario_con_idiomas">
 
             <div class="card">
                 <header class="banner_form">
@@ -29,24 +29,32 @@
                 </header>
 
                 <div class="parte_inferior_form">
-                    <form action="dashboard.html" method="get">
-
-                        <p class="ayuda">Completa el campo con tu usuario o email y recibe el código para reestablecer la contraseña.</p>
+                    <form action="../dashboard/index.html" method="get">
 
                         <div class="campo">
                             <label for="usuario">Usuario o email</label>
                             <input type="text" id="usuario" name="usuario" required >
                         </div>
+        
+                        <div class="campo">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" name="password" required >
+                        </div>
 
-                        <a href="index2.html" class="btn">Recibir código</a>
+                        <div class="campo">
+                            <label for="confirm_password">Confirmar contraseña</label>
+                            <input type="password" id="confirm_password" name="confirm_password" required >
+                        </div>
+
+                        <button class="btn" type="submit">Registrate</button>
                     </form>
 
                     <hr>
 
                     <nav>
                         <div class="register">
-                            <p>¿Recordaste la contraseña? </p>
-                            <a href="../index.html">Volver</a>
+                            <p>¿Tienes una cuenta? </p>
+                            <a href="../index.html">Inicia sesión</a>
                         </div>
                     </nav>
                 </div>
@@ -58,7 +66,7 @@
         <section class="seccion_beneficios">
             <article>
                 <div class="card_image">
-                    <img class="bandera" src="../../img/Flag_of_Germany_(3-2).svg.webp" alt="bandera_de_alemania">
+                    <img class="bandera" src="../img/Flag_of_Germany_(3-2).svg.webp" alt="bandera_de_alemania">
                 </div>
                 <div class="card_text">
                     <h3>Aleman</h3>
@@ -68,7 +76,7 @@
 
             <article>
                 <div class="card_image">
-                    <img class="bandera" src="../../img/Flag_of_the_People's_Republic_of_China.svg" alt="bandera_de_china">
+                    <img class="bandera" src="../img/Flag_of_the_People's_Republic_of_China.svg" alt="bandera_de_china">
                 </div>
                 <div class="card_text">
                     <h3>Chino mandarin</h3>
@@ -78,7 +86,7 @@
 
             <article>
                 <div class="card_image">
-                    <img class="bandera" src="../../img/Flag_of_the_United_Kingdom_(1-2).svg.webp" alt="bandera_de_reino_unido">
+                    <img class="bandera" src="../img/Flag_of_the_United_Kingdom_(1-2).svg.webp" alt="bandera_de_reino_unido">
                 </div>
                 <div class="card_text">
                     <h3>Ingles</h3>
