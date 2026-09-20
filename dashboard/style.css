@@ -56,6 +56,7 @@ h1 {
 .resumen_usuario {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 1rem;
     font-weight: 700;
 }
@@ -68,6 +69,10 @@ h1 {
 .dashboard h2 {
     color: #1a6b1a;
     margin-bottom: 1.5rem;
+}
+
+section{
+    margin-bottom: 3rem;
 }
 
 .seccion_dashboard {
@@ -126,7 +131,6 @@ h1 {
 }
 
 .btn {
-    margin-top: 0.5rem;
     padding: 0.3rem 1rem;
     color: #1a6b1a;
     background-color: rgb(255, 243, 132);
@@ -158,8 +162,14 @@ footer p {
     }
 
     .header {
+        flex-direction: column;
         justify-content: center;
         text-align: center;
+        padding: 0.8rem 1rem;
+    }
+
+    .imagotipo {
+        justify-content: center;
     }
 
     .dashboard {
@@ -182,5 +192,19 @@ footer p {
 @media screen and (max-width: 400px) {
     * {
         font-size: 12px;
+    }
+
+    .header {
+        padding: 0.6rem 0.8rem;
+        gap: 0.6rem;
+    }
+
+    .isologo {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
     }
 }

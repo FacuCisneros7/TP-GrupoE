@@ -1,0 +1,107 @@
+.header p {
+    font-size: 1.2rem;
+}
+
+.header .btn{
+    margin: 0;
+}
+
+.barra-progreso {
+    width: 100%;
+    max-width: 40%;
+    height: 1rem;
+    background-color: #e5e5e5;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.barra-progreso-relleno {
+    height: 100%;
+    width: 20%;
+    background-color: #58cc02;
+    border-radius: 1rem;
+}
+
+p{
+    font-size: 1.2rem;
+}
+
+.dashboard h2 {
+    text-align: center;
+}
+
+section {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard h2{
+    margin: 0;
+}
+
+.seccion_game{
+    gap: 2rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid black;
+    width: 50%;
+}
+
+.palabras_elegidas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.contenedor_banco{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.palabras_banco{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.palabra,
+.elegida,
+.disponible {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.palabra{
+    background-color: #ffffff;
+    border: 2px solid #58cc02;
+    color: #58cc02;
+}
+
+.disponible {
+    background-color: #ffffff;
+    border: 2px solid #1a6b1a;
+    color: #1a6b1a;
+}
+
+.elegida {
+    background-color: #e5e5e5;
+    border: 2px solid #cfcfcf;
+    color: #777777;
+}
+
+.btn{
+    margin-top: 0.5rem;
+}
