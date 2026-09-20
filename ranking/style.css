@@ -1,0 +1,140 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 0.1rem solid #ccc;
+}
+
+table img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+table img.medalla {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.encabezado_ranking {
+    background-color: rgb(255, 243, 132);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: center;
+}
+
+th {
+    color: #1a6b1a;
+    background-color: rgb(255, 243, 132);
+}
+
+.usuario-actual {
+    background-color: #e5f5e3;
+    font-weight: 700;
+}
+
+label {
+    font-weight: 700;
+}
+
+select {
+    padding: 0.3rem;
+    font-family: Nunito;
+    color: #1a6b1a;
+    background-color: white;
+    font-weight: 700;
+}
+
+.dashboard h2 {
+    color: #1a6b1a;
+    margin-bottom: 1rem;
+}
+
+.dashboard p {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
+.flecha-descenso {
+    font-size: 2rem;
+    color: red;
+    margin: 0.05rem;
+}
+.menu_principal .activo {
+    color: #d88b00;
+    font-weight: 700;
+}
+
+.separador-descenso {
+    display: table-row;
+}
+
+.separador-descenso td {
+    text-align: center;
+    font-weight: 700;
+    padding: 1rem 0;
+}
+
+.estado {
+    display: none;
+}
+
+th {
+    display: none;
+}
+
+/*Tablet*/
+@media screen and (min-width: 48em) {
+
+    th {
+        display: table-cell
+    }
+
+    .estado {
+        display: table-cell;
+    }
+
+    .separador-descenso {
+        display: none;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+    }
+
+}
+
+/*Escritorio*/
+@media screen and (min-width: 60em) {
+
+    table {
+        font-size: 1rem;
+    }
+
+    th,
+    td {
+        padding: 1rem;
+    }
+}
+

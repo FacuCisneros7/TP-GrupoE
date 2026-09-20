@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clasificación</title>
     <link rel="stylesheet" href="../dashboard/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
 </head>
+
 <body>
 
     <header class="header">
@@ -14,11 +17,186 @@
             <img class="isologo" src="../img/isotipo-lingoweb.svg" alt="imagotipo">
             <h1>LingoWeb</h1>
         </div>
+
+        <nav class="menu_principal">
+            <a href="../dashboard/index.html">Cursos</a>
+            <a href="../perfil/index.html">Perfil</a>
+            <a href="../ranking/index.html" class="activo">Clasificación</a>
+        </nav>
+
+        <div class="resumen_usuario">
+            <span>🔥 5 Días</span>
+            <span>⚡ 350 XP</span>
+            <a href="../index.html" class="btn">Cerrar sesión</a>
+        </div>
+
     </header>
 
     <main class="dashboard">
-        <h2>Tabla de Clasificación</h2>
-        <p>Esta sección está en construcción.</p>
+        <section class="encabezado_ranking">
+            <h2>Tabla de Clasificación - Liga de Bronce</h2>
+            <p><strong>Los 5 primeros ascienden a la Liga de Plata esta semana</strong></p>
+        </section>
+
+        <label for="liga">Liga:</label>
+
+        <select id="liga">
+            <option>Bronce</option>
+            <option>Plata</option>
+            <option>Oro</option>
+        </select>
+
+        <table>
+            <tr>
+                <th>Puesto</th>
+                <th>Avatar</th>
+                <th>Usuario</th>
+                <th>XP</th>
+                <th>Estado</th>
+            </tr>
+
+            <tr>
+                <td class="puesto">
+                    <img class="medalla" src="../img/Medalla_oro.png" alt="Medalla de oro">
+                </td>
+
+                <td class="avatar">
+                    <img src="../img/Avatar_panda.jpg" alt="Avatar de Maria_23">
+                </td>
+
+                <td class="usuario">
+                    Maria_23
+                </td>
+
+                <td class="xp">
+                    850 XP
+                </td>
+
+                <td class="estado">
+                    Zona de Ascenso
+                </td>
+            </tr>
+
+            <tr class="usuario-actual">
+                <td class="puesto">
+                    <img class="medalla" src="../img/Medalla_plata.png" alt="Medalla de plata">
+                </td>
+
+                <td class="avatar">
+                    <img src="../img/Avatar_conejo.jpg" alt="Avatar de JuanPerez">
+                </td>
+
+                <td class="usuario">
+                    JuanPerez (tú)
+                </td>
+
+                <td class="xp">
+                    720 XP
+                </td>
+
+                <td class="estado">
+                    Zona de Ascenso
+                </td>
+
+            </tr>
+
+            <tr>
+                <td class="puesto">
+                    <img class="medalla" src="../img/Medalla_bronce.png" alt="Medalla de bronce">
+                </td>
+
+                <td class="avatar">
+                    <img src="../img/Avatar_gato.jpg" alt="Avatar de Carlos_Dev">
+                </td>
+
+                <td class="usuario">
+                    Carlos_Dev
+                </td>
+
+                <td class="xp">
+                    610 XP
+                </td>
+
+                <td class="estado">
+                    Zona de Ascenso
+                </td>
+
+            </tr>
+
+            <tr>
+                <td class="puesto">4</td>
+
+                <td class="avatar">
+                    <img src="../img/Avatar_perro.jpg" alt="Avatar de Lili78">
+                </td>
+
+                <td class="usuario">
+                    Lili78
+                </td>
+
+                <td class="xp">
+                    550 XP
+                </td>
+
+                <td class="estado">
+                    Zona de Ascenso
+                </td>
+
+            </tr>
+
+            <tr>
+                <td class="puesto">5</td>
+
+                <td class="avatar">
+                    <img src="../img/Avatar_leon.jpg" alt="Avatar de Lucas_93">
+                </td>
+
+                <td class="usuario">
+                    Lucas_93
+                </td>
+
+                <td class="xp">
+                    430 XP
+                </td>
+
+                <td class="estado">
+                    Zona de Ascenso
+                </td>
+
+            </tr>
+
+            <tr class="separador-descenso">
+                <td colspan="5">
+                    <span class="flecha-descenso">&#x2193;</span>
+                    Zona de Descenso
+                    <span class="flecha-descenso">&#x2193</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="puesto">6</td>
+
+                <td class="avatar">
+                    <img src="../img/Avatar_tiburon.jpg" alt="Avatar de MiaSanchez">
+                </td>
+
+                <td class="usuario">
+                    MiaSanchez
+                </td>
+
+                <td class="xp">
+                    360 XP
+                </td>
+
+                <td class="estado">
+                    <span class="flecha-descenso">&#x2193;</span>
+                    Zona de Descenso
+                    <span class="flecha-descenso">&#x2193;</span>
+                </td>
+
+            </tr>
+        </table>
+
         <a href="../dashboard/index.html" class="btn">Volver al dashboard</a>
     </main>
 
@@ -27,4 +205,5 @@
     </footer>
 
 </body>
+
 </html>
