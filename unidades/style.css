@@ -19,9 +19,3 @@ section {
     height: auto;
     gap: 2rem;
 }
-
-@media screen and (max-width: 800px) {
-    .lista_cursos {
-        width: 70%;
-    }
-}
