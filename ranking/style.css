@@ -28,6 +28,36 @@ table img.medalla {
     text-align: center;
 }
 
+.contenido_encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.mascota_ranking {
+    flex-shrink: 0;
+}
+
+.mascota_ranking img {
+    width: 4.5rem;
+    height: auto;
+}
+
+.info_ranking {
+    text-align: center;
+}
+
+.info_ranking h2 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+.info_ranking p {
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
 th,
 td {
     padding: 1rem;
@@ -106,6 +136,19 @@ th {
 
 /*Tablet*/
 @media screen and (min-width: 48em) {
+
+    .mascota_ranking img {
+        width: 6rem;
+    }
+
+    .info_ranking h2 {
+        font-size: 1.5rem;
+    }
+
+    .info_ranking p {
+        font-size: 1rem;
+    }
+
     th {
         display: table-cell
     }
