@@ -70,7 +70,7 @@ select {
     margin-top: 0;
 }
 
-.btn {
+.btn_ranking {
     display: inline-block;
     margin-top: 1.5rem;
 }
@@ -80,6 +80,7 @@ select {
     color: red;
     margin: 0.05rem;
 }
+
 .menu_principal .activo {
     color: #d88b00;
     font-weight: 700;
@@ -140,4 +141,3 @@ th {
         padding: 1rem;
     }
 }
-
