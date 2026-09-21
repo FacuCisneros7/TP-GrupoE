@@ -41,6 +41,14 @@ h1 {
     font-size: 2rem;
 }
 
+h2{
+    font-size: 1.5rem;
+}
+
+h3{
+    font-size: 1.17rem;
+}
+
 .menu_principal {
     display: flex;
     flex-direction: row;
@@ -162,10 +170,18 @@ footer p {
     }
 
     .header {
+        position: relative;
         flex-direction: column;
         justify-content: center;
         text-align: center;
         padding: 0.8rem 1rem;
+    }
+
+    .header .btn{
+        position: absolute;
+        top: 0.8rem;
+        right: 1rem;
+        font-size: 0.9rem;
     }
 
     .imagotipo {
@@ -197,6 +213,13 @@ footer p {
     .header {
         padding: 0.6rem 0.8rem;
         gap: 0.6rem;
+    }
+
+    .header .btn {
+        top: 0.6rem;
+        right: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        font-size: 0.7rem;
     }
 
     .isologo {
