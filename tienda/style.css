@@ -1,0 +1,109 @@
+.tienda-page {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.tienda-banner {
+    background-color: rgb(255, 243, 132);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.mascota_banner {
+    width: 5rem;
+    height: auto;
+}
+
+.banner-texto {
+    flex: 1;
+}
+
+.banner-texto h2 {
+    color: #1a6b1a;
+    margin-bottom: 0.3rem;
+}
+
+.tienda-seccion {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.tienda-seccion > h2 {
+    color: #1a6b1a;
+    margin-bottom: 1rem;
+}
+
+.tienda-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.tienda-icono {
+    font-size: 2.5rem;
+}
+
+.tienda-info {
+    flex: 1;
+}
+
+.tienda-info h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tienda-info p {
+    margin-top: 0.3rem;
+    color: #555;
+}
+
+.tienda-estado {
+    font-size: 0.75rem;
+    color: #1a6b1a;
+    background-color: #e5f5e3;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1rem;
+    font-weight: 700;
+}
+
+.tienda-boton {
+    white-space: nowrap;
+}
+
+.tienda-boton:disabled {
+    background-color: #e5e5e0;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.tienda-seccion hr {
+    border: none;
+    border-top: 1px solid #e5e5e0;
+}
+
+@media screen and (max-width: 800px) {
+    .tienda-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tienda-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .tienda-boton {
+        align-self: center;
+    }
+}
