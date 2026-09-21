@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
     <link rel="stylesheet" href="../dashboard/style.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header class="header">
@@ -14,12 +17,161 @@
             <img class="isologo" src="../img/isotipo-lingoweb.svg" alt="imagotipo">
             <h1>LingoWeb</h1>
         </div>
+
+        <nav class="menu_principal">
+            <a href="../dashboard/index.html">Cursos</a>
+            <a href="index.html" class="activo">Perfil</a>
+            <a href="../ranking/index.html">Clasificación</a>
+        </nav>
+
+        <div class="resumen_usuario">
+            <span>🔥 5 Días</span>
+            <span>⚡ 350 XP</span>
+            <a href="../index.html" class="btn">Cerrar sesión</a>
+        </div>
     </header>
 
-    <main class="dashboard">
-        <h2>Perfil de Usuario y Ajustes</h2>
-        <p>Esta sección está en construcción.</p>
-        <a href="../dashboard/index.html" class="btn">Volver al dashboard</a>
+
+
+    <main class="perfil-page">
+        <section class="perfil">
+            <img class="avatar" src="../img/Avatar_gato.jpg" alt="Avatar de Juan Pérez">
+            <div class="informacion-perfil">
+                <h1>Juan Pérez</h1>
+
+                <p>@juanperez_web</p>
+
+                <p>Miembro desde septiembre de 2025</p>
+
+                <p>Email registrado</p>
+
+                <p>juan.perez@alumnos.unlam.edu.ar</p>
+
+                <h2>Idiomas que aprendo</h2>
+
+                <div class="idiomas">
+                    <span><img src="../img/Flag_of_the_United_Kingdom_(1-2).svg.webp"
+                            alt="Bandera del Reino Unido">Inglés</span>
+                    <span><img src="../img/Flag_of_Germany_(3-2).svg.webp" alt="Bandera de Alemania">Alemán</span>
+                    <span><img src="../img/Flag_of_the_People's_Republic_of_China.svg" alt="Bandera de China">Chino
+                        mandarín</span>
+                </div>
+
+                <div class="red-social">
+
+                    <div>
+                        <strong>11</strong>
+                        <span>Siguiendo</span>
+                    </div>
+
+                    <div>
+                        <strong>12</strong>
+                        <span>Seguidores</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="estadisticas-section">
+            <h2>Estadísticas</h2>
+
+            <div class="estadisticas">
+
+                <div class="estadistica">
+                    <span>🔥</span>
+                    <strong>5</strong>
+                    <p>Días de racha</p>
+                </div>
+
+                <div class="estadistica">
+                    <span>⚡</span>
+                    <strong>350</strong>
+                    <p>XP</p>
+                </div>
+
+                <div class="estadistica">
+                    <span>📚</span>
+                    <strong>24</strong>
+                    <p>Lecciones completadas</p>
+                </div>
+
+                <div class="estadistica">
+                    <span>🏆</span>
+                    <strong>8</strong>
+                    <p>Logros obtenidos</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="ajustes-section">
+            <h2>Ajustes</h2>
+
+            <form>
+                <div class="grupo-ajuste">
+                    <h3>Cambiar contraseña</h3>
+
+                    <div class="campo">
+                        <label for="contrasena-actual">Contraseña actual</label>
+                        <input type="password" id="contrasena-actual">
+                    </div>
+
+                    <div class="campo">
+                        <label for="nueva-contrasena">Nueva contraseña</label>
+                        <input type="password" id="nueva-contrasena">
+                    </div>
+
+                    <div class="campo">
+                        <label for="confirmar-contrasena">Confirmar nueva contraseña</label>
+                        <input type="password" id="confirmar-contrasena">
+                    </div>
+                </div>
+
+                <div class="grupo-ajuste">
+                    <h3>Idioma de interfaz</h3>
+                    <div class="campo">
+                        <label for="idioma">Idioma preferido</label>
+                        <select id="idioma">
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                            <option value="pt">Português</option>
+                        </select>
+                    </div>
+
+
+                </div>
+                <button class="btn-guardar" type="submit">Guardar cambios</button>
+            </form>
+        </section>
+        <section class="logros-section">
+            <h2>Mis logros</h2>
+            <div class="logros-grid">
+                <div class="logro">
+                    <span>🔥</span>
+                    <h3>Racha de 7 días</h3>
+                    <p>Completaste una semana seguida de aprendizaje.</p>
+                </div>
+
+                <div class="logro">
+                    <span>🏆</span>
+                    <h3>Primer logro</h3>
+                    <p>Completaste tu primera meta de aprendizaje.</p>
+                </div>
+
+                <div class="logro">
+                    <span>⚡</span>
+                    <h3>Experiencia acumulada</h3>
+                    <p>Superaste los 100 XP en la plataforma.</p>
+                </div>
+
+                <div class="logro">
+                    <span>💎</span>
+                    <h3>División Diamante</h3>
+                    <p>Alcanzaste la división diamante.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -27,4 +179,5 @@
     </footer>
 
 </body>
+
 </html>

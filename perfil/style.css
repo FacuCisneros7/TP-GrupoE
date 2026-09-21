@@ -1,0 +1,240 @@
+.perfil-page {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.perfil {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.menu_principal .activo {
+    color: #d88b00;
+    font-weight: 700;
+}
+
+.avatar {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.informacion-perfil h1 {
+    margin: 0 0 0.5rem;
+    color: #1a6b1a;
+    font-size: 2rem;
+}
+
+.informacion-perfil p {
+    margin: 0.25rem 0;
+}
+
+.informacion-perfil h2 {
+    margin: 1.25rem 0 0.5rem;
+    font-size: 1rem;
+    color: #1a6b1a;
+}
+
+.idiomas {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.idiomas span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: #f5f7fa;
+    padding: 0.5rem 0.75rem;
+    border: 0.1rem solid #d9e4d6;
+    border-radius: 1rem;
+}
+
+.idiomas img {
+    width: 1.5rem;
+    height: 1rem;
+    object-fit: cover;
+}
+
+.red-social {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.red-social div {
+    display: flex;
+    flex-direction: column;
+}
+
+.red-social strong {
+    font-size: 1.1rem;
+    color: #1a6b1a;
+}
+
+.estadisticas-section {
+    background-color: white;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.estadistica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: #f5f7fa;
+}
+
+.estadistica span {
+    font-size: 2rem;
+}
+
+.estadistica strong {
+    font-size: 2rem;
+}
+
+.estadistica p {
+    margin: 0;
+}
+
+.ajustes-section {
+    background-color: white;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.grupo-ajuste {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.campo input,
+.campo select {
+    width: 90%;
+    padding: 0.6rem 0.8rem;
+    border: 0.1rem solid #d9e4d6;
+    border-radius: 0.5rem;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color: #1a6b1a;
+    outline: 0.1rem solid #1a6b1a;
+}
+
+.btn-guardar {
+    background-color: #fff176;
+    color: #1a6b1a;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-guardar:hover {
+    background-color: #f5e05c;
+}
+
+.logros-section {
+    background-color: white;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+.logros-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.logro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border: 0.1rem solid #d9e4d6;
+    border-radius: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.logro span {
+    font-size: 2.5rem;
+}
+
+.logro h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.logro p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.logro:hover {
+    transform: translateY(-0.25rem);
+}
+
+@media (max-width: 50rem) {
+    .estadisticas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logros-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .perfil {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .idiomas {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .red-social {
+        justify-content: center;
+    }
+
+    .header,
+    footer {
+        width: 100%;
+    }
+
+
+}
