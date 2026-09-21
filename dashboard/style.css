@@ -61,6 +61,11 @@ h3{
     font-weight: 700;
 }
 
+.menu_principal .activo {
+    color: #d88b00;
+    font-weight: 700;
+}
+
 .resumen_usuario {
     display: flex;
     flex-direction: row;
