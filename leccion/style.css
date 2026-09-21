@@ -43,7 +43,7 @@ section {
 }
 
 .seccion_game{
-    gap: 2rem;
+    gap: 1.7rem;
 }
 
 hr {
@@ -57,7 +57,7 @@ hr {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .contenedor_banco{
@@ -72,10 +72,11 @@ hr {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
-.palabra,
+.palabra_correcta,
+.palabra_incorrecta,
 .elegida,
 .disponible {
     padding: 0.5rem 1rem;
@@ -84,16 +85,22 @@ hr {
     font-size: 1rem;
 }
 
-.palabra{
+.palabra_correcta{
     background-color: #ffffff;
     border: 2px solid #58cc02;
     color: #58cc02;
 }
 
+.palabra_incorrecta{
+    background-color: #ffffff;
+    border: 2px solid #ff5757;
+    color: #ff5757;
+}
+
 .disponible {
     background-color: #ffffff;
-    border: 2px solid #1a6b1a;
-    color: #1a6b1a;
+    border: 2px solid #ff5757;
+    color: #ff5757;
 }
 
 .elegida {
@@ -102,6 +109,127 @@ hr {
     color: #777777;
 }
 
-.btn{
-    margin-top: 0.5rem;
+.seccion_resultado_correcto,
+.seccion_resultado_incorrecto{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 3rem;
+    background-color: #d7ffb8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+.seccion_resultado_incorrecto {
+    background-color: #ffb4b4;
+}
+
+.resultado_info_correcto,
+.resultado_info_incorrecto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.resultado_icono_correcto,
+.resultado_icono_incorrecto{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #58cc02;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.resultado_icono_incorrecto {
+    color: #ff5757;
+}
+
+.resultado_info_correcto h2,
+.resultado_info_incorrecto h2{
+    color: #58cc02;
+    text-align: left;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.resultado_info_incorrecto h2 {
+    color: #ff5757;
+}
+
+.seccion_resultado_correcto .btn,
+.seccion_resultado_incorrecto .btn{
+    padding: 0.8rem 2rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.btn_continuar_correcto,
+.btn_continuar_incorrecto{
+    background-color: #58cc02;
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn_continuar_incorrecto {
+    background-color: #ff5757;
+}
+
+@media screen and (max-width: 800px) {
+    *{
+        font-size: 15px;
+    }
+    .resultado_info_correcto h2,
+    .resultado_icono_incorrecto {
+    font-size: 1.5rem;
+    }
+    .seccion_resultado_correcto,
+    .seccion_resultado_incorrecto{
+        padding: 1rem 0.5rem;
+    }
+    .seccion_resultado_correcto .btn,
+    .seccion_resultado_incorrecto .btn
+    .btn_continuar{
+        padding: 0.5rem 0.5rem;
+        border-radius: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    *{
+        font-size: 15px;
+    }
+    .seccion_game{
+    gap: 1.5rem;
+    }
+    .seccion_resultado_correcto,
+    .seccion_resultado_incorrecto{
+        display: flex;
+        flex-direction: column;
+    }
+    .palabra_correcta,
+    .palabra_incorrecta,
+    .elegida,
+    .disponible {
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    }
 }
