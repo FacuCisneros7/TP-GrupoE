@@ -243,6 +243,11 @@ hr {
     color: #ff5757;
 }
 
+.botones{
+        display: flex;
+        gap: 1rem;
+}
+
 .btn {
     padding: 0.3rem 1rem;
     color: #1a6b1a;
@@ -328,11 +333,6 @@ footer p {
     .seccion_resultado_incorrecto{
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-    }
-
-    .botones{
-        display: flex;
         gap: 1rem;
     }
 
