@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lección Aleman</title>
-    <link rel="stylesheet" href="../dashboard/style.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../fonts/fonts.css">
+    <title>Lección Alemán</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
 </head>
 <body>
 
     <header class="header">
-        <a href="../unidades/index2.html" class="btn">Abandonar</a>
-        <div class="barra-progreso">
-            <div class="barra-progreso-relleno"></div>
+        <div class="barra_progreso">
+            <div class="barra_progreso_50"></div>
         </div>
-        <p>Vidas: ❤️❤️❤️</p>
+        <p>Vidas: ❤️❤️</p>
     </header>
 
-    <main class="dashboard">
+    <main class="main">
         <section class="seccion_game">
-            <h2>Traduce esta frase</h2>
+            <h2>Resultado</h2>
             <p>"Ich mag Frühstück"</p>
             
             <div class="palabras_elegidas">
@@ -29,9 +27,8 @@
                 <p class="palabra_incorrecta">la</p>
                 <p class="palabra_incorrecta">cena</p>
             </div>
-            <hr>
             <div class="contenedor_banco">
-                <h3>Banco de palabras disponibles</h3>
+                <h3>Palabras</h3>
                 <div class="palabras_banco">
                     <p class="elegida">cena</p>
                     <p class="elegida">la</p>
@@ -41,16 +38,16 @@
                     <p class="elegida">gusta</p>
                 </div>
             </div>
-            <a href="" class="btn">Comprobar Respuesta</a>
+            <button href="" class="btn" disabled>Comprobar Respuesta</button>
         </section>  
         <section class="seccion_resultado_incorrecto">
             <div class="resultado_info_incorrecto">
                 <div class="resultado_icono_incorrecto">&times;</div>               
                 <h2>¡Incorrecto!</h2>
             </div>
-            <div>
-                <a href="../unidades/index2.html" class="btn">Abandonar</a>
-                <a href="" class="btn_continuar_incorrecto">Continuar</a>
+            <div class="botones">
+                <a href="../../unidades/index2.html" class="btn_abandonar">Abandonar</a>
+                <a href="index3.html" class="btn_continuar_incorrecto">Continuar</a>
             </div>
         </section>
     </main>

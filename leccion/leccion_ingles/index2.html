@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lección Ingles</title>
-    <link rel="stylesheet" href="../dashboard/style.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../fonts/fonts.css">
+    <title>Lección Inglés</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
 </head>
 <body>
 
     <header class="header">
-        <a href="../unidades/index.html" class="btn">Abandonar</a>
-        <div class="barra-progreso">
-            <div class="barra-progreso-relleno"></div>
+        <div class="barra_progreso">
+            <div class="barra_progreso_50"></div>
         </div>
         <p>Vidas: ❤️❤️❤️</p>
     </header>
 
-    <main class="dashboard">
+    <main class="main">
         <section class="seccion_game">
-            <h2>Traduce esta frase</h2>
+            <h2>Resultado</h2>
             <p>"I would like to order a pizza"</p>
             
             <div class="palabras_elegidas">
@@ -29,9 +27,8 @@
                 <p class="palabra_correcta">una</p>
                 <p class="palabra_correcta">pizza</p>
             </div>
-            <hr>
             <div class="contenedor_banco">
-                <h3>Banco de palabras disponibles</h3>
+                <h3>Palabras</h3>
                 <div class="palabras_banco">
                     <p class="disponible">hola</p>
                     <p class="elegida">pizza</p>
@@ -41,16 +38,16 @@
                     <p class="elegida">una</p>
                 </div>
             </div>
-            <a href="" class="btn">Comprobar Respuesta</a>
+            <button href="" class="btn" disabled>Comprobar Respuesta</button>
         </section>  
         <section class="seccion_resultado_correcto">
             <div class="resultado_info_correcto">
-                <div class="resultado_icono_correcto">✔</div>               
-                <h2>¡Bien!</h2>
+                <div class="resultado_icono_correcto">&times;</div>               
+                <h2>¡Incorrecto!</h2>
             </div>
-            <div>
-                <a href="../unidades/index.html" class="btn">Abandonar</a>
-                <a href="" class="btn_continuar_correcto">Continuar</a>
+            <div class="botones">
+                <a href="../../unidades/index.html" class="btn_abandonar">Abandonar</a>
+                <a href="index3.html" class="btn_continuar_correcto">Continuar</a>
             </div>
         </section>
     </main>
