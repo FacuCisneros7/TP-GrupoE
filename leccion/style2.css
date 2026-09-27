@@ -1,0 +1,39 @@
+.header{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header .btn{
+    margin: 0;
+}
+
+.disponible {
+    background-color: white;
+    border: 2px solid #cfcfcf;
+    color: #777777;
+}
+
+.elegida {
+    background-color: white;
+    border: 2px solid #cfcfcf;
+    color: #777777;
+}
+
+@media screen and (max-width:1050px) {
+
+    .header{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .header .btn_abandonar{
+        order: 3;
+        flex-basis: 40%;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+}
