@@ -14,7 +14,7 @@
 
     <header class="header">
         <div class="imagotipo">
-            <img class="isologo" src="../img/isotipo-lingoweb.svg" alt="imagotipo">
+            <img class="isologo" src="../img/isotipo-lingoweb.svg" alt="LingoWeb">
             <h1>LingoWeb</h1>
         </div>
 
@@ -29,7 +29,6 @@
             <span>🔥 5 Días</span>
             <span>⚡ 350 XP</span>
             <span>💎 120</span>
-            <a href="../index.html" class="btn">Cerrar sesión</a>
         </div>
     </header>
 
@@ -39,16 +38,25 @@
         <section class="perfil">
             <img class="avatar" src="../img/Avatar_conejo.jpg" alt="Avatar de Juan Pérez">
             <div class="informacion-perfil">
-                <h1>Juan Pérez</h1>
 
-                <p>@juanperez_web</p>
+                <div class="perfil-superior">
+                    <div>
+                        <h1>Juan Pérez</h1>
 
-                <p>Miembro desde septiembre de 2025</p>
+                        <p class="usuario-perfil">@juanperez_web</p>
+                    </div>
 
-                <p>Email registrado</p>
+                    <div class="nivel-perfil">
+                        <span class="xp-perfil">
+                            ⚡ 350 XP
+                        </span>
+                    </div>
+                </div>
 
-                <p>juan.perez@alumnos.unlam.edu.ar</p>
-
+                <div class="datos-perfil">
+                    <p><strong>Miembro desde:</strong> Septiembre de 2025</p>
+                    <p><strong>Email:</strong> juan.perez@alumnos.unlam.edu.ar</p>
+                </div>
                 <h2>Idiomas que aprendo</h2>
 
                 <div class="idiomas">
@@ -61,117 +69,243 @@
 
                 <div class="red-social">
 
-                    <div>
-                        <strong>11</strong>
-                        <span>Siguiendo</span>
-                    </div>
+                    <a href="../seguidos/index.html" class="red-social-link" aria-label="Ver usuarios seguidos">
+                        <strong>5</strong>
+                        <span>Seguidos</span>
+                    </a>
 
-                    <div>
-                        <strong>12</strong>
+                    <a href="../seguidores/index.html" class="red-social-link" aria-label="Ver seguidores">
+                        <strong>5</strong>
                         <span>Seguidores</span>
-                    </div>
+                    </a>
                 </div>
 
             </div>
         </section>
 
-        <section class="estadisticas-section">
+        <section class="progreso-section">
+            <h2>Progreso por idioma</h2>
+            <div class="progreso-idiomas">
+                <article class="progreso-idioma">
+                    <div class="progreso-info">
+                        <div class="idioma-nombre">
+                            <span><img src="../img/Flag_of_the_United_Kingdom_(1-2).svg.webp"
+                                    alt="Bandera del Reino Unido">Inglés</span>
+                        </div>
+                        <strong>44%</strong>
+                    </div>
+
+                    <div class="barra-progreso">
+                        <div class="barra-completada progreso-ingles"></div>
+                    </div>
+
+                    <div class="progreso-detalle">
+                        <span>4 de 9 lecciones completadas</span>
+                        <a href="../unidades/index.html">Ver curso</a>
+                    </div>
+                </article>
+
+                <article class="progreso-idioma">
+                    <div class="progreso-info">
+                        <div class="idioma-nombre">
+                            <span><img src="../img/Flag_of_Germany_(3-2).svg.webp"
+                                    alt="Bandera de Alemania">Alemán</span>
+                        </div>
+                        <strong>33%</strong>
+                    </div>
+
+                    <div class="barra-progreso">
+                        <div class="barra-completada progreso-aleman"></div>
+                    </div>
+
+                    <div class="progreso-detalle">
+                        <span>3 de 9 lecciones completadas</span>
+                        <a href="../unidades/index2.html">Ver curso</a>
+                    </div>
+                </article>
+
+                <article class="progreso-idioma">
+                    <div class="progreso-info">
+                        <div class="idioma-nombre">
+                            <span><img src="../img/Flag_of_the_People's_Republic_of_China.svg"
+                                    alt="Bandera de China">Chino mandarín</span>
+                        </div>
+                        <strong>0%</strong>
+                    </div>
+
+                    <div class="barra-progreso">
+                        <div class="barra-completada progreso-chino"></div>
+                    </div>
+
+                    <div class="progreso-detalle">
+                        <span>0 de 9 lecciones completadas</span>
+                        <a href="../unidades/index3.html">Ver curso</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="actividad-amigos">
+            <h2>Actividad de tus seguidos</h2>
+            <p class="actividad-subtitulo">
+                Últimos logros de las personas que seguís
+            </p>
+
+            <article class="actividad-feed-item">
+                <img src="../img/Avatar_panda.jpg" alt="Avatar de Maria_23" class="actividad-feed-avatar">
+                <h3>Maria_23</h3>
+                <small>Hoy</small>
+                <p class="actividad-feed-texto">¡Quedó en el puesto #1 de la División Bronce esta semana!</p>
+                <span class="actividad-feed-premio">🥇</span>
+            </article>
+
+            <article class="actividad-feed-item">
+                <img src="../img/Avatar_gato.jpg" alt="Avatar de Carlos_Dev" class="actividad-feed-avatar">
+                <h3>Carlos_Dev</h3>
+                <small>Ayer</small>
+                <p class="actividad-feed-texto">¡Quedó entre los 3 primeros de la División Bronce 2 veces!</p>
+                <span class="actividad-feed-premio">🥉</span>
+            </article>
+
+            <article class="actividad-feed-item">
+                <img src="../img/Avatar_perro.jpg" alt="Avatar de Lili78" class="actividad-feed-avatar">
+                <h3>Lili78</h3>
+                <small>Hace 2 días</small>
+                <p class="actividad-feed-texto">Completó 3 lecciones seguidas de Inglés</p>
+                <span class="actividad-feed-premio">📚</span>
+            </article>
+
+            <a href="../actividadSeguidos/index.html" class="actividad-ver-todos">Ver todos</a>
+        </section>
+
+        <section class="estadisticas-section" id="mis-estadisticas">
             <h2>Estadísticas</h2>
 
             <div class="estadisticas">
 
-                <div class="estadistica">
+                <article class="estadistica">
                     <span>🔥</span>
                     <strong>5</strong>
                     <p>Días de racha</p>
-                </div>
+                </article>
 
-                <div class="estadistica">
+                <article class="estadistica">
                     <span>⚡</span>
                     <strong>350</strong>
-                    <p>XP</p>
-                </div>
+                    <p>XP acumulados</p>
+                </article>
 
-                <div class="estadistica">
+                <article class="estadistica">
                     <span>📚</span>
-                    <strong>24</strong>
+                    <strong>7</strong>
                     <p>Lecciones completadas</p>
-                </div>
+                    <small>7 de 27 disponibles</small>
+                </article>
 
-                <div class="estadistica">
+                <article class="estadistica">
                     <span>🏆</span>
-                    <strong>8</strong>
+                    <strong>4</strong>
                     <p>Logros obtenidos</p>
-                </div>
-
+                </article>
             </div>
         </section>
 
-        <section class="ajustes-section">
+        <section class="ajustes-section" id="ajustes">
             <h2>Ajustes</h2>
 
-            <form>
-                <div class="grupo-ajuste">
+            <form action="guardado.html" method="get" class="ajustes-formulario">
+                <section class="grupo-ajuste">
+
+                    <h3>Datos personales</h3>
+                    <img src="../img/Avatar_conejo.jpg" alt="Avatar de Juan Pérez" class="ajustes-avatar">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" value="Juan Pérez">
+
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" id="usuario" value="@juanperez_web">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" value="juan.perez@alumnos.unlam.edu.ar">
+
+                </section>
+
+                <section class="grupo-ajuste">
+
                     <h3>Cambiar contraseña</h3>
 
-                    <div class="campo">
-                        <label for="contrasena-actual">Contraseña actual</label>
-                        <input type="password" id="contrasena-actual">
-                    </div>
+                    <label for="contrasena-actual">Contraseña actual</label>
+                    <input type="password" name="contrasena-actual" id="contrasena-actual">
 
-                    <div class="campo">
-                        <label for="nueva-contrasena">Nueva contraseña</label>
-                        <input type="password" id="nueva-contrasena">
-                    </div>
+                    <label for="nueva-contrasena">Nueva contraseña</label>
+                    <input type="password" name="nueva-contrasena" id="nueva-contrasena">
 
-                    <div class="campo">
-                        <label for="confirmar-contrasena">Confirmar nueva contraseña</label>
-                        <input type="password" id="confirmar-contrasena">
-                    </div>
-                </div>
+                    <label for="confirmar-contrasena">Confirmar nueva contraseña</label>
+                    <input type="password" name="confirmar-contrasena" id="confirmar-contrasena">
 
-                <div class="grupo-ajuste">
+                </section>
+
+                <section class="grupo-ajuste">
                     <h3>Idioma de interfaz</h3>
-                    <div class="campo">
-                        <label for="idioma">Idioma preferido</label>
-                        <select id="idioma">
-                            <option value="es">Español</option>
-                            <option value="en">English</option>
-                            <option value="pt">Português</option>
-                        </select>
-                    </div>
-
-
-                </div>
+                    <label for="idioma">Idioma preferido</label>
+                    <select id="idioma" name="idioma">
+                        <option value="es" selected>Español</option>
+                        <option value="en">English</option>
+                        <option value="pt">Português</option>
+                    </select>
+                </section>
                 <button class="btn-guardar" type="submit">Guardar cambios</button>
             </form>
+
+            <nav class="acciones-cuenta">
+                <a href="#mis-estadisticas" class="accion-secundaria">Ver mis estadísticas</a>
+                <a href="#mis-logros" class="accion-secundaria">Ver mis logros</a>
+                <a href="../index.html" class="btn-secundario">Cerrar sesión</a>
+                <a href="eliminar.html" class="accion-eliminar">Eliminar mi cuenta</a>
+            </nav>
         </section>
-        <section class="logros-section">
+
+        <section class="logros-section" id="mis-logros">
             <h2>Mis logros</h2>
             <div class="logros-grid">
-                <div class="logro">
+                <article class="logro">
                     <span>🔥</span>
                     <h3>Racha de 7 días</h3>
                     <p>Completaste una semana seguida de aprendizaje.</p>
-                </div>
 
-                <div class="logro">
+                    <small class="fecha-logro">
+                        Obtenido: 18/09/2026
+                    </small>
+                </article>
+
+                <article class="logro">
                     <span>🏆</span>
                     <h3>Primer logro</h3>
                     <p>Completaste tu primera meta de aprendizaje.</p>
-                </div>
 
-                <div class="logro">
+                    <small class="fecha-logro">
+                        Obtenido: 05/09/2025
+                    </small>
+                </article>
+
+                <article class="logro">
                     <span>⚡</span>
                     <h3>Experiencia acumulada</h3>
                     <p>Superaste los 100 XP en la plataforma.</p>
-                </div>
 
-                <div class="logro">
+                    <small class="fecha-logro">
+                        Obtenido: 22/10/2025
+                    </small>
+                </article>
+
+                <article class="logro">
                     <span>💎</span>
                     <h3>División Diamante</h3>
                     <p>Alcanzaste la división diamante.</p>
-                </div>
+
+                    <small class="fecha-logro">
+                        Obtenido: 14/08/2025
+                    </small>
+                </article>
             </div>
         </section>
     </main>
