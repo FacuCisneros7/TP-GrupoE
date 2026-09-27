@@ -30,9 +30,11 @@ table img.medalla {
 
 .contenido_encabezado {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
+    text-align: center;
 }
 
 .mascota_ranking {
@@ -40,27 +42,28 @@ table img.medalla {
 }
 
 .mascota_ranking img {
-    width: 4.5rem;
+    width: 4.5em;
     height: auto;
 }
 
 .info_ranking {
     text-align: center;
+    width: 100%;
 }
 
 .info_ranking h2 {
-    font-size: 1.2rem;
+    font-size: 1.3em;
     line-height: 1.2;
 }
 
 .info_ranking p {
-    font-size: 0.9rem;
+    font-size: 1em;
     line-height: 1.2;
 }
 
 th,
 td {
-    padding: 1rem;
+    padding: 1em;
     text-align: center;
 }
 
@@ -68,6 +71,7 @@ th {
     color: #1a6b1a;
     background-color: rgb(255, 243, 132);
 }
+
 
 .usuario-actual {
     background-color: #e5f5e3;
@@ -79,7 +83,7 @@ label {
 }
 
 select {
-    padding: 0.3rem;
+    padding: 0.3em;
     font-family: Nunito;
     color: #1a6b1a;
     background-color: white;
@@ -88,12 +92,12 @@ select {
 
 .dashboard h2 {
     color: #1a6b1a;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .dashboard p {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
 }
 
 .header .btn {
@@ -102,13 +106,29 @@ select {
 
 .btn_ranking {
     display: inline-block;
-    margin-top: 1.5rem;
+    margin-top: 1.5em;
+}
+
+.puesto-ascenso {
+    color: #2e7d32;
+    font-weight: 700;
+}
+
+.puesto-descenso {
+    color: red;
+    font-weight: 700;
+}
+
+.flecha-ascenso {
+    color: #2e7d32;
+    font-weight: 700;
+    margin: 0 0.2rem;
 }
 
 .flecha-descenso {
-    font-size: 2rem;
     color: red;
-    margin: 0.05rem;
+    font-weight: 700;
+    margin: 0 0.2rem;
 }
 
 .menu_principal .activo {
@@ -116,8 +136,19 @@ select {
     font-weight: 700;
 }
 
+.separador-ascenso {
+    display: table-row;
+}
+
 .separador-descenso {
     display: table-row;
+}
+
+.separador-ascenso td,
+.separador-descenso td {
+    text-align: center;
+    font-weight: 700;
+    padding: 1em 0;
 }
 
 .separador-descenso td {
@@ -134,53 +165,65 @@ th {
     display: none;
 }
 
+
 /*Tablet*/
 @media screen and (min-width: 48em) {
 
+    .contenido_encabezado {
+        flex-direction: row;
+        gap: 1em;
+    }
+
     .mascota_ranking img {
-        width: 6rem;
+        width: 6em;
     }
 
     .info_ranking h2 {
-        font-size: 1.5rem;
+        font-size: 1.5em;
     }
 
     .info_ranking p {
-        font-size: 1rem;
+        font-size: 1em;
     }
 
     th {
-        display: table-cell
+        display: table-cell;
     }
 
     .estado {
         display: table-cell;
     }
 
+    .separador-ascenso,
     .separador-descenso {
         display: none;
     }
 
-    table {
-        font-size: 0.9rem;
-    }
-
     th,
     td {
-        padding: 0.5rem;
+        padding: 0.5em;
     }
 
 }
 
 /*Escritorio*/
 @media screen and (min-width: 60em) {
+    th,
+    td {
+        padding: 1em;
+    }
+}
 
-    table {
+@media screen and (max-width: 47.99em) {
+    .info_ranking h2 {
+        font-size: 1.4rem;
+    }
+
+    .info_ranking p {
         font-size: 1rem;
     }
 
-    th,
-    td {
-        padding: 1rem;
+     table {
+        font-size: 1rem;
     }
 }
