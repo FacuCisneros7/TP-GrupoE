@@ -123,7 +123,7 @@ text-align: left;
 
 /*tablet*/
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1050px) {
 
     .prueba-page {
         padding: 1.5rem;
@@ -163,7 +163,7 @@ text-align: left;
 
 /*mobile*/
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 700px) {
 
     .prueba-page {
         padding: 1rem;
@@ -285,7 +285,7 @@ text-align: left;
 
 /*tablet*/
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1050px) {
 
     .confirmado-page {
         padding: 1.5rem;
@@ -304,7 +304,7 @@ text-align: left;
 
 /*mobile*/
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 700px) {
 
     .confirmado-page {
         padding: 1rem;
