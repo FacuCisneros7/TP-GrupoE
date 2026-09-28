@@ -113,8 +113,13 @@ form {
     gap: 1rem;
 }
 
+label{
+    font-size: 1rem;
+}
+
 input {
     padding: 0.3rem;
+    font-size: 1rem;
 }
 
 .btn {
@@ -214,7 +219,7 @@ footer p {
 
 @media screen and (max-width: 1050px) {
     * {
-        font-size: 24px;
+        font-size: 20px;
     }
     section{
     margin-bottom: 0;
@@ -259,11 +264,14 @@ footer p {
 
 @media screen and (max-width: 700px) {
     html {
-        font-size: 20px;
+        font-size: 18px;
     }
     .seccion_beneficios > article {
         width: 100%;
         max-width: 350px;
+    }
+    .register{
+        flex-direction: column;
     }
 }
 
