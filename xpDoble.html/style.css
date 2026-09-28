@@ -1,0 +1,172 @@
+.xp-pagina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.xp-card {
+    width: 100%;
+    max-width: 50rem;
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+
+}
+
+.mascota_xp {
+    width: 8rem;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.xp-card h2 {
+    color: #1a6b1a;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.xp-subtitulo {
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+
+.xp-precio {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.xp-precio>div {
+    background-color: #f5f9f2;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    min-width: 12rem;
+}
+
+.xp-etiqueta {
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+.xp-diamantes {
+    color: #d88b00;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.xp-aviso {
+    background-color: #fff3a8;
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.xp-aviso img {
+    width: 5rem;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.xp-aviso h3 {
+    color: #1a6b1a;
+    margin-bottom: 0.3rem;
+    font-size: 1.5rem;
+}
+
+.xp-aviso p {
+    color: #555;
+    margin: 0;
+}
+
+.xp-recomendacion {
+    background-color: #f5f9f2;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.xp-recomendacion p {
+    color: #555;
+    text-align: left;
+}
+
+.xp-recomendacion strong {
+    color: #1a6b1a;
+}
+
+
+.xp-boton {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+}
+
+
+@media screen and (max-width: 800px) {
+    .xp-page {
+        padding: 1.5rem;
+    }
+
+    .xp-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .xp-precio {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .xp-precio>div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .xp-page {
+        padding: 1rem;
+    }
+
+    .xp-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .mascota_xp {
+        width: 6rem;
+    }
+
+    .xp-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .xp-aviso {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .xp-recomendacion {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .xp-recomendacion p {
+        text-align: center;
+    }
+
+    .xp-boton {
+        width: 100%;
+    }
+}

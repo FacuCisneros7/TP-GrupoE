@@ -1,0 +1,288 @@
+.vidas-pagina {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.vidas-card {
+    width: 100%;
+    max-width: 50rem;
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.mascota_vidas {
+    width: 8rem;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.vidas-card h2 {
+    color: #1a6b1a;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.vidas-subtitulo {
+    color: #d88b00;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.vidas-descripcion {
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+
+.vidas-beneficio {
+    background-color: #f5f9f2;
+    border-radius: 1rem;
+    padding: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.vidas-beneficio h3 {
+    color: #1a6b1a;
+    margin-bottom: 0.3rem;
+}
+
+.vidas-beneficio p {
+    color: #555;
+}
+
+
+/* AVISO */
+
+.vidas-aviso {
+    background-color: #fff3a8;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.vidas-aviso p {
+    color: #444;
+    margin: 0;
+}
+
+
+.vidas-boton {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.volver {
+    display: block;
+    color: #1a6b1a;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.volver:hover {
+    text-decoration: underline;
+}
+
+
+/*tablet*/
+
+@media screen and (max-width: 800px) {
+
+    .vidas-page {
+        padding: 1.5rem;
+    }
+
+    .vidas-card {
+        padding: 2rem 1.5rem;
+    }
+
+}
+
+
+/*mobile*/
+
+@media screen and (max-width: 400px) {
+
+    .vidas-page {
+        padding: 1rem;
+    }
+
+    .vidas-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .mascota_vidas {
+        width: 6rem;
+    }
+
+    .vidas-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .vidas-subtitulo {
+        font-size: 1.1rem;
+    }
+
+    .vidas-beneficio {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .vidas-boton {
+        width: 100%;
+    }
+
+}
+
+
+/*confirmado.html*/
+.vidas-confirmado-pagina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.vidas-confirmado-card {
+    width: 100%;
+    max-width: 50rem;
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.mascota_confirmado {
+    width: 8rem;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.vidas-confirmado-card h2 {
+    color: #1a6b1a;
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.confirmado-texto {
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+
+.confirmado-beneficio {
+    background-color: #f5f9f2;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.confirmado-beneficio {
+    font-size: 2rem;
+}
+
+.confirmado-beneficio h3 {
+    color: #1a6b1a;
+    margin-bottom: 0.3rem;
+}
+
+.confirmado-beneficio p {
+    color: #555;
+}
+
+
+
+.confirmado-aviso {
+    background-color: #fff3a8;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.confirmado-aviso img {
+    width: 5rem;
+    height: auto;
+}
+
+.confirmado-aviso p {
+    margin: 0;
+}
+
+.confirmado-aviso p {
+    color: #444;
+    margin: 0;
+}
+
+
+.vidas-confirmado-boton {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+}
+
+
+/*tablet*/
+
+@media screen and (max-width: 800px) {
+
+    .vidas-confirmado-page {
+        padding: 1.5rem;
+    }
+
+    .vidas-confirmado-card {
+        padding: 2rem 1.5rem;
+    }
+
+}
+
+
+/*mobile*/
+
+@media screen and (max-width: 400px) {
+
+    .vidas-confirmado-page {
+        padding: 1rem;
+    }
+
+    .vidas-confirmado-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .mascota_confirmado {
+        width: 6rem;
+    }
+
+    .vidas-confirmado-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .confirmado-beneficio {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .vidas-confirmado-boton {
+        width: 100%;
+    }
+
+}
