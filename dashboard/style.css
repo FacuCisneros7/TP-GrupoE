@@ -170,9 +170,9 @@ footer p {
     font-size: 0.85rem;
 }
 
-@media screen and (max-width: 800px) {
-    * {
-        font-size: 13px;
+@media screen and (max-width: 1050px) {
+    html {
+        font-size: 28px;
     }
 
     .header {
@@ -211,9 +211,9 @@ footer p {
     }
 }
 
-@media screen and (max-width: 400px) {
-    * {
-        font-size: 12px;
+@media screen and (max-width: 700px) {
+    html {
+        font-size: 16px;
     }
 
     .header {
@@ -222,10 +222,10 @@ footer p {
     }
 
     .header .btn {
-        top: 0.6rem;
-        right: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        font-size: 0.7rem;
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.2rem 0.5rem;
+        font-size: 0.8rem;
     }
 
     .isologo {
@@ -235,5 +235,11 @@ footer p {
 
     h1 {
         font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 14px;
     }
 }

@@ -743,7 +743,7 @@
 
 /* RESPONSIVE TABLET */
 
-@media (max-width: 50rem) {
+@media (max-width: 1050px) {
 
     .perfil-page {
         padding: 1.5rem;
@@ -890,7 +890,7 @@
 
 /* RESPONSIVE MOBILE */
 
-@media (max-width: 30rem) {
+@media (max-width: 700px) {
     .perfil-page {
         padding: 1rem;
     }

@@ -26,6 +26,13 @@ body {
     gap: 1rem;
 }
 
+.btn-volver {
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1b5e20;
+}
+
 .imagotipo {
     display: flex;
     flex-direction: row;
@@ -158,7 +165,7 @@ footer p {
 
 @media screen and (max-width: 1050px) {
     html{
-        font-size: 20px;
+        font-size: 28px;
     }
 
     .header {
@@ -169,11 +176,10 @@ footer p {
         padding: 0.8rem 1rem;
     }
 
-    .header .btn{
+    .btn-volver {
         position: absolute;
-        top: 0.8rem;
-        right: 1rem;
-        font-size: 0.9rem;
+        left: 1rem;
+        top: 1rem;
     }
 
     .imagotipo {
@@ -200,15 +206,16 @@ footer p {
         gap: 0.6rem;
     }
 
-    .header p{
-    font-size: 1.2rem;
+    h1{
+        font-size: 1.5rem;
     }
 
-    .header .btn {
-        top: 0.6rem;
-        right: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        font-size: 0.7rem;
+    h2{
+        font-size: 1.3rem;
+    }
+
+    .header p{
+    font-size: 1.2rem;
     }
 
     .isologo {
@@ -219,6 +226,6 @@ footer p {
 
 @media screen and (max-width: 400px) {
     html{
-        font-size: 16px;
+        font-size: 14px;
     }
 }

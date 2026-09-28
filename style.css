@@ -218,9 +218,10 @@ footer p {
 }
 
 @media screen and (max-width: 1050px) {
-    * {
-        font-size: 20px;
+    html {
+        font-size: 28px;
     }
+
     section{
     margin-bottom: 0;
     }
@@ -246,7 +247,7 @@ footer p {
 
     .card {
         width: 100%;
-        max-width: 500px;
+        max-width: 600px;
         order: 1;
     }
 
@@ -277,6 +278,6 @@ footer p {
 
 @media screen and (max-width: 400px) {
     html {
-        font-size: 16px;
+        font-size: 14px;
     }
 }

@@ -38,7 +38,7 @@
     max-width: 30rem;
     background-color: white;
     border-radius: 1.5rem;
-    padding: 2rem;
+    padding: 2rem 1rem;
     align-items: center;
     text-align: center;
 }
@@ -50,7 +50,6 @@
 
 .card h2 {
     color: #1a6b1a;
-    font-size: 2rem;
 }
 
 .exp_obtenida {

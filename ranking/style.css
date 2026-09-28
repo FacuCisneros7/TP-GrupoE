@@ -164,7 +164,7 @@ th {
 
 
 /*Tablet*/
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 700px) {
 
     .contenido_encabezado {
         flex-direction: row;
@@ -204,7 +204,7 @@ th {
 }
 
 /*Escritorio*/
-@media screen and (min-width: 60em) {
+@media screen and (min-width: 1050px) {
 
     .contenido_encabezado {
         display: flex;

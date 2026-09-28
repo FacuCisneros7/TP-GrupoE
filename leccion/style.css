@@ -44,8 +44,7 @@ h3{
 }
 
 .barra_progreso {
-    width: 100%;
-    max-width: 40%;
+    width: 40%;
     height: 1rem;
     background-color: #e5e5e5;
     border-radius: 1rem;
@@ -53,10 +52,9 @@ h3{
 }
 
 .barra_progreso_0 {
-    width: 100%;
-    max-width: 0%;
-    height: 1rem;
-    background-color: #e5e5e5;
+    height: 100%;
+    width: 2%;
+    background-color: #58cc02;
     border-radius: 1rem;
     overflow: hidden;
 }
@@ -307,11 +305,7 @@ footer p {
 
 @media screen and (max-width: 1050px) {
     html{
-        font-size: 20px;
-    }
-
-    .seccion_game{
-        gap: 3rem;
+        font-size: 28px;
     }
 }
 
@@ -323,10 +317,6 @@ footer p {
     .header {
         padding: 0.5rem 0.8rem;
         gap: 1rem;
-    }
-
-    .seccion_game{
-    gap: 2rem;
     }
     
     .seccion_resultado_correcto,
@@ -343,8 +333,8 @@ footer p {
     }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 400px) {
     html{
-        font-size: 16px;
+        font-size: 14px;
     }
 }
