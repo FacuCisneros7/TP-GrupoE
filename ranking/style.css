@@ -37,9 +37,6 @@ table img.medalla {
     text-align: center;
 }
 
-.mascota_ranking {
-    flex-shrink: 0;
-}
 
 .mascota_ranking img {
     width: 4.5em;
@@ -208,22 +205,26 @@ th {
 
 /*Escritorio*/
 @media screen and (min-width: 60em) {
+
+    .contenido_encabezado {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5em;
+    }
+
+    .mascota_ranking img {
+        width: 6em;
+    }
+
+    .info_ranking {
+        width: auto;
+        text-align: left;
+    }
+
     th,
     td {
         padding: 1em;
     }
-}
 
-@media screen and (max-width: 47.99em) {
-    .info_ranking h2 {
-        font-size: 1.4rem;
-    }
-
-    .info_ranking p {
-        font-size: 1rem;
-    }
-
-     table {
-        font-size: 1rem;
-    }
 }
