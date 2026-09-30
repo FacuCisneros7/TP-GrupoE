@@ -98,6 +98,7 @@
     justify-content: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    color: #1a6b1a
 }
 
 .xp-recomendacion p {
@@ -105,9 +106,6 @@
     text-align: left;
 }
 
-.xp-recomendacion strong {
-    color: #1a6b1a;
-}
 
 
 .xp-boton {
@@ -117,7 +115,7 @@
 
 
 @media screen and (max-width: 1050px) {
-    .xp-page {
+    .xp-pagina {
         padding: 1.5rem;
     }
 
@@ -136,7 +134,7 @@
 }
 
 @media screen and (max-width: 700px) {
-    .xp-page {
+    .xp-pagina {
         padding: 1rem;
     }
 

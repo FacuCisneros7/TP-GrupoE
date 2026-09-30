@@ -100,7 +100,7 @@
 
 @media screen and (max-width: 1050px) {
 
-    .vidas-page {
+    .vidas-pagina {
         padding: 1.5rem;
     }
 
@@ -115,7 +115,7 @@
 
 @media screen and (max-width: 700px) {
 
-    .vidas-page {
+    .vidas-pagina {
         padding: 1rem;
     }
 
@@ -245,7 +245,7 @@
 
 @media screen and (max-width: 1050px) {
 
-    .vidas-confirmado-page {
+    .vidas-confirmado-pagina {
         padding: 1.5rem;
     }
 
@@ -260,7 +260,7 @@
 
 @media screen and (max-width: 700px) {
 
-    .vidas-confirmado-page {
+    .vidas-confirmado-pagina {
         padding: 1rem;
     }
 

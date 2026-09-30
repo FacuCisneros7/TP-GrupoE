@@ -125,7 +125,7 @@ text-align: left;
 
 @media screen and (max-width: 1050px) {
 
-    .prueba-page {
+    .prueba-pagina {
         padding: 1.5rem;
     }
 
@@ -165,7 +165,7 @@ text-align: left;
 
 @media screen and (max-width: 700px) {
 
-    .prueba-page {
+    .prueba-pagina {
         padding: 1rem;
     }
 
@@ -201,9 +201,9 @@ text-align: left;
 }
 
 
-/*pagina confirmación*/
+/*pagina de confirmación*/
 
-.confirmado-page {
+.confirmado-pagina {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -287,7 +287,7 @@ text-align: left;
 
 @media screen and (max-width: 1050px) {
 
-    .confirmado-page {
+    .confirmado-pagina {
         padding: 1.5rem;
     }
 
@@ -306,7 +306,7 @@ text-align: left;
 
 @media screen and (max-width: 700px) {
 
-    .confirmado-page {
+    .confirmado-pagina {
         padding: 1rem;
     }
 
