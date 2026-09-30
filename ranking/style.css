@@ -158,10 +158,6 @@ select {
     display: none;
 }
 
-th {
-    display: none;
-}
-
 
 /*Tablet*/
 @media screen and (min-width: 700px) {
@@ -183,10 +179,10 @@ th {
         font-size: 1em;
     }
 
-    th {
-        display: table-cell;
-    }
+}
 
+/*Escritorio*/
+@media screen and (min-width: 1050px) {
     .estado {
         display: table-cell;
     }
@@ -200,12 +196,6 @@ th {
     td {
         padding: 0.5em;
     }
-
-}
-
-/*Escritorio*/
-@media screen and (min-width: 1050px) {
-
     .contenido_encabezado {
         display: flex;
         align-items: center;
