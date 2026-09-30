@@ -122,6 +122,48 @@ section{
     border-radius: 0.5rem;
 }
 
+.enlace_secundario {
+    color: #999999;
+    font-size: 0.8rem;
+    text-decoration: underline;
+}
+
+.seccion_ocultos h2 {
+    color: #999999;
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    text-align: left;
+}
+
+.lista_ocultos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    max-width: 20rem;
+}
+
+.tarjeta_oculta {
+    background: #f0f0f0;
+    border: 1px dashed #cccccc;
+    border-radius: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.tarjeta_oculta p {
+    font-size: 0.8rem;
+    color: #999999;
+}
+
+.mensaje_vacio {
+    font-size: 0.85rem;
+    color: #999999;
+}
+
 .tarjeta_estadisticas {
     width: 12rem;
     background: #ffffff;
