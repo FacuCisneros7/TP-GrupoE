@@ -5,6 +5,61 @@
     box-sizing: border-box;
 }
 
+/* ---------- Popup (dialog) ---------- */
+
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+
+    /* Ancho en rem para que acompañe el tamaño de letra de cada dispositivo
+       (html cambia de font-size en los media queries), pero sin pasar nunca del 90% de la pantalla */
+    width: min(90vw, 20rem);
+
+    /* Arriba, a 1.5rem del borde, y centrado en horizontal.
+       Hace falta porque "* { margin: 0 }" anula el margin:auto que trae el dialog. */
+    margin: 1.5rem auto auto;
+
+    animation: popup-entrada 0.25s ease-out;
+}
+
+@keyframes popup-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(-1.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+dialog h2 { margin: 0 0 0.5rem; }
+dialog p { margin: 0 0 1rem; }
+
+dialog .btn {
+    margin-top: 0;
+    padding: 0.5rem 1.5rem;
+}
+
+dialog.popup-error { border-top: 6px solid #d93025; }
+dialog.popup-exito { border-top: 6px solid #1e8e3e; }
+
+/* Respeta a quienes tienen desactivadas las animaciones en su sistema */
+@media (prefers-reduced-motion: reduce) {
+    dialog {
+        animation: none;
+    }
+}
+
+/* ---------- Estructura general ---------- */
+
 body {
     width: 100%;
     height: 100vh;
@@ -133,6 +188,7 @@ input {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .campo {
@@ -216,6 +272,8 @@ footer {
 footer p {
     font-size: 0.85rem;
 }
+
+/* ---------- Responsive ---------- */
 
 @media screen and (max-width: 1050px) {
     html {

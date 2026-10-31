@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
 </head>
 <body>
     
     <header class="header">
         <div class="imagotipo">
-            <img class="isologo" src="../img/isotipo-lingoweb.svg" alt="imagotipo">
+            <img class="isologo" src="../../img/isotipo-lingoweb.svg" alt="imagotipo">
             <h1>LingoWeb</h1>
         </div>
     </header>
@@ -20,7 +20,7 @@
 
         <section class="seccion_formulario">
 
-            <img class="img_principal" src="../img/mascota_login.png" alt="usuario_con_idiomas">
+            <img class="img_principal" src="../../img/mascota_login.png" alt="usuario_con_idiomas">
 
             <div class="card">
                 <header class="banner_form">
@@ -29,11 +29,16 @@
                 </header>
 
                 <div class="parte_inferior_form">
-                    <form action="../dashboard/index.html" method="get">
+                    <form id="formulario_registro" action="../../dashboard/index.html" method="get" novalidate>
 
                         <div class="campo">
-                            <label for="usuario">Usuario o email</label>
+                            <label for="usuario">Usuario</label>
                             <input type="text" id="usuario" name="usuario" required >
+                        </div>
+
+                        <div class="campo">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email">
                         </div>
         
                         <div class="campo">
@@ -54,7 +59,7 @@
                     <nav>
                         <div class="register">
                             <p>¿Tienes una cuenta? </p>
-                            <a href="../index.html">Inicia sesión</a>
+                            <a href="../../index.html">Inicia sesión</a>
                         </div>
                     </nav>
                 </div>
@@ -66,7 +71,7 @@
         <section class="seccion_beneficios">
             <article>
                 <div class="card_image">
-                    <img class="bandera" src="../img/Flag_of_Germany_(3-2).svg.webp" alt="bandera_de_alemania">
+                    <img class="bandera" src="../../img/Flag_of_Germany_(3-2).svg.webp" alt="bandera_de_alemania">
                 </div>
                 <div class="card_text">
                     <h3>Aleman</h3>
@@ -76,7 +81,7 @@
 
             <article>
                 <div class="card_image">
-                    <img class="bandera" src="../img/Flag_of_the_People's_Republic_of_China.svg" alt="bandera_de_china">
+                    <img class="bandera" src="../../img/Flag_of_the_People's_Republic_of_China.svg" alt="bandera_de_china">
                 </div>
                 <div class="card_text">
                     <h3>Chino mandarin</h3>
@@ -86,7 +91,7 @@
 
             <article>
                 <div class="card_image">
-                    <img class="bandera" src="../img/Flag_of_the_United_Kingdom_(1-2).svg.webp" alt="bandera_de_reino_unido">
+                    <img class="bandera" src="../../img/Flag_of_the_United_Kingdom_(1-2).svg.webp" alt="bandera_de_reino_unido">
                 </div>
                 <div class="card_text">
                     <h3>Ingles</h3>
@@ -100,6 +105,10 @@
     <footer>
         <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
     </footer>
+
+    <script src="../../js/datos.js"></script>
+    <script src="../../js/register.js"></script>
+    <script src="../../js/ui.js"></script>
 
 </body>
 </html>
