@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa del curso</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="imagotipo">
+            <img class="isologo" src="../img/isotipo-lingoweb.svg" alt="imagotipo">
+            <h1>LingoWeb</h1>
+        </div>
+        <p id="idioma"></p>
+        <a href="../dashboard/index.html" class="btn-volver">&larr; Cursos</a>
+    </header>
+
+    <main class="main">
+        <!-- Las unidades y lecciones las genera curso.js a partir de los datos -->
+    </main>
+
+    <!-- Se muestra solo si el curso de la URL no existe -->
+    <section id="curso_no_encontrado" hidden>
+        <h2>Curso no encontrado</h2>
+        <p>El curso que buscás no existe o la dirección es incorrecta.</p>
+        <a href="../dashboard/index.html" class="btn">Volver a Cursos</a>
+    </section>
+
+    <footer>
+        <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
+    </footer>
+
+    <!-- Plantilla de una unidad (el navegador no la muestra) -->
+    <template id="plantilla-unidad">
+        <section class="unidad">
+            <div class="unidad_cabecera">
+                <span class="unidad_icono" aria-hidden="true"></span>
+                <div class="unidad_info">
+                    <h2></h2>
+                    <p class="unidad_descripcion"></p>
+                    <div class="unidad_progreso">
+                        <progress value="0" max="1"></progress>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lista_lecciones"></div>
+        </section>
+    </template>
+
+    <!-- Plantilla de una tarjeta de lección -->
+    <template id="plantilla-leccion">
+        <article class="tarjeta_leccion">
+            <img class="estado" src="" alt="">
+            <h3></h3>
+            <p class="titulo_leccion"></p>
+            <p class="estado_texto"></p>
+            <div class="temas">
+                <p class="temas_titulo">Vas a aprender:</p>
+                <ul></ul>
+            </div>
+            <a href="#" class="btn"></a>
+        </article>
+    </template>
+
+    <script src="../js/datos.js"></script>
+    <script src="../js/sesion.js"></script>
+    <script src="../js/curso.js"></script>
+
+</body>
+</html>

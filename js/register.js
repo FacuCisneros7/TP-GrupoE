@@ -1,4 +1,6 @@
-const CLAVE_USUARIOS = 'usuarios';
+/* register.js - Vista de registro
+   Requiere, en este orden: ui.js (mostrarPopup) y sesion.js
+   (obtenerUsuarios, guardarUsuarios). */
 
 const formulario = document.querySelector('#formulario_registro');
 
@@ -41,18 +43,17 @@ formulario.addEventListener('submit', function (e) {
     }
 
     // Todo válido: se agrega la cuenta a la lista y se guarda
-    const usuarios = obtenerUsuariosGuardados();
+    const usuarios = obtenerUsuarios();
     usuarios.push(crearUsuario(valorUsuario, valorEmail, valorContraseña));
 
-    try {
-        localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(usuarios));
-    } catch (error) {
+    if (!guardarUsuarios(usuarios)) {
         mostrarError('No se pudo guardar la cuenta. Revisá si tu navegador permite almacenamiento.', null);
         return;
     }
 
+    // Se avisa y, al cerrar el popup, se vuelve al login para que la persona inicie sesión
     mostrarPopup('Tu cuenta fue creada. Ya podés iniciar sesión.', 'exito', function () {
-        window.location.href = '../../dashboard/index.html';
+        window.location.href = '../../index.html';
     });
 });
 
@@ -104,24 +105,14 @@ function verificarAmbasContraseñas(passwordOne, passwordTwo) {
     return null;
 }
 
-/* ---------- Acceso a localStorage ---------- */
-
-// Devuelve siempre un array, aunque la clave no exista o esté dañada
-function obtenerUsuariosGuardados() {
-    try {
-        const guardados = JSON.parse(localStorage.getItem(CLAVE_USUARIOS));
-        return Array.isArray(guardados) ? guardados : [];
-    } catch (error) {
-        return [];
-    }
-}
+/* ---------- Datos ---------- */
 
 // true si ya hay una cuenta con ese usuario o ese email (sin distinguir mayúsculas)
 function existeUsuarioOEmail(valor) {
     const buscado = valor.toLowerCase();
-    return obtenerUsuariosGuardados().some(function (u) {
+    return obtenerUsuarios().some(function (u) {
         return String(u.usuario).toLowerCase() === buscado ||
-                String(u.email).toLowerCase() === buscado;
+               String(u.email).toLowerCase() === buscado;
     });
 }
 
@@ -155,8 +146,7 @@ function crearUsuario(usuario, email, password) {
 
 /* ---------- Auxiliar ---------- */
 
-// Popup de error y, al cerrarlo, foco en el campo con el problema.
-// Si no usás ui.js, reemplazá mostrarPopup(...) por alert(mensaje).
+// Popup de error y, al cerrarlo, foco en el campo con el problema
 function mostrarError(mensaje, nodoCampo) {
     mostrarPopup(mensaje, 'error', function () {
         if (nodoCampo) nodoCampo.focus();
