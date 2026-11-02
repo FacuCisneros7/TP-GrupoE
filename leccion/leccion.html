@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+</head>
+<body>
+
+    <header class="header">
+        <!-- El href lo completa leccion.js con el mapa del curso correspondiente -->
+        <a href="../dashboard/index.html" class="btn_abandonar" id="btn_abandonar">Abandonar</a>
+
+        <div class="info_leccion">
+            <p class="curso" id="info_curso"></p>
+            <div class="barra_progreso" id="barra_progreso" role="progressbar" aria-label="Progreso de la lección" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="barra_progreso_relleno" id="barra_relleno"></div>
+            </div>
+            <p class="ejercicio" id="info_ejercicio"></p>
+        </div>
+
+        <p class="vidas" id="vidas" aria-live="polite"></p>
+    </header>
+
+    <main class="main">
+
+        <!-- Estado: ejercicio pendiente (y, tras comprobar, el detalle del resultado) -->
+        <section class="seccion_game" id="seccion_ejercicio" hidden>
+            <h2 id="titulo_ejercicio">Traduce esta frase</h2>
+            <p id="frase"></p>
+
+            <div class="palabras_elegidas" id="palabras_elegidas" aria-label="Tu respuesta"></div>
+
+            <div class="contenedor_banco">
+                <h3>Palabras disponibles</h3>
+                <div class="palabras_banco" id="palabras_banco"></div>
+            </div>
+
+            <button type="button" class="btn" id="btn_comprobar" disabled>Comprobar Respuesta</button>
+        </section>
+
+        <!-- Estado: respuesta correcta -->
+        <section class="seccion_resultado_correcto" id="resultado_correcto" role="status" hidden>
+            <div class="resultado_info_correcto">
+                <div class="resultado_icono_correcto" aria-hidden="true">&check;</div>
+                <h2>¡Correcto!</h2>
+            </div>
+            <button type="button" class="btn_continuar_correcto" id="btn_continuar_correcto">Continuar</button>
+        </section>
+
+        <!-- Estado: respuesta incorrecta -->
+        <section class="seccion_resultado_incorrecto" id="resultado_incorrecto" role="status" hidden>
+            <div class="resultado_info_incorrecto">
+                <div class="resultado_icono_incorrecto" aria-hidden="true">&times;</div>
+                <h2>¡Incorrecto!</h2>
+                <p id="detalle_incorrecto"></p>
+            </div>
+            <button type="button" class="btn_continuar_incorrecto" id="btn_continuar_incorrecto">Intentar de nuevo</button>
+        </section>
+
+        <!-- Estado: lección finalizada (con éxito o sin vidas) -->
+        <section class="seccion_final" id="seccion_final" hidden>
+            <h2 id="final_titulo" tabindex="-1"></h2>
+            <p id="final_mensaje"></p>
+
+            <ul class="final_datos">
+                <li>Errores cometidos: <strong id="final_errores"></strong></li>
+                <li>Vidas restantes: <strong id="final_vidas"></strong></li>
+                <li>Experiencia obtenida: <strong id="final_xp"></strong></li>
+            </ul>
+
+            <div class="final_acciones">
+                <a href="../dashboard/index.html" class="btn" id="final_mapa">Volver al mapa</a>
+                <a href="../dashboard/index.html" class="btn">Ir al dashboard</a>
+                <button type="button" class="btn" id="final_repetir" hidden>Intentar de nuevo</button>
+            </div>
+        </section>
+
+        <!-- Estado: la lección no existe, está bloqueada o no tiene ejercicios -->
+        <section class="seccion_no_disponible" id="leccion_no_disponible" hidden>
+            <h2 id="no_disponible_titulo"></h2>
+            <p id="no_disponible_texto"></p>
+            <a href="../dashboard/index.html" class="btn" id="no_disponible_enlace">Volver</a>
+        </section>
+
+    </main>
+
+    <!-- Confirmación al abandonar una lección sin terminar -->
+    <dialog id="dialogo_abandonar" aria-labelledby="abandonar_titulo">
+        <h2 id="abandonar_titulo">¿Abandonar la lección?</h2>
+        <p>Si salís ahora, el avance de esta lección no se guarda y vas a empezar de nuevo la próxima vez.</p>
+        <button type="button" class="btn" id="abandonar_seguir">Seguir aquí</button>
+        <a href="../dashboard/index.html" class="btn" id="abandonar_salir">Salir</a>
+    </dialog>
+
+    <footer>
+        <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
+    </footer>
+
+    <script src="../js/datos.js"></script>
+    <script src="../js/sesion.js"></script>
+    <script src="../js/progreso.js"></script>
+    <script src="../js/leccion.js"></script>
+
+</body>
+</html>

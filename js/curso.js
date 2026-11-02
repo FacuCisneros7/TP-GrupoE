@@ -34,31 +34,12 @@ function mostrarCurso(usuario) {
 
     // 3. Qué lecciones completó ESTA persona y cuál es la que sigue
     const completadas = obtenerCompletadas(usuario, cursoId);
-    const primeraPendiente = obtenerLeccionesDeCurso(cursoId).find(function (leccion) {
-        return !completadas.includes(leccion.id);
-    });
-    const idEnCurso = primeraPendiente ? primeraPendiente.id : null;
+    const idEnCurso = obtenerIdEnCurso(cursoId, completadas);
 
     // 4. Una unidad por cada elemento de los datos
     unidades.forEach(function (unidad) {
         nodoMapa.appendChild(crearUnidad(unidad, completadas, idEnCurso));
     });
-}
-
-/* ---------- Estado de las lecciones ---------- */
-
-// Lecciones completadas del curso. Si la cuenta no tiene progreso guardado, es una lista vacía.
-function obtenerCompletadas(usuario, cursoId) {
-    const progreso = usuario.progreso && usuario.progreso[cursoId];
-    return progreso && Array.isArray(progreso.completadas) ? progreso.completadas : [];
-}
-
-// 'completada' | 'en-curso' | 'bloqueada'
-// La primera lección sin completar queda "en curso"; las siguientes, bloqueadas.
-function calcularEstado(leccionId, completadas, idEnCurso) {
-    if (completadas.includes(leccionId)) return 'completada';
-    if (leccionId === idEnCurso) return 'en-curso';
-    return 'bloqueada';
 }
 
 /* ---------- Construcción de la vista ---------- */
@@ -125,7 +106,7 @@ function crearLeccion(leccion, estado) {
         nodoBoton.remove();
     } else {
         const accion = estado === 'completada' ? 'Repetir' : 'Iniciar';
-        nodoBoton.href = '../leccion/index.html?leccion=' + leccion.id;
+        nodoBoton.href = '../leccion/leccion.html?leccion=' + leccion.id;
         nodoBoton.textContent = accion;
         // Hay varios botones iguales en la página: el aria-label dice cuál es cada uno
         nodoBoton.setAttribute('aria-label', accion + ' la lección ' + leccion.numero + ': ' + leccion.titulo);

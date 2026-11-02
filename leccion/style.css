@@ -5,6 +5,60 @@
     box-sizing: border-box;
 }
 
+/* ---------- Popup (dialog): igual que el de register ---------- */
+
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+
+    /* Ancho en rem para que acompañe el tamaño de letra de cada dispositivo,
+       pero sin pasar nunca del 90% de la pantalla */
+    width: min(90vw, 20rem);
+
+    /* Arriba, a 1.5rem del borde, y centrado en horizontal.
+       Hace falta porque "* { margin: 0 }" anula el margin:auto que trae el dialog. */
+    margin: 1.5rem auto auto;
+
+    animation: popup-entrada 0.25s ease-out;
+}
+
+@keyframes popup-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(-1.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+dialog h2 { margin: 0 0 0.5rem; }
+dialog p { margin: 0 0 1rem; }
+
+dialog .btn {
+    margin: 0.25rem;
+    padding: 0.5rem 1.5rem;
+}
+
+dialog.popup-error { border-top: 6px solid #d93025; }
+dialog.popup-exito { border-top: 6px solid #1e8e3e; }
+
+@media (prefers-reduced-motion: reduce) {
+    dialog {
+        animation: none;
+    }
+}
+
+/* ---------- Estructura general ---------- */
+
 body {
     width: 100%;
     min-height: 100vh;
@@ -43,6 +97,25 @@ h3{
     font-size: 1.2rem;
 }
 
+/* Los botones no heredan la letra por defecto */
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+/* Foco visible para quienes usan teclado */
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #1a6b1a;
+    outline-offset: 2px;
+}
+
+/* ---------- Encabezado de la lección ---------- */
+
 /* Bloque con curso, barra de progreso y número de ejercicio */
 .info_leccion {
     width: 40%;
@@ -73,26 +146,20 @@ h3{
     overflow: hidden;
 }
 
-.barra_progreso_0 {
+/* El ancho lo pone leccion.js según el avance (reemplaza a barra_progreso_0/50/100) */
+.barra_progreso_relleno {
     height: 100%;
-    width: 2%;
+    width: 0;
+    min-width: 2%;
     background-color: #58cc02;
     border-radius: 1rem;
-    overflow: hidden;
+    transition: width 0.3s ease;
 }
 
-.barra_progreso_50 {
-    height: 100%;
-    width: 50%;
-    background-color: #58cc02;
-    border-radius: 1rem;
-}
-
-.barra_progreso_100 {
-    height: 100%;
-    width: 100%;
-    background-color: #58cc02;
-    border-radius: 1rem;
+@media (prefers-reduced-motion: reduce) {
+    .barra_progreso_relleno {
+        transition: none;
+    }
 }
 
 p{
@@ -107,13 +174,14 @@ p{
 
 .main h2 {
     text-align: center;
-}
-
-.main h2{
     margin: 0;
 }
 
-.seccion_game{
+/* ---------- Tarjetas centrales: ejercicio, final y lección no disponible ---------- */
+
+.seccion_game,
+.seccion_final,
+.seccion_no_disponible {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,7 +195,10 @@ p{
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
     max-width: 700px;
     width: 90%;
+    text-align: center;
 }
+
+/* ---------- Barras de resultado (aparecen al comprobar) ---------- */
 
 .seccion_resultado_correcto,
 .seccion_resultado_incorrecto{
@@ -146,11 +217,59 @@ p{
     background-color: #ffb4b4;
 }
 
-hr {
-    border: none;
-    border-top: 1px solid white;
-    width: 50%;
+.resultado_info_correcto,
+.resultado_info_incorrecto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
 }
+
+.resultado_texto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+}
+
+.resultado_texto p {
+    font-size: 1rem;
+    color: #5c1414;
+}
+
+.resultado_icono_correcto,
+.resultado_icono_incorrecto{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #58cc02;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.resultado_icono_incorrecto {
+    color: #ff5757;
+}
+
+/* Títulos más oscuros que el verde y el rojo de los íconos, para que se lean sobre el fondo */
+.resultado_info_correcto h2,
+.resultado_info_incorrecto h2{
+    color: #1a6b1a;
+    text-align: left;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.resultado_info_incorrecto h2 {
+    color: #9b1c1c;
+}
+
+/* ---------- Respuesta y banco de palabras ---------- */
 
 .palabras_elegidas{
     display: flex;
@@ -158,8 +277,10 @@ hr {
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.8rem;
+    min-height: 2.6rem;
 }
 
+/* Palabra ya colocada en la respuesta */
 .hueco {
     display: inline-flex;
     align-items: center;
@@ -169,6 +290,7 @@ hr {
     border: 2px dashed #cfcfcf;
     border-radius: 1rem;
     background-color: #f5f5f5;
+    color: #333333;
 }
 
 .contenedor_banco{
@@ -200,70 +322,49 @@ hr {
     font-size: 1rem;
 }
 
-.palabra_correcta{
-    background-color: #ffffff;
-    border: 2px solid #58cc02;
-    color: #58cc02;
-}
-
-.palabra_incorrecta{
-    background-color: #ffffff;
-    border: 2px solid #ff5757;
-    color: #ff5757;
-}
-
+/* Palabra libre en el banco: borde naranja */
 .disponible {
     background-color: #ffffff;
     border: 2px solid #d88b00;
     color: #d88b00;
 }
 
+.disponible:hover {
+    background-color: #fff6e0;
+}
+
+/* Palabra del banco que ya pasó a la respuesta: se apaga */
 .elegida {
     background-color: #e5e5e5;
     border: 2px solid #cfcfcf;
     color: #777777;
 }
 
-.resultado_info_correcto,
-.resultado_info_incorrecto {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-}
-
-.resultado_icono_correcto,
-.resultado_icono_incorrecto{
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
+/* Tras comprobar: además del color, un símbolo, para no depender solo del color */
+.palabra_correcta{
     background-color: #ffffff;
-    color: #58cc02;
-    font-size: 1.5rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    border: 2px solid #58cc02;
+    color: #2b7a00;
 }
 
-.resultado_icono_incorrecto {
-    color: #ff5757;
+.palabra_incorrecta{
+    background-color: #ffffff;
+    border: 2px solid #ff5757;
+    color: #c62828;
 }
 
-.resultado_info_correcto h2,
-.resultado_info_incorrecto h2{
-    color: #58cc02;
-    text-align: left;
-    margin: 0;
-    font-size: 1.5rem;
+.palabra_correcta::before {
+    content: "✓\00a0";
 }
 
-.resultado_info_incorrecto h2 {
-    color: #ff5757;
+.palabra_incorrecta::before {
+    content: "✗\00a0";
 }
+
+/* ---------- Botones ---------- */
 
 .btn {
+    display: inline-block;
     padding: 0.3rem 1rem;
     color: #1a6b1a;
     background-color: #fff384;
@@ -272,6 +373,7 @@ hr {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .btn:disabled{
@@ -288,9 +390,17 @@ hr {
     background-color: #58cc02;
     color: #ffffff;
     padding: 0.5rem 0rem;
+    border: none;
     border-radius: 1rem;
     font-weight: 700;
     text-decoration: none;
+}
+
+/* Botón de "Intentar de nuevo" / "Ver resultado": el texto es más largo que "Continuar" */
+.btn_continuar_incorrecto {
+    width: auto;
+    min-width: 7rem;
+    padding: 0.5rem 1rem;
 }
 
 .btn_abandonar{
@@ -303,6 +413,24 @@ hr {
     border-radius: 1rem;
     font-weight: 700;
     text-decoration: none;
+}
+
+/* ---------- Pantalla final y lección no disponible ---------- */
+
+.final_datos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.final_acciones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 footer {
@@ -319,6 +447,8 @@ footer {
 footer p {
     font-size: 0.85rem;
 }
+
+/* ---------- Responsive ---------- */
 
 @media screen and (max-width: 1050px) {
     html{
@@ -364,10 +494,18 @@ footer p {
     .btn_continuar_incorrecto{
         width: 6rem;
     }
+
+    .btn_continuar_incorrecto {
+        width: auto;
+    }
 }
 
 @media screen and (max-width: 400px) {
     html{
         font-size: 14px;
     }
+}
+
+[hidden] {
+    display: none;
 }
