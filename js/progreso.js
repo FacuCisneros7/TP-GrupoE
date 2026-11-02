@@ -1,18 +1,18 @@
+import { obtenerLeccionesDeCurso, obtenerEjercicios } from './datos.js';
+import { guardarUsuario } from './sesion.js';
 
 const XP_POR_EJERCICIO = 10;
 const XP_BONUS_SIN_ERRORES = 5;
 
-/* ---------- Estado de las lecciones ---------- */
-
 // Ids de las lecciones completadas del curso. Si la cuenta no tiene progreso, es una lista vacía.
-function obtenerCompletadas(usuario, cursoId) {
+export function obtenerCompletadas(usuario, cursoId) {
     const progreso = usuario.progreso && usuario.progreso[cursoId];
     return progreso && Array.isArray(progreso.completadas) ? progreso.completadas : [];
 }
 
 // Id de la lección "en curso": la primera del curso que todavía no se completó.
 // Devuelve null si ya están todas completadas.
-function obtenerIdEnCurso(cursoId, completadas) {
+export function obtenerIdEnCurso(cursoId, completadas) {
     const pendiente = obtenerLeccionesDeCurso(cursoId).find(function (leccion) {
         return !completadas.includes(leccion.id);
     });
@@ -20,20 +20,18 @@ function obtenerIdEnCurso(cursoId, completadas) {
 }
 
 // 'completada' | 'en-curso' | 'bloqueada'
-function calcularEstado(leccionId, completadas, idEnCurso) {
+export function calcularEstado(leccionId, completadas, idEnCurso) {
     if (completadas.includes(leccionId)) return 'completada';
     if (leccionId === idEnCurso) return 'en-curso';
     return 'bloqueada';
 }
 
 // Porcentaje (0 a 100) de lecciones completadas del curso
-function porcentajeCurso(usuario, cursoId) {
+export function porcentajeCurso(usuario, cursoId) {
     const total = obtenerLeccionesDeCurso(cursoId).length;
     if (total === 0) return 0;
     return Math.round((obtenerCompletadas(usuario, cursoId).length / total) * 100);
 }
-
-/* ---------- Fechas (para la racha) ---------- */
 
 // Fecha local de hoy como texto: '2026-11-02'
 function fechaHoy() {
@@ -50,8 +48,6 @@ function diasEntre(desde, hasta) {
     const msPorDia = 24 * 60 * 60 * 1000;
     return Math.round((Date.UTC(b[0], b[1] - 1, b[2]) - Date.UTC(a[0], a[1] - 1, a[2])) / msPorDia);
 }
-
-/* ---------- Registro de actividad ---------- */
 
 // Suma experiencia y actualiza la racha del usuario (no lo guarda: lo hace quien la llama)
 function registrarActividad(usuario, xp) {
@@ -73,7 +69,7 @@ function registrarActividad(usuario, xp) {
 // Registra que el usuario terminó una lección y guarda todo.
 // Devuelve { xp, yaCompletada, guardado }.
 // Si la lección ya estaba completada, se puede repetir pero no suma experiencia nueva.
-function completarLeccion(usuario, cursoId, leccionId, errores) {
+export function completarLeccion(usuario, cursoId, leccionId, errores) {
     if (!usuario.progreso) usuario.progreso = {};
     if (!usuario.progreso[cursoId]) usuario.progreso[cursoId] = { completadas: [], resultados: {} };
 

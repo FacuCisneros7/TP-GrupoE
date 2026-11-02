@@ -1,17 +1,17 @@
 
-const CURSOS = [
+export const CURSOS = [
     { id: 'ingles', nombre: 'Inglés desde Español', nivel: 'Principiante (A1)', bandera: 'Flag_of_the_United_Kingdom_(1-2).svg.webp', banderaAlt: 'Bandera de Reino Unido' },
     { id: 'aleman', nombre: 'Alemán desde Español', nivel: 'Principiante (A1)', bandera: 'Flag_of_Germany_(3-2).svg.webp', banderaAlt: 'Bandera de Alemania' },
     { id: 'chino',  nombre: 'Chino Mandarín desde Español', nivel: 'Inicial (HSK 1)', bandera: "Flag_of_the_People's_Republic_of_China.svg", banderaAlt: 'Bandera de China' }
 ];
 
-function obtenerCurso(cursoId) {
+export function obtenerCurso(cursoId) {
     return CURSOS.find(function (curso) {
         return curso.id === cursoId;
     }) || null;
 }
 
-const UNIDADES = [
+export const UNIDADES = [
 
     {
         id: 'ingles-u1',
@@ -218,21 +218,21 @@ const UNIDADES = [
 /* ---------- Búsquedas por id ---------- */
 
 // Todas las unidades de un curso, en orden: obtenerUnidadesDeCurso('ingles')
-function obtenerUnidadesDeCurso(cursoId) {
+export function obtenerUnidadesDeCurso(cursoId) {
     return UNIDADES.filter(function (unidad) {
         return unidad.cursoId === cursoId;
     });
 }
 
 // Una unidad por su id: obtenerUnidad('ingles-u2')
-function obtenerUnidad(unidadId) {
+export function obtenerUnidad(unidadId) {
     return UNIDADES.find(function (unidad) {
         return unidad.id === unidadId;
     }) || null;
 }
 
 // Una lección por su id. Devuelve { unidad, leccion } o null: obtenerLeccion('ingles-u2-l2')
-function obtenerLeccion(leccionId) {
+export function obtenerLeccion(leccionId) {
     for (const unidad of UNIDADES) {
         const leccion = unidad.lecciones.find(function (l) {
             return l.id === leccionId;
@@ -246,7 +246,7 @@ function obtenerLeccion(leccionId) {
 
 // Todas las lecciones de un curso en orden (aplanadas, sin agrupar por unidad).
 // Sirve para saber cuál es la siguiente lección pendiente y calcular el porcentaje.
-function obtenerLeccionesDeCurso(cursoId) {
+export function obtenerLeccionesDeCurso(cursoId) {
     const lista = [];
     obtenerUnidadesDeCurso(cursoId).forEach(function (unidad) {
         unidad.lecciones.forEach(function (leccion) {
@@ -256,7 +256,7 @@ function obtenerLeccionesDeCurso(cursoId) {
     return lista;
 }
 
-const EJERCICIOS = {
+export const EJERCICIOS = {
 
     // Unidad 1: Introducción
     'ingles-u1-l1': [
@@ -385,16 +385,15 @@ const EJERCICIOS = {
     ]
 };
 
-/* ---------- Helpers ---------- */
 
 // Ejercicios de una lección: obtenerEjercicios('ingles-u2-l2'). Devuelve [] si no hay.
-function obtenerEjercicios(leccionId) {
+export function obtenerEjercicios(leccionId) {
     return EJERCICIOS[leccionId] || [];
 }
 
 // Arma el banco de palabras de un ejercicio (respuesta + distractores) y lo mezcla.
 // Devuelve un array NUEVO, sin tocar los datos originales.
-function armarBanco(ejercicio) {
+export function armarBanco(ejercicio) {
     const banco = ejercicio.respuesta.concat(ejercicio.distractores);
 
     // Mezcla de Fisher-Yates

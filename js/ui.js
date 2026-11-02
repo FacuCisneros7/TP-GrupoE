@@ -1,30 +1,27 @@
-/* ==========================================================
-ui.js - Helpers de interfaz compartidos (tocan el DOM)
-   ========================================================== */
 
 // Muestra un mensaje en un nodo. tipo: 'error' | 'exito'
 // El prefijo en texto hace que el mensaje no dependa solo del color.
-function mostrarMensaje(nodo, texto, tipo) {
+export function mostrarMensaje(nodo, texto, tipo) {
     const prefijo = tipo === 'error' ? 'Error: ' : 'Listo: ';
     nodo.textContent = prefijo + texto;
     nodo.className = 'mensaje mensaje-' + tipo;
     nodo.hidden = false;
 }
 
-function ocultarMensaje(nodo) {
+export function ocultarMensaje(nodo) {
     nodo.textContent = '';
     nodo.hidden = true;
 }
 
 // Quita la marca de error de todos los campos del formulario
-function limpiarErrores(formulario) {
+export function limpiarErrores(formulario) {
     formulario.querySelectorAll('input').forEach(function (input) {
         input.removeAttribute('aria-invalid');
     });
 }
 
 // Marca un campo como inválido y le da el foco
-function marcarInvalido(input) {
+export function marcarInvalido(input) {
     if (!input) return;
     input.setAttribute('aria-invalid', 'true');
     input.focus();
@@ -33,7 +30,7 @@ function marcarInvalido(input) {
 // Muestra un popup (modal) con un título y un texto. tipo: 'error' | 'exito'
 // alCerrar (opcional): función que se ejecuta cuando la persona cierra el popup.
 // El <dialog> se crea la primera vez, así no hace falta escribirlo en cada HTML.
-function mostrarPopup(texto, tipo, alCerrar) {
+export function mostrarPopup(texto, tipo, alCerrar) {
     let dialogo = document.querySelector('#popup');
 
     if (!dialogo) {

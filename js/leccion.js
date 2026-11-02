@@ -1,3 +1,6 @@
+import { obtenerLeccion, obtenerEjercicios, obtenerCurso, armarBanco } from './datos.js';
+import { requerirSesion } from './sesion.js';
+import { obtenerCompletadas, obtenerIdEnCurso, calcularEstado, completarLeccion } from './progreso.js';
 
 const VIDAS_INICIALES = 3;
 
@@ -89,7 +92,7 @@ function iniciarLeccion(usuarioInicial) {
     const unidad = encontrada.unidad;
     leccionDatos = encontrada.leccion;
     cursoId = unidad.cursoId;
-    const rutaMapa = '../unidades/curso.html?id=' + cursoId;
+    const rutaMapa = '../unidades/unidades.html?id=' + cursoId;
 
     // 2. Una lección bloqueada no se puede abrir escribiendo su dirección
     const completadas = obtenerCompletadas(usuario, cursoId);

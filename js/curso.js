@@ -1,3 +1,6 @@
+import { obtenerCurso, obtenerUnidadesDeCurso } from './datos.js';
+import { requerirSesion } from './sesion.js';
+import { obtenerCompletadas, obtenerIdEnCurso, calcularEstado } from './progreso.js';
 
 const nodoMapa = document.querySelector('.main');
 const plantillaUnidad = document.querySelector('#plantilla-unidad');
@@ -41,8 +44,6 @@ function mostrarCurso(usuario) {
         nodoMapa.appendChild(crearUnidad(unidad, completadas, idEnCurso));
     });
 }
-
-/* ---------- Construcción de la vista ---------- */
 
 function crearUnidad(unidad, completadas, idEnCurso) {
     const nodo = plantillaUnidad.content.cloneNode(true);

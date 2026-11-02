@@ -1,3 +1,6 @@
+import { mostrarPopup } from './ui.js';
+import { obtenerUsuarios, CLAVE_SESION } from './sesion.js';
+
 const formulario = document.querySelector('#formulario_login');
 
 formulario.addEventListener('submit', function (e) {
@@ -18,7 +21,7 @@ formulario.addEventListener('submit', function (e) {
     }
 
     // 2. Buscar en los usuarios guardados
-    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const usuarios = obtenerUsuarios();
 
     const usuarioEncontrado = usuarios.find(function (u) {
         const coincide = u.usuario.toLowerCase() === valorUsuarioEmail || u.email.toLowerCase() === valorUsuarioEmail;
@@ -34,6 +37,6 @@ formulario.addEventListener('submit', function (e) {
     }
 
     // 4. Existe: guardar la sesión e ir al dashboard
-    localStorage.setItem('usuario_actual', usuarioEncontrado.usuario);
-    window.location.href = '../dashboard/index.html';
+    localStorage.setItem(CLAVE_SESION, usuarioEncontrado.usuario);
+    window.location.href = 'dashboard/index.html';
 });

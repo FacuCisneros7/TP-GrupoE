@@ -1,15 +1,9 @@
-/* ==========================================================
-   sesion.js - Sesión y usuarios (compartido por las vistas internas)
 
-   usuarios  -> array con todas las cuentas
-   lw_sesion -> nombre de usuario de quien tiene la sesión abierta
-   ========================================================== */
-
-const CLAVE_USUARIOS = 'usuarios';
-const CLAVE_SESION = 'usuario_actual';
+export const CLAVE_USUARIOS = 'usuarios';
+export const CLAVE_SESION = 'usuario_actual';
 
 // Devuelve siempre un array, aunque la clave no exista o esté dañada
-function obtenerUsuarios() {
+export function obtenerUsuarios() {
     try {
         const guardados = JSON.parse(localStorage.getItem(CLAVE_USUARIOS));
         return Array.isArray(guardados) ? guardados : [];
@@ -19,10 +13,7 @@ function obtenerUsuarios() {
 }
 
 // Devuelve el usuario con sesión abierta.
-// Si no hay sesión (o la cuenta ya no existe), redirige al login y devuelve null.
-// Uso:  const usuario = requerirSesion('../index.html');
-//       if (usuario) { ...armar la vista... }
-function requerirSesion(rutaLogin) {
+export function requerirSesion(rutaLogin) {
     const id = localStorage.getItem(CLAVE_SESION);
 
     const usuario = obtenerUsuarios().find(function (u) {
@@ -37,7 +28,7 @@ function requerirSesion(rutaLogin) {
 }
 
 // Guarda la lista completa de usuarios. Devuelve true si se guardó.
-function guardarUsuarios(usuarios) {
+export function guardarUsuarios(usuarios) {
     try {
         localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(usuarios));
         return true;
@@ -47,7 +38,7 @@ function guardarUsuarios(usuarios) {
 }
 
 // Reemplaza a UN usuario existente en la lista y la persiste. Devuelve true si se guardó.
-function guardarUsuario(usuario) {
+export function guardarUsuario(usuario) {
     const usuarios = obtenerUsuarios();
     const indice = usuarios.findIndex(function (u) {
         return u.usuario === usuario.usuario;
@@ -59,6 +50,6 @@ function guardarUsuario(usuario) {
 }
 
 // Quita la sesión pero conserva las cuentas y su progreso
-function cerrarSesion() {
+export function cerrarSesion() {
     localStorage.removeItem(CLAVE_SESION);
 }

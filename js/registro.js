@@ -1,6 +1,5 @@
-/* register.js - Vista de registro
-   Requiere, en este orden: ui.js (mostrarPopup) y sesion.js
-   (obtenerUsuarios, guardarUsuarios). */
+import { mostrarPopup } from './ui.js';
+import { obtenerUsuarios, guardarUsuarios } from './sesion.js';
 
 const formulario = document.querySelector('#formulario_registro');
 
@@ -57,8 +56,6 @@ formulario.addEventListener('submit', function (e) {
     });
 });
 
-/* ---------- Validaciones (devuelven un texto de error, o null si está bien) ---------- */
-
 function verificarUsuario(usuario) {
     if (!usuario) {
         return 'Ingresá un nombre de usuario.';
@@ -105,8 +102,6 @@ function verificarAmbasContraseñas(passwordOne, passwordTwo) {
     return null;
 }
 
-/* ---------- Datos ---------- */
-
 // true si ya hay una cuenta con ese usuario o ese email (sin distinguir mayúsculas)
 function existeUsuarioOEmail(valor) {
     const buscado = valor.toLowerCase();
@@ -143,8 +138,6 @@ function crearUsuario(usuario, email, password) {
         }
     };
 }
-
-/* ---------- Auxiliar ---------- */
 
 // Popup de error y, al cerrarlo, foco en el campo con el problema
 function mostrarError(mensaje, nodoCampo) {
