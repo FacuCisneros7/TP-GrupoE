@@ -3,6 +3,8 @@ import { guardarUsuario } from './sesion.js';
 
 const XP_POR_EJERCICIO = 10;
 const XP_BONUS_SIN_ERRORES = 5;
+const GEMAS_POR_LECCION = 5;
+const GEMAS_BONUS_SIN_ERRORES = 5;
 
 // Ids de las lecciones completadas del curso. Si la cuenta no tiene progreso, es una lista vacía.
 export function obtenerCompletadas(usuario, cursoId) {
@@ -78,17 +80,21 @@ export function completarLeccion(usuario, cursoId, leccionId, errores) {
     if (!progreso.resultados) progreso.resultados = {};
 
     const yaCompletada = progreso.completadas.includes(leccionId);
+
     let xp = 0;
+    let gemas = 0;
 
     if (!yaCompletada) {
         const cantidad = obtenerEjercicios(leccionId).length;
         xp = cantidad * XP_POR_EJERCICIO + (errores === 0 ? XP_BONUS_SIN_ERRORES : 0);
+        gemas = GEMAS_POR_LECCION + (errores === 0 ? GEMAS_BONUS_SIN_ERRORES : 0);
         progreso.completadas.push(leccionId);
-        progreso.resultados[leccionId] = { xp: xp, errores: errores };
+        progreso.resultados[leccionId] = { xp: xp, gemas: gemas, errores: errores };
+        usuario.gemas = (usuario.gemas || 0) + gemas;
     }
 
     registrarActividad(usuario, xp);
     const guardado = guardarUsuario(usuario);
 
-    return { xp: xp, yaCompletada: yaCompletada, guardado: guardado };
+    return { xp: xp, gemas: gemas, yaCompletada: yaCompletada, guardado: guardado };
 }

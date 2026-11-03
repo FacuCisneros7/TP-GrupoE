@@ -31,6 +31,7 @@ const nodos = {
     finalErrores: document.querySelector('#final_errores'),
     finalVidas: document.querySelector('#final_vidas'),
     finalXp: document.querySelector('#final_xp'),
+    finalGemas: document.querySelector('#final_gemas'),
     finalMapa: document.querySelector('#final_mapa'),
     finalRepetir: document.querySelector('#final_repetir'),
 
@@ -325,18 +326,18 @@ function finalizar(exito) {
         nodos.finalTitulo.textContent = '¡Lección completada!';
         nodos.finalMensaje.textContent = mensaje;
         nodos.finalXp.textContent = '+' + resultado.xp + ' XP';
+        nodos.finalGemas.textContent = '+' + resultado.gemas + ' gemas';
         nodos.finalRepetir.hidden = true;
     } else {
         nodos.finalTitulo.textContent = 'Te quedaste sin vidas';
         nodos.finalMensaje.textContent = 'Esta vez el avance no se guardó. Podés intentarlo de nuevo cuando quieras.';
         nodos.finalXp.textContent = '+0 XP';
+        nodos.finalGemas.textContent = '+0 gemas';
         nodos.finalRepetir.hidden = false;
     }
 
     nodos.finalTitulo.focus();
 }
-
-/* ---------- Auxiliares de interfaz ---------- */
 
 function mostrarSecciones(visibles) {
     SECCIONES.forEach(function (seccion) {

@@ -126,7 +126,7 @@ function crearUsuario(usuario, email, password) {
         racha: 0,
         ultimaActividad: null,
         metaDiaria: 50,
-        monedas: 0,
+        gemas: 0,
         liga: 'bronce',
         idiomaInterfaz: 'es',
         logros: [],
