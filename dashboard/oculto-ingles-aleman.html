@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
 </head>
+
 <body>
 
     <header class="header">
@@ -23,10 +25,10 @@
         </nav>
 
         <div class="resumen_usuario">
-            <span>🔥 5 Días</span>
-            <span>⚡ 350 XP</span>
-            <span>💎 120</span>
-            <a href="../index.html" class="btn">Cerrar sesión</a>
+            <span id="dashboard-racha">🔥 5 Días</span>
+            <span id="dashboard-xp">⚡ 350 XP</span>
+            <span id="dashboard-gemas">💎 120</span>
+            <a href="../index.html" class="btn" id="dashboard-cerrar-sesion">Cerrar sesión</a>
         </div>
     </header>
 
@@ -39,11 +41,12 @@
             <div class="lista_cursos">
 
                 <article class="tarjeta_curso">
-                    <img class="bandera_curso" src="../img/Flag_of_the_People's_Republic_of_China.svg" alt="bandera_de_china">
+                    <img class="bandera_curso" src="../img/Flag_of_the_People's_Republic_of_China.svg"
+                        alt="bandera_de_china">
                     <h3>Chino desde Español</h3>
-                    <p>Progreso: 0%</p>
+                    <p id="dashboard-progreso-chino">Progreso: 0%</p>
                     <p>Nivel: Inicial (HSK 1)</p>
-                    <a href="../unidades/index3.html" class="btn">Empezar</a>
+                    <a href="../unidades/unidades.html?id=chino" class="btn">Empezar</a>
                     <a href="oculto-ingles-aleman-chino.html" class="enlace_secundario">Ocultar curso</a>
                 </article>
 
@@ -81,6 +84,7 @@
     <footer>
         <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
     </footer>
-
+    <script type="module" src="../js/dashboard.js"></script>
 </body>
+
 </html>

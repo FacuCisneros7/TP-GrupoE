@@ -26,9 +26,9 @@
         </nav>
 
         <div class="resumen_usuario">
-            <span>🔥 5 Días</span>
-            <span>⚡ 350 XP</span>
-            <span>💎 120</span>
+            <span id="resumen-racha">🔥 5 Días</span>
+            <span id="resumen-xp">⚡ 350 XP</span>
+            <span id="resumen-gemas">💎 120</span>
         </div>
     </header>
 
@@ -36,26 +36,31 @@
 
     <main class="perfil-page">
         <section class="perfil">
-            <img class="avatar" src="../img/Avatar_conejo.jpg" alt="Avatar de Juan Pérez">
+            <img id="avatar-perfil" class="avatar" src="../img/Avatar_conejo.jpg" alt="Avatar de Juan Pérez">
             <div class="informacion-perfil">
 
                 <div class="perfil-superior">
                     <div>
-                        <h1>Juan Pérez</h1>
+                        <h1 id="nombre-perfil">Juan Pérez</h1>
 
-                        <p class="usuario-perfil">@juanperez_web</p>
+                        <p class="usuario-perfil" id="usuario-perfil">@juanperez_web</p>
                     </div>
 
                     <div class="nivel-perfil">
-                        <span class="xp-perfil">
+                        <span class="xp-perfil" id="xp-perfil">
                             ⚡ 350 XP
                         </span>
                     </div>
                 </div>
 
                 <div class="datos-perfil">
-                    <p><strong>Miembro desde:</strong> Septiembre de 2025</p>
-                    <p><strong>Email:</strong> juan.perez@alumnos.unlam.edu.ar</p>
+                    <p><strong>Miembro desde:</strong>
+                        <span id="miembro-desde">Septiembre de 2025 </span>
+                    </p>
+                    <p>
+                        <strong>Email:</strong>
+                        <span id="email-perfil">juan.perez@alumnos.unlam.edu.ar</span>
+                    </p>
                 </div>
                 <h2>Idiomas que aprendo</h2>
 
@@ -70,12 +75,12 @@
                 <div class="red-social">
 
                     <a href="../seguidos/index.html" class="red-social-link" aria-label="Ver usuarios seguidos">
-                        <strong>5</strong>
+                        <strong id="cantidad-seguidos">5</strong>
                         <span>Seguidos</span>
                     </a>
 
                     <a href="../seguidores/index.html" class="red-social-link" aria-label="Ver seguidores">
-                        <strong>5</strong>
+                        <strong id="cantidad-seguidores">5</strong>
                         <span>Seguidores</span>
                     </a>
                 </div>
@@ -92,7 +97,7 @@
                             <span><img src="../img/Flag_of_the_United_Kingdom_(1-2).svg.webp"
                                     alt="Bandera del Reino Unido">Inglés</span>
                         </div>
-                        <strong>44%</strong>
+                        <strong id="porcentaje-ingles">44%</strong>
                     </div>
 
                     <div class="barra-progreso">
@@ -100,7 +105,7 @@
                     </div>
 
                     <div class="progreso-detalle">
-                        <span>4 de 9 lecciones completadas</span>
+                        <span id="detalle-ingles">4 de 9 lecciones completadas</span>
                         <a href="../unidades/index.html">Ver curso</a>
                     </div>
                 </article>
@@ -111,7 +116,7 @@
                             <span><img src="../img/Flag_of_Germany_(3-2).svg.webp"
                                     alt="Bandera de Alemania">Alemán</span>
                         </div>
-                        <strong>33%</strong>
+                        <strong id="porcentaje-aleman">33%</strong>
                     </div>
 
                     <div class="barra-progreso">
@@ -119,7 +124,7 @@
                     </div>
 
                     <div class="progreso-detalle">
-                        <span>3 de 9 lecciones completadas</span>
+                        <span id="detalle-aleman">3 de 9 lecciones completadas</span>
                         <a href="../unidades/index2.html">Ver curso</a>
                     </div>
                 </article>
@@ -130,7 +135,7 @@
                             <span><img src="../img/Flag_of_the_People's_Republic_of_China.svg"
                                     alt="Bandera de China">Chino mandarín</span>
                         </div>
-                        <strong>0%</strong>
+                        <strong id="porcentaje-chino">0%</strong>
                     </div>
 
                     <div class="barra-progreso">
@@ -138,7 +143,7 @@
                     </div>
 
                     <div class="progreso-detalle">
-                        <span>0 de 9 lecciones completadas</span>
+                        <span id="detalle-chino">0 de 9 lecciones completadas</span>
                         <a href="../unidades/index3.html">Ver curso</a>
                     </div>
                 </article>
@@ -185,35 +190,35 @@
 
                 <article class="estadistica">
                     <span>🔥</span>
-                    <strong>5</strong>
+                    <strong id="estadistica-racha">5</strong>
                     <p>Días de racha</p>
                 </article>
 
                 <article class="estadistica">
                     <span>⚡</span>
-                    <strong>350</strong>
+                    <strong id="estadistica-xp">350</strong>
                     <p>XP acumulados</p>
                 </article>
 
                 <article class="estadistica">
                     <span>📚</span>
-                    <strong>7</strong>
+                    <strong id="estadistica-lecciones">7</strong>
                     <p>Lecciones completadas</p>
-                    <small>7 de 27 disponibles</small>
+                    <small id="estadistica-lecciones-detalle">7 de 27 disponibles</small>
                 </article>
 
                 <article class="estadistica">
                     <span>🏆</span>
-                    <strong>4</strong>
+                    <strong id="estadistica-logros">4</strong>
                     <p>Logros obtenidos</p>
                 </article>
             </div>
         </section>
 
         <section class="ajustes-section" id="ajustes">
-            <h2>Ajustes</h2>
+            <h2 id="titulo-ajustes">Ajustes</h2>
 
-            <form action="guardado.html" method="get" class="ajustes-formulario">
+            <form id="form-ajustes" class="ajustes-formulario">
                 <section class="grupo-ajuste">
 
                     <h3>Datos personales</h3>
@@ -248,24 +253,26 @@
                     <h3>Idioma de interfaz</h3>
                     <label for="idioma">Idioma preferido</label>
                     <select id="idioma" name="idioma">
-                        <option value="es" selected>Español</option>
+                        <option value="es">Español</option>
                         <option value="en">English</option>
                         <option value="pt">Português</option>
                     </select>
                 </section>
-                <button class="btn-guardar" type="submit">Guardar cambios</button>
+                <button id="texto-guardar" class="btn-guardar" type="submit">Guardar cambios</button>
+
+                <p id="mensaje-ajustes" class="mensaje-ajustes"></p>
             </form>
 
             <nav class="acciones-cuenta">
                 <a href="#mis-estadisticas" class="accion-secundaria">Ver mis estadísticas</a>
                 <a href="#mis-logros" class="accion-secundaria">Ver mis logros</a>
-                <a href="../index.html" class="btn-secundario">Cerrar sesión</a>
+                <a href="../index.html" class="btn-secundario" id="cerrar-sesion">Cerrar sesión</a>
                 <a href="eliminar.html" class="accion-eliminar">Eliminar mi cuenta</a>
             </nav>
         </section>
 
         <section class="logros-section" id="mis-logros">
-            <h2>Mis logros</h2>
+            <h2 id="titulo-logros">Mis logros</h2>
             <div class="logros-grid">
                 <article class="logro">
                     <span>🔥</span>
@@ -311,9 +318,10 @@
     </main>
 
     <footer>
-        <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
+        <p>2026 LingoWeb — Trabajo Práctico N.º 2, Programación Web 1, UNLaM</p>
     </footer>
-
+    <script type="module" src="../js/perfil.js"></script>
 </body>
+
 
 </html>
