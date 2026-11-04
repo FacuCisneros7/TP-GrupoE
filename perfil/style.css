@@ -529,6 +529,61 @@
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.06);
 }
 
+.grupo-avatar {
+    margin-bottom: 0.5rem;
+}
+
+.grupo-avatar > p:first-child {
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+}
+
+#selector-avatar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.opcion-avatar {
+    padding: 0;
+    background: none;
+    border: 0.2rem solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.opcion-avatar img {
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.opcion-avatar:hover {
+    transform: scale(1.08);
+}
+
+.opcion-avatar:focus-visible {
+    outline: 0.15rem solid #1a6b1a;
+    outline-offset: 0.15rem;
+}
+
+.opcion-avatar.seleccionado {
+    border-color: #1a6b1a;
+    box-shadow: 0 0 0.5rem rgba(26, 107, 26, 0.4);
+    transform: scale(1.1);
+}
+
+#mensaje-avatar {
+    min-height: 1.2rem;
+    margin: 0.6rem 0 0;
+    color: #1a6b1a;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 .ajustes-section {
     margin-top: 2rem;
     padding: 2rem;
@@ -566,6 +621,44 @@
     margin-bottom: 1rem;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.selector-avatares {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 0.5rem 0 1.2rem;
+}
+
+.opcion-avatar-label {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.opcion-avatar-label input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.avatar-miniatura {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.opcion-avatar-label:hover .avatar-miniatura {
+    transform: scale(1.08);
+}
+
+.opcion-avatar-label input[type="radio"]:checked+.avatar-miniatura {
+    border-color: #1a6b1a;
+    box-shadow: 0 0 0.5rem rgba(26, 107, 26, 0.4);
+    transform: scale(1.1);
 }
 
 .grupo-ajuste label {
