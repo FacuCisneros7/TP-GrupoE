@@ -132,6 +132,7 @@ function crearUsuario(usuario, email, password) {
         logros: [],
         inventario: [],
         ocultos: [],
+        misCursos: [],
         partida: null,
         progreso: {
             ingles: { completadas: [], resultados: {} },
