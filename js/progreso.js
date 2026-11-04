@@ -153,3 +153,29 @@ export function completarLeccion(usuario, cursoId, leccionId, errores) {
 
     return { xp: xp, gemas: gemas, yaCompletada: yaCompletada, guardado: guardado };
 }
+
+// Vuelve a cero el avance de la cuenta y conserva sus datos, preferencias y opiniones.
+// Devuelve true si se guardó. Si falla, el usuario queda como estaba.
+export function reiniciarProgreso(usuario) {
+    const reiniciado = Object.assign({}, usuario, {
+        xp: 0,
+        xpHoy: 0,
+        xpSemanal: 0,
+        racha: 0,
+        ultimaActividad: null,
+        gemas: 0,
+        logros: [],
+        inventario: [],
+        misCursos: [],
+        partida: null,
+        progreso: {},
+        xpDobleHasta: 0
+    });
+
+    if (!guardarUsuario(reiniciado)) {
+        return false;
+    }
+
+    Object.assign(usuario, reiniciado);
+    return true;
+}

@@ -714,6 +714,24 @@
     letter-spacing: 0.03rem;
 }
 
+.accion-reiniciar {
+    padding: 0;
+    border: none;
+    background: none;
+    color: #b45f06;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03rem;
+    cursor: pointer;
+}
+
+.accion-reiniciar:hover {
+    color: #7f4304;
+    text-decoration: underline;
+}
+
 .accion-eliminar {
     color: red;
 }
