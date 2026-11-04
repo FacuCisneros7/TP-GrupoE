@@ -908,6 +908,123 @@ export const EJERCICIOS = {
         { frase: '助けてください、医者が必要です (Tasukete kudasai, isha ga hitsuyou desu)', respuesta: ['Ayuda,', 'necesito', 'un', 'médico'], distractores: ['farmacia', 'tengo'] },
         { frase: '救急車を呼んでください (Kyuukyuusha o yonde kudasai)', respuesta: ['Llamen', 'a', 'una', 'ambulancia'], distractores: ['policía', 'un'] }
     ],
+
+    'arabe-u1-l1': [
+        { frase: 'مرحبا، كيف حالك؟ (Marhaban, kayfa haluk?)', respuesta: ['Hola,', '¿cómo', 'estás?'], distractores: ['gracias', 'adiós'] },
+        { frase: 'عذرا، شكرا جزيلا (Udhran, shukran jazilan)', respuesta: ['Perdón,', 'muchas', 'gracias'], distractores: ['por', 'favor', 'noches'] }
+    ],
+    'arabe-u1-l2': [
+        { frase: 'اسمي آنا (Ismi Ana)', respuesta: ['Me', 'llamo', 'Ana'], distractores: ['Tengo', 'eres'] },
+        { frase: 'هي من البرازيل (Hiya min al-Barazil)', respuesta: ['Ella', 'es', 'de', 'Brasil'], distractores: ['Él', 'voy', 'Chile'] }
+    ],
+    'arabe-u1-l3': [
+        { frase: 'أختي طويلة (Ukhti tawila)', respuesta: ['Mi', 'hermana', 'es', 'alta'], distractores: ['hermano', 'tu', 'baja'] },
+        { frase: 'أخوه شاب (Akhuhu shab)', respuesta: ['Su', 'hermano', 'es', 'joven'], distractores: ['hermana', 'mi', 'viejo'] }
+    ],
+
+    'arabe-u2-l1': [
+        { frase: 'أتناول الفطور في الثامنة (Atanawalu al-futur fi ath-thamina)', respuesta: ['Desayuno', 'a', 'las', 'ocho'], distractores: ['almuerzo', 'nueve'] },
+        { frase: 'نتناول العشاء في التاسعة (Natanawalu al-asha fi at-tasia)', respuesta: ['Cenamos', 'a', 'las', 'nueve'], distractores: ['almorzamos', 'ocho', 'tres'] }
+    ],
+    'arabe-u2-l2': [
+        { frase: 'أحب البيتزا (Uhibbu al-bitza)', respuesta: ['Me', 'gusta', 'la', 'pizza'], distractores: ['no', 'el', 'pasta'] },
+        { frase: 'لا أحب السمك (La uhibbu as-samak)', respuesta: ['No', 'me', 'gusta', 'el', 'pescado'], distractores: ['pollo', 'la'] }
+    ],
+    'arabe-u2-l3': [
+        { frase: 'ماء وعصير من فضلك (Ma wa asir min fadlik)', respuesta: ['Agua', 'y', 'jugo,', 'por', 'favor'], distractores: ['café', 'té'] },
+        { frase: 'هل تريد القهوة؟ (Hal turidu al-qahwa?)', respuesta: ['¿Quieres', 'café?'], distractores: ['té', 'agua', 'Quiero'] }
+    ],
+
+    'arabe-u3-l1': [
+        { frase: 'أين أمتعتي؟ (Ayna amtiati?)', respuesta: ['¿Dónde', 'está', 'mi', 'equipaje?'], distractores: ['tu', 'vuelo'] },
+        { frase: 'الرحلة متأخرة (Ar-rihla mutaakhkhira)', respuesta: ['El', 'vuelo', 'está', 'demorado'], distractores: ['puerta', 'temprano', 'la'] }
+    ],
+    'arabe-u3-l2': [
+        { frase: 'أريد حجز غرفة (Uridu hajza ghurfa)', respuesta: ['Quiero', 'reservar', 'una', 'habitación'], distractores: ['cancelar', 'dos'] },
+        { frase: 'أين المتحف؟ (Ayna al-mathaf?)', respuesta: ['¿Dónde', 'está', 'el', 'museo?'], distractores: ['hotel', 'la'] }
+    ],
+    'arabe-u3-l3': [
+        { frase: 'النجدة، أحتاج إلى طبيب (An-najda, ahtaju ila tabib)', respuesta: ['Ayuda,', 'necesito', 'un', 'médico'], distractores: ['farmacia', 'tengo'] },
+        { frase: 'اتصلوا بالإسعاف (Ittasilu bil-isaf)', respuesta: ['Llamen', 'a', 'una', 'ambulancia'], distractores: ['policía', 'un'] }
+    ],
+
+    'portugues-u1-l1': [
+        { frase: 'Bom dia, como você está?', respuesta: ['Buenos', 'días,', '¿cómo', 'estás?'], distractores: ['noches', 'gracias'] },
+        { frase: 'Desculpe, muito obrigado', respuesta: ['Perdón,', 'muchas', 'gracias'], distractores: ['por', 'favor', 'adiós'] }
+    ],
+    'portugues-u1-l2': [
+        { frase: 'Meu nome é Ana', respuesta: ['Mi', 'nombre', 'es', 'Ana'], distractores: ['Tengo', 'eres'] },
+        { frase: 'Ela é do Brasil', respuesta: ['Ella', 'es', 'de', 'Brasil'], distractores: ['Él', 'voy', 'Chile'] }
+    ],
+    'portugues-u1-l3': [
+        { frase: 'Minha irmã é alta', respuesta: ['Mi', 'hermana', 'es', 'alta'], distractores: ['hermano', 'tu', 'baja'] },
+        { frase: 'O irmão dela é jovem', respuesta: ['Su', 'hermano', 'es', 'joven'], distractores: ['hermana', 'mi', 'viejo'] }
+    ],
+
+    'portugues-u2-l1': [
+        { frase: 'Eu tomo café da manhã às oito', respuesta: ['Desayuno', 'a', 'las', 'ocho'], distractores: ['almuerzo', 'nueve'] },
+        { frase: 'Nós jantamos às nove', respuesta: ['Cenamos', 'a', 'las', 'nueve'], distractores: ['almorzamos', 'ocho', 'tres'] }
+    ],
+    'portugues-u2-l2': [
+        { frase: 'Eu gosto de pizza', respuesta: ['Me', 'gusta', 'la', 'pizza'], distractores: ['no', 'el', 'pasta'] },
+        { frase: 'Eu não gosto de peixe', respuesta: ['No', 'me', 'gusta', 'el', 'pescado'], distractores: ['pollo', 'la'] }
+    ],
+    'portugues-u2-l3': [
+        { frase: 'Água e suco, por favor', respuesta: ['Agua', 'y', 'jugo,', 'por', 'favor'], distractores: ['café', 'té'] },
+        { frase: 'Você gostaria de café?', respuesta: ['¿Quieres', 'café?'], distractores: ['té', 'agua', 'Quiero'] }
+    ],
+
+    'portugues-u3-l1': [
+        { frase: 'Onde está minha bagagem?', respuesta: ['¿Dónde', 'está', 'mi', 'equipaje?'], distractores: ['tu', 'vuelo'] },
+        { frase: 'O voo está atrasado', respuesta: ['El', 'vuelo', 'está', 'demorado'], distractores: ['puerta', 'temprano', 'la'] }
+    ],
+    'portugues-u3-l2': [
+        { frase: 'Quero reservar um quarto', respuesta: ['Quiero', 'reservar', 'una', 'habitación'], distractores: ['cancelar', 'dos'] },
+        { frase: 'Onde fica o museu?', respuesta: ['¿Dónde', 'está', 'el', 'museo?'], distractores: ['hotel', 'la'] }
+    ],
+    'portugues-u3-l3': [
+        { frase: 'Socorro, preciso de um médico', respuesta: ['Ayuda,', 'necesito', 'un', 'médico'], distractores: ['farmacia', 'tengo'] },
+        { frase: 'Chamem uma ambulância', respuesta: ['Llamen', 'a', 'una', 'ambulancia'], distractores: ['policía', 'un'] }
+    ],
+
+    'ruso-u1-l1': [
+        { frase: 'Доброе утро, как дела? (Dobroye utro, kak dela?)', respuesta: ['Buenos', 'días,', '¿cómo', 'estás?'], distractores: ['noches', 'gracias'] },
+        { frase: 'Извините, большое спасибо (Izvinite, bolshoye spasibo)', respuesta: ['Perdón,', 'muchas', 'gracias'], distractores: ['por', 'favor', 'adiós'] }
+    ],
+    'ruso-u1-l2': [
+        { frase: 'Меня зовут Ана (Menya zovut Ana)', respuesta: ['Me', 'llamo', 'Ana'], distractores: ['Tengo', 'eres'] },
+        { frase: 'Она из Бразилии (Ona iz Brazilii)', respuesta: ['Ella', 'es', 'de', 'Brasil'], distractores: ['Él', 'voy', 'Chile'] }
+    ],
+    'ruso-u1-l3': [
+        { frase: 'Моя сестра высокая (Moya sestra vysokaya)', respuesta: ['Mi', 'hermana', 'es', 'alta'], distractores: ['hermano', 'tu', 'baja'] },
+        { frase: 'Его брат молодой (Yego brat molodoy)', respuesta: ['Su', 'hermano', 'es', 'joven'], distractores: ['hermana', 'mi', 'viejo'] }
+    ],
+
+    'ruso-u2-l1': [
+        { frase: 'Я завтракаю в восемь (Ya zavtrakayu v vosem)', respuesta: ['Desayuno', 'a', 'las', 'ocho'], distractores: ['almuerzo', 'nueve'] },
+        { frase: 'Мы ужинаем в девять (My uzhinayem v devyat)', respuesta: ['Cenamos', 'a', 'las', 'nueve'], distractores: ['almorzamos', 'ocho', 'tres'] }
+    ],
+    'ruso-u2-l2': [
+        { frase: 'Я люблю пиццу (Ya lyublyu pitstsu)', respuesta: ['Me', 'gusta', 'la', 'pizza'], distractores: ['no', 'el', 'pasta'] },
+        { frase: 'Я не люблю рыбу (Ya ne lyublyu rybu)', respuesta: ['No', 'me', 'gusta', 'el', 'pescado'], distractores: ['pollo', 'la'] }
+    ],
+    'ruso-u2-l3': [
+        { frase: 'Воду и сок, пожалуйста (Vodu i sok, pozhaluysta)', respuesta: ['Agua', 'y', 'jugo,', 'por', 'favor'], distractores: ['café', 'té'] },
+        { frase: 'Вы хотите кофе? (Vy khotite kofe?)', respuesta: ['¿Quieres', 'café?'], distractores: ['té', 'agua', 'Quiero'] }
+    ],
+
+    'ruso-u3-l1': [
+        { frase: 'Где мой багаж? (Gde moy bagazh?)', respuesta: ['¿Dónde', 'está', 'mi', 'equipaje?'], distractores: ['tu', 'vuelo'] },
+        { frase: 'Рейс задерживается (Reys zaderzhivayetsya)', respuesta: ['El', 'vuelo', 'está', 'demorado'], distractores: ['puerta', 'temprano', 'la'] }
+    ],
+    'ruso-u3-l2': [
+        { frase: 'Я хочу забронировать номер (Ya khochu zabronirovat nomer)', respuesta: ['Quiero', 'reservar', 'una', 'habitación'], distractores: ['cancelar', 'dos'] },
+        { frase: 'Где находится музей? (Gde nakhoditsya muzey?)', respuesta: ['¿Dónde', 'está', 'el', 'museo?'], distractores: ['hotel', 'la'] }
+    ],
+    'ruso-u3-l3': [
+        { frase: 'Помогите, мне нужен врач (Pomogite, mne nuzhen vrach)', respuesta: ['Ayuda,', 'necesito', 'un', 'médico'], distractores: ['farmacia', 'tengo'] },
+        { frase: 'Вызовите скорую помощь (Vyzovite skoruyu pomoshch)', respuesta: ['Llamen', 'a', 'una', 'ambulancia'], distractores: ['policía', 'un'] }
+    ],
 };
 
 
