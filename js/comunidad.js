@@ -26,25 +26,17 @@ if (usuarioActivo) {
     mostrarComunidad(usuarioActivo);
 
     function obtenerSeguidosUsuario(usuario) {
-        if (usuario.seguidos && usuario.seguidos.length !== undefined) {
-            return usuario.seguidos;
-        }
-
         if (usuario.usuario === "juan_perez") {
             return SEGUIDOS_DEMO;
         }
-        return [];
+        return usuario.seguidos || [];
     }
 
     function obtenerSeguidoresUsuario(usuario) {
-        if (usuario.seguidores && usuario.seguidores.length !== undefined) {
-            return usuario.seguidores;
-        }
-
         if (usuario.usuario === "juan_perez") {
             return SEGUIDORES_DEMO;
         }
-        return [];
+        return usuario.seguidores || [];
     }
 
     function buscarPersonas(nombresUsuarios) {
