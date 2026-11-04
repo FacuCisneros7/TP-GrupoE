@@ -1,12 +1,14 @@
 import { CURSOS } from './datos.js';
 import { requerirSesion, guardarUsuario } from './sesion.js';
-import { cargarHeader, mostrarPopup } from './ui.js';
-import { porcentajeCurso } from './progreso.js';
+import { cargarHeader, actualizarHeader, mostrarPopup } from './ui.js';
+import { porcentajeCurso, reiniciarProgreso } from './progreso.js';
 
-const nodoLista = document.querySelector('#lista_cursos');
+const nodoMisCursos = document.querySelector('#mis_cursos');
+const nodoOtrosCursos = document.querySelector('#otros_cursos');
 const nodoOcultos = document.querySelector('#lista_ocultos');
 const nodoSinOcultos = document.querySelector('#sin_ocultos');
 const nodoInvitacion = document.querySelector('#invitacion');
+
 const plantillaCurso = document.querySelector('#plantilla-curso');
 const plantillaOculto = document.querySelector('#plantilla-oculto');
 
@@ -15,8 +17,27 @@ if (usuarioActivo) {
     cargarHeader(usuarioActivo);
     mostrarResumen(usuarioActivo);
     mostrarCursos(usuarioActivo);
+
+    document.querySelector('#reiniciar_progreso').addEventListener('click', function () {
+        confirmarReinicio(usuarioActivo);
+    });
 }
 
+function confirmarReinicio(usuario) {
+    if (!window.confirm('Se van a borrar tu XP, racha, gemas, productos y el avance de todos los cursos. Tu cuenta y tus opiniones se conservan. ¿Querés continuar?')) {
+        return;
+    }
+
+    if (!reiniciarProgreso(usuario)) {
+        mostrarPopup('No se pudo reiniciar el progreso. Revisá si tu navegador permite almacenamiento.', 'error');
+        return;
+    }
+
+    actualizarHeader(usuario);
+    mostrarResumen(usuario);
+    mostrarCursos(usuario);
+    mostrarPopup('Tu progreso fue reiniciado.', 'exito');
+}
 
 function mostrarResumen(usuario) {
     const racha = usuario.racha || 0;
@@ -33,33 +54,56 @@ function mostrarResumen(usuario) {
     document.querySelector('#resumen_liga').textContent = '🏆 Liga ' + textoLiga;
 }
 
-// Dibuja las dos listas. Se llama de nuevo cada vez que se oculta o se restaura un curso.
 function mostrarCursos(usuario) {
-    const ocultos = usuario.ocultos || [];
 
+    const ocultos = usuario.ocultos || [];
+    const misCursos = usuario.misCursos || [];
+
+    // Separamos los cursos según su estado
     const visibles = CURSOS.filter(function (curso) {
         return !ocultos.includes(curso.id);
     });
+
+    const propios = visibles.filter(function (curso) {
+        return misCursos.includes(curso.id);
+    });
+
+    const otros = visibles.filter(function (curso) {
+        return !misCursos.includes(curso.id);
+    });
+
     const escondidos = CURSOS.filter(function (curso) {
         return ocultos.includes(curso.id);
     });
 
-    nodoLista.replaceChildren();
-    visibles.forEach(function (curso) {
-        nodoLista.appendChild(crearTarjeta(curso, usuario));
+    // Limpiamos las listas
+    nodoMisCursos.replaceChildren();
+    nodoOtrosCursos.replaceChildren();
+    nodoOcultos.replaceChildren();
+
+    // Mostramos Mis cursos
+    propios.forEach(function (curso) {
+        nodoMisCursos.appendChild(crearTarjeta(curso, usuario));
     });
 
-    if (visibles.length === 0) {
+    // Si no tiene cursos iniciados
+    if (propios.length === 0) {
         const mensaje = document.createElement("p");
         mensaje.className = "mensaje_vacio";
-        mensaje.textContent = 'Ocultaste todos tus cursos. Podés restaurarlos desde "Cursos ocultos".';
-        nodoLista.appendChild(mensaje);
+        mensaje.textContent = "Todavía no comenzaste ningún curso.";
+        nodoMisCursos.appendChild(mensaje);
     }
 
-    nodoOcultos.replaceChildren();
+    // Mostramos los demás cursos
+    otros.forEach(function (curso) {
+        nodoOtrosCursos.appendChild(crearTarjeta(curso, usuario));
+    });
+
+    // Mostramos los cursos ocultos
     escondidos.forEach(function (curso) {
         nodoOcultos.appendChild(crearOculto(curso, usuario));
     });
+
     nodoSinOcultos.hidden = escondidos.length > 0;
 
     mostrarInvitacion(usuario, visibles);
@@ -79,9 +123,19 @@ function crearTarjeta(curso, usuario) {
 
     const accion = porcentaje > 0 ? "Continuar" : "Empezar";
     const nodoBoton = nodo.querySelector(".btn");
+
     nodoBoton.href = '../unidades/unidades.html?id=' + curso.id;
     nodoBoton.textContent = accion;
     nodoBoton.setAttribute("aria-label", accion + " " + curso.nombre);
+
+    nodoBoton.addEventListener('click', function () {
+        const misCursos = usuario.misCursos || [];
+
+        if (!misCursos.includes(curso.id)) {
+            usuario.misCursos = misCursos.concat(curso.id);
+            guardarUsuario(usuario);
+        }
+    });
 
     const nodoOcultar = nodo.querySelector(".enlace_secundario");
     nodoOcultar.setAttribute("aria-label", "Ocultar " + curso.nombre);

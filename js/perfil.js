@@ -1,6 +1,15 @@
 import { obtenerUsuarios, requerirSesion, guardarUsuario, cerrarSesion, CLAVE_SESION } from "./sesion.js";
-import { obtenerCompletadas, porcentajeCurso } from "./progreso.js";
-import { obtenerLeccionesDeCurso } from "./datos.js";
+import { obtenerCompletadas, porcentajeCurso, reiniciarProgreso } from "./progreso.js";
+import { obtenerLeccionesDeCurso, COMUNIDAD } from "./datos.js";
+
+const RUTA_AVATARES = "../img/";
+
+const AVATARES = [
+    "Avatar_panda.jpg", "Avatar_gato.jpg", "Avatar_perro.jpg", "Avatar_leon.jpg",
+    "Avatar_tiburon.jpg", "Avatar_pinguino.png", "Avatar_cerdito.png",
+    "Avatar_oveja.jpg", "Avatar_patito.png", "Avatar_conejo.jpg"
+];
+
 
 const SEGUIDOS_DEMO = [
     "Maria_23",
@@ -107,6 +116,9 @@ const traducciones = {
         verLogros: "Ver mis logros",
         cerrarSesion: "Cerrar sesión",
         eliminarCuenta: "Eliminar mi cuenta",
+        reiniciarProgreso: "Reiniciar progreso",
+        confirmarReinicio: "Se van a borrar tu XP, racha, gemas, productos y el avance de todos los cursos. Tu cuenta y tus opiniones se conservan. ¿Querés continuar?",
+        progresoReiniciado: "Tu progreso fue reiniciado.",
 
         misLogros: "Mis logros",
         obtenido: "Obtenido:",
@@ -198,6 +210,9 @@ const traducciones = {
         verLogros: "View my achievements",
         cerrarSesion: "Log out",
         eliminarCuenta: "Delete my account",
+        reiniciarProgreso: "Reset progress",
+        confirmarReinicio: "Your XP, streak, gems, products and progress in every course will be deleted. Your account and reviews will be kept. Do you want to continue?",
+        progresoReiniciado: "Your progress was reset.",
 
         misLogros: "My achievements",
         obtenido: "Obtained:",
@@ -290,6 +305,9 @@ const traducciones = {
         verLogros: "Ver minhas conquistas",
         cerrarSesion: "Sair",
         eliminarCuenta: "Excluir minha conta",
+        reiniciarProgreso: "Reiniciar progresso",
+        confirmarReinicio: "Seu XP, ofensiva, gemas, produtos e o avanço de todos os cursos serão apagados. Sua conta e suas avaliações serão mantidas. Deseja continuar?",
+        progresoReiniciado: "Seu progresso foi reiniciado.",
 
         misLogros: "Minhas conquistas",
         obtenido: "Obtido:",
@@ -474,6 +492,8 @@ function aplicarIdioma(idioma) {
         acciones[2].textContent = traducir("cerrarSesion", idioma);
         acciones[3].textContent = traducir("eliminarCuenta", idioma);
     }
+
+    ponerTexto("reiniciar-progreso", traducir("reiniciarProgreso", idioma));
 
     //Logros
     ponerTexto("titulo-logros", traducir("misLogros", idioma));
@@ -684,6 +704,7 @@ function mostrarUsuario(usuario) {
         avatarAjustes.alt = "Avatar de " + usuario.nombre;
     }
 
+
     ponerTexto("nombre-perfil", usuario.nombre);
     ponerTexto("usuario-perfil", "@" + usuario.usuario);
     ponerTexto("email-perfil", usuario.email);
@@ -880,6 +901,78 @@ function configurarCerrarSesion() {
     });
 }
 
+function configurarReiniciarProgreso(usuarioActivo) {
+    const boton = document.getElementById("reiniciar-progreso");
+
+    if (boton === null) {
+        return;
+    }
+
+    boton.addEventListener("click", function () {
+        const idioma = usuarioActivo.idiomaInterfaz || "es";
+
+        if (!window.confirm(traducir("confirmarReinicio", idioma))) {
+            return;
+        }
+
+        if (!reiniciarProgreso(usuarioActivo)) {
+            mostrarMensaje(traducir("errorGuardar", idioma), false);
+            return;
+        }
+
+        mostrarUsuario(usuarioActivo);
+        mostrarMensaje(traducir("progresoReiniciado", idioma), true);
+    });
+}
+
+function iniciarSelectorAvatar(usuario) {
+    const contenedor = document.getElementById("selector-avatar");
+    const mensaje = document.getElementById("mensaje-avatar");
+    if (contenedor === null) {
+        return;
+    }
+
+    AVATARES.forEach(function (nombreArchivo) {
+        const ruta = RUTA_AVATARES + nombreArchivo;
+
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.classList.add("opcion-avatar");
+
+        const img = document.createElement("img");
+        img.src = ruta;
+        img.alt = "Avatar " + nombreArchivo;
+        boton.appendChild(img);
+
+        if (usuario.avatar === ruta) {
+            boton.classList.add("seleccionado");
+        }
+
+        boton.addEventListener("click", function () {
+            usuario.avatar = ruta;
+            const guardado = guardarUsuario(usuario, usuario.usuario);
+
+            if (guardado) {
+                contenedor.querySelectorAll(".opcion-avatar").forEach(function (b) {
+                    b.classList.remove("seleccionado");
+                });
+                boton.classList.add("seleccionado");
+
+                const avatarPerfil = document.getElementById("avatar-perfil");
+                if (avatarPerfil !== null) {
+                    avatarPerfil.src = ruta;
+                }
+
+                mensaje.textContent = "Avatar actualizado.";
+            } else {
+                mensaje.textContent = "No se pudo guardar el avatar. Intentá de nuevo.";
+            }
+        });
+
+        contenedor.appendChild(boton);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const usuarioActivo = requerirSesion("../index.html");
@@ -889,6 +982,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     mostrarUsuario(usuarioActivo);
+    iniciarSelectorAvatar(usuarioActivo);
     configurarFormulario(usuarioActivo);
+    configurarReiniciarProgreso(usuarioActivo);
     configurarCerrarSesion();
 });

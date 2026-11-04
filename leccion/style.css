@@ -5,8 +5,6 @@
     box-sizing: border-box;
 }
 
-/* ---------- Popup (dialog): igual que el de register ---------- */
-
 dialog {
     border: none;
     border-radius: 12px;
@@ -56,8 +54,6 @@ dialog.popup-exito { border-top: 6px solid #1e8e3e; }
         animation: none;
     }
 }
-
-/* ---------- Estructura general ---------- */
 
 body {
     width: 100%;
@@ -176,8 +172,6 @@ p{
     text-align: center;
     margin: 0;
 }
-
-/* ---------- Tarjetas centrales: ejercicio, final y lección no disponible ---------- */
 
 .seccion_game,
 .seccion_final,

@@ -35,8 +35,6 @@
 
     <main class="dashboard">
 
-        <h2>Mis Cursos de Idiomas</h2>
-
         <!-- Estado inicial: se muestra solo si la cuenta todavía no tiene actividad -->
         <p class="invitacion" id="invitacion" hidden>
             ¡Te damos la bienvenida! Todavía no tenés actividad.
@@ -44,8 +42,11 @@
         </p>
 
         <section class="seccion_dashboard">
+            <h2 class="titulo_cursos">Mis Cursos</h2>
+            <div class="lista_cursos" id="mis_cursos"></div>
 
-            <div class="lista_cursos" id="lista_cursos"></div>
+            <h2 class="titulo_cursos">Otros cursos</h2>
+            <div class="lista_cursos" id="otros_cursos"></div>
 
             <aside class="tarjeta_estadisticas">
                 <img class="mascota" src="../img/mascota.webp" alt="mascota_de_lingoweb">
@@ -54,7 +55,9 @@
                 <p id="resumen_xp"></p>
                 <p id="resumen_meta"></p>
                 <p id="resumen_liga"></p>
+                <button type="button" class="enlace_secundario" id="reiniciar_progreso">Reiniciar progreso</button>
             </aside>
+
         </section>
 
         <section class="seccion_ocultos">
