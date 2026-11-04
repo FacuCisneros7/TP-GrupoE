@@ -30,7 +30,7 @@ if (usuarioActivo) {
             return usuario.seguidos;
         }
 
-        if (usuario.usuario === "gonza_nuevo") {
+        if (usuario.usuario === "juan_perez") {
             return SEGUIDOS_DEMO;
         }
         return [];
@@ -41,7 +41,7 @@ if (usuarioActivo) {
             return usuario.seguidores;
         }
 
-        if (usuario.usuario === "gonza_nuevo") {
+        if (usuario.usuario === "juan_perez") {
             return SEGUIDORES_DEMO;
         }
         return [];
