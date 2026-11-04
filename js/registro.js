@@ -137,7 +137,13 @@ function crearUsuario(usuario, email, password) {
         progreso: {
             ingles: { completadas: [], resultados: {} },
             aleman: { completadas: [], resultados: {} },
-            chino:  { completadas: [], resultados: {} }
+            chino:  { completadas: [], resultados: {} },
+            italiano: { completadas: [], resultados: {} },
+            frances: { completadas: [], resultados: {} },
+            japones:  { completadas: [], resultados: {} },
+            arabe: { completadas: [], resultados: {} },
+            portugues: { completadas: [], resultados: {} },
+            ruso:  { completadas: [], resultados: {} }
         },
         seguidos: 0,
         seguidores: 0 

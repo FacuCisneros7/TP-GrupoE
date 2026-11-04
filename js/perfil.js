@@ -2,7 +2,7 @@ import { obtenerUsuarios, requerirSesion, guardarUsuario, cerrarSesion, CLAVE_SE
 
 import { obtenerCompletadas, porcentajeCurso } from "./progreso.js";
 
-import { obtenerLeccionesDeCurso, COMUNIDAD } from "./datos.js";
+import { obtenerLeccionesDeCurso, COMUNIDAD, obtenerCurso } from "./datos.js";
 
 const RUTA_AVATARES = "../img/";
 
@@ -345,15 +345,6 @@ function aplicarIdioma(idioma) {
     ponerTextoSelector(".datos-perfil p:nth-child(2) strong", traducir("email", idioma));
     ponerTextoSelector(".informacion-perfil > h2", traducir("idiomasAprendo", idioma));
 
-    //Nombres de los idiomas
-    const idiomasPerfil = document.querySelectorAll(".idiomas span");
-
-    if (idiomasPerfil.length >= 3) {
-        idiomasPerfil[0].lastChild.textContent = traducir("ingles", idioma);
-        idiomasPerfil[1].lastChild.textContent = traducir("aleman", idioma);
-        idiomasPerfil[2].lastChild.textContent = traducir("chino", idioma);
-    }
-
     const idiomasProgreso = document.querySelectorAll(".idioma-nombre span");
 
     if (idiomasProgreso.length >= 3) {
@@ -487,6 +478,48 @@ function mostrarProgreso(usuario) {
             porcentajeId: "porcentaje-chino",
             barraSelector: ".progreso-chino",
             detalleId: "detalle-chino"
+        },
+
+        {
+            id: "italiano",
+            porcentajeId: "porcentaje-italiano",
+            barraSelector: ".progreso-italiano",
+            detalleId: "detalle-italiano"
+        },
+
+        {
+            id: "frances",
+            porcentajeId: "porcentaje-frances",
+            barraSelector: ".progreso-frances",
+            detalleId: "detalle-frances"
+        },
+
+        {
+            id: "japones",
+            porcentajeId: "porcentaje-japones",
+            barraSelector: ".progreso-japones",
+            detalleId: "detalle-japones"
+        },
+
+        {
+            id: "arabe",
+            porcentajeId: "porcentaje-arabe",
+            barraSelector: ".progreso-arabe",
+            detalleId: "detalle-arabe"
+        },
+
+        {
+            id: "portugues",
+            porcentajeId: "porcentaje-portugues",
+            barraSelector: ".progreso-portugues",
+            detalleId: "detalle-portugues"
+        },
+
+        {
+            id: "ruso",
+            porcentajeId: "porcentaje-ruso",
+            barraSelector: ".progreso-ruso",
+            detalleId: "detalle-ruso"
         }
     ];
 
@@ -647,6 +680,7 @@ function mostrarUsuario(usuario) {
     ponerValor("idioma", idioma);
 
     aplicarIdioma(idioma);
+    mostrarIdiomas(usuario); 
     mostrarProgreso(usuario);
     mostrarLogros(usuario);
 }
@@ -846,6 +880,50 @@ function iniciarSelectorAvatar(usuario) {
         });
 
         contenedor.appendChild(boton);
+    });
+}
+
+function mostrarIdiomas(usuario) {
+    const contenedor = document.getElementById("idiomas-perfil");
+
+    if (contenedor === null) {
+        return;
+    }
+
+    contenedor.innerHTML = "";
+
+    const idioma = usuario.idiomaInterfaz || "es";
+    const misCursos = usuario.misCursos || [];
+
+    // Evita repetidos y acepta strings u objetos { id }
+    const ids = [];
+    misCursos.forEach(function (item) {
+        const id = typeof item === "string" ? item : item.id;
+        if (obtenerCurso(id) !== null && !ids.includes(id)) {
+            ids.push(id);
+        }
+    });
+
+    if (ids.length === 0) {
+        const mensaje = document.createElement("p");
+        mensaje.textContent = traducir("sinCursos", idioma);
+        contenedor.appendChild(mensaje);
+        return;
+    }
+
+    ids.forEach(function (id) {
+        const curso = obtenerCurso(id);
+
+        const span = document.createElement("span");
+
+        const img = document.createElement("img");
+        img.src = RUTA_AVATARES + curso.bandera;
+        img.alt = curso.banderaAlt;
+
+        span.appendChild(img);
+        span.appendChild(document.createTextNode(traducir(id, idioma)));
+
+        contenedor.appendChild(span);
     });
 }
 
