@@ -4,6 +4,14 @@ import { obtenerCompletadas, porcentajeCurso } from "./progreso.js";
 
 import { obtenerLeccionesDeCurso, COMUNIDAD } from "./datos.js";
 
+const RUTA_AVATARES = "../img/";
+
+const AVATARES = [
+    "Avatar_panda.jpg", "Avatar_gato.jpg", "Avatar_perro.jpg", "Avatar_leon.jpg",
+    "Avatar_tiburon.jpg", "Avatar_pinguino.png", "Avatar_cerdito.png",
+    "Avatar_oveja.jpg", "Avatar_patito.png", "Avatar_conejo.jpg"
+];
+
 const traducciones = {
     es: {
         cursos: "Cursos",
@@ -600,6 +608,7 @@ function mostrarUsuario(usuario) {
         avatarAjustes.alt = "Avatar de " + usuario.nombre;
     }
 
+
     ponerTexto("nombre-perfil", usuario.nombre);
     ponerTexto("usuario-perfil", "@" + usuario.usuario);
     ponerTexto("email-perfil", usuario.email);
@@ -610,7 +619,7 @@ function mostrarUsuario(usuario) {
     ponerTexto("resumen-xp", "⚡ " + (usuario.xp || 0) + " XP");
     ponerTexto("resumen-gemas", "💎 " + (usuario.gemas || 0));
 
-    ponerTexto("cantidad-seguidos", usuario.seguidos = COMUNIDAD.length|| 0);
+    ponerTexto("cantidad-seguidos", usuario.seguidos = COMUNIDAD.length || 0);
     ponerTexto("cantidad-seguidores", usuario.seguidores = COMUNIDAD.length || 0);
 
     const cursos = ["ingles", "aleman", "chino"];
@@ -792,6 +801,54 @@ function configurarCerrarSesion() {
     });
 }
 
+function iniciarSelectorAvatar(usuario) {
+    const contenedor = document.getElementById("selector-avatar");
+    const mensaje = document.getElementById("mensaje-avatar");
+    if (contenedor === null) {
+        return;
+    }
+
+    AVATARES.forEach(function (nombreArchivo) {
+        const ruta = RUTA_AVATARES + nombreArchivo;
+
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.classList.add("opcion-avatar");
+
+        const img = document.createElement("img");
+        img.src = ruta;
+        img.alt = "Avatar " + nombreArchivo;
+        boton.appendChild(img);
+
+        if (usuario.avatar === ruta) {
+            boton.classList.add("seleccionado");
+        }
+
+        boton.addEventListener("click", function () {
+            usuario.avatar = ruta;
+            const guardado = guardarUsuario(usuario, usuario.usuario);
+
+            if (guardado) {
+                contenedor.querySelectorAll(".opcion-avatar").forEach(function (b) {
+                    b.classList.remove("seleccionado");
+                });
+                boton.classList.add("seleccionado");
+
+                const avatarPerfil = document.getElementById("avatar-perfil");
+                if (avatarPerfil !== null) {
+                    avatarPerfil.src = ruta;
+                }
+
+                mensaje.textContent = "Avatar actualizado.";
+            } else {
+                mensaje.textContent = "No se pudo guardar el avatar. Intentá de nuevo.";
+            }
+        });
+
+        contenedor.appendChild(boton);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const usuarioActivo = requerirSesion("../index.html");
@@ -801,6 +858,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     mostrarUsuario(usuarioActivo);
+    iniciarSelectorAvatar(usuarioActivo);
     configurarFormulario(usuarioActivo);
     configurarCerrarSesion();
 });
