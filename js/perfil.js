@@ -1,8 +1,46 @@
 import { obtenerUsuarios, requerirSesion, guardarUsuario, cerrarSesion, CLAVE_SESION } from "./sesion.js";
-
 import { obtenerCompletadas, porcentajeCurso } from "./progreso.js";
-
 import { obtenerLeccionesDeCurso } from "./datos.js";
+
+const SEGUIDOS_DEMO = [
+    "Maria_23",
+    "Carlos_Dev",
+    "Lili78",
+    "Lucas_93",
+    "MiaSanchez"
+];
+
+const SEGUIDORES_DEMO = [
+    "Maria_23",
+    "Carlos_Dev",
+    "Lili78",
+    "Lucas_93",
+    "MiaSanchez"
+];
+
+function obtenerSeguidosUsuario(usuario) {
+    if (usuario.seguidos && usuario.seguidos.length !== undefined) {
+        return usuario.seguidos;
+    }
+
+    if (usuario.usuario === "juan_perez") {
+        return SEGUIDOS_DEMO;
+    }
+
+    return [];
+}
+
+function obtenerSeguidoresUsuario(usuario) {
+    if (usuario.seguidores && usuario.seguidores.length !== undefined) {
+        return usuario.seguidores;
+    }
+
+    if (usuario.usuario === "juan_perez") {
+        return SEGUIDORES_DEMO;
+    }
+
+    return [];
+}
 
 const traducciones = {
     es: {
@@ -577,6 +615,52 @@ function formatearFechaAlta(fechaAlta, idioma) {
     });
 }
 
+function mostrarActividadPerfil(usuario) {
+    const seguidos = obtenerSeguidosUsuario(usuario);
+
+    const actividades = document.querySelectorAll(".actividad-feed-item");
+    const enlaceVerTodos = document.querySelector(".actividad-ver-todos");
+    const seccionActividad = document.querySelector(".actividad-amigos");
+
+    let mensaje = document.getElementById("sin-actividad-seguidos");
+
+    if (seguidos.length === 0) {
+
+        actividades.forEach(function (actividad) {
+            actividad.style.display = "none";
+        });
+
+        if (enlaceVerTodos !== null) {
+            enlaceVerTodos.style.display = "none";
+        }
+
+        if (mensaje === null && seccionActividad !== null) {
+            mensaje = document.createElement("p");
+            mensaje.id = "sin-actividad-seguidos";
+            mensaje.textContent = "Todavía no seguís a nadie. Cuando sigas a otros usuarios, su actividad aparecerá acá.";
+
+            seccionActividad.appendChild(mensaje);
+        }
+
+        if (mensaje !== null) {
+            mensaje.style.display = "block";
+        }
+
+    } else {
+        actividades.forEach(function (actividad) {
+            actividad.style.display = "";
+        });
+
+        if (enlaceVerTodos !== null) {
+            enlaceVerTodos.style.display = "";
+        }
+
+        if (mensaje !== null) {
+            mensaje.style.display = "none";
+        }
+    }
+}
+
 function mostrarUsuario(usuario) {
     if (!usuario) {
         return;
@@ -610,8 +694,12 @@ function mostrarUsuario(usuario) {
     ponerTexto("resumen-xp", "⚡ " + (usuario.xp || 0) + " XP");
     ponerTexto("resumen-gemas", "💎 " + (usuario.gemas || 0));
 
-    ponerTexto("cantidad-seguidos", usuario.seguidos || 0);
-    ponerTexto("cantidad-seguidores", usuario.seguidores || 0);
+    const seguidos = obtenerSeguidosUsuario(usuario);
+    const seguidores = obtenerSeguidoresUsuario(usuario);
+    ponerTexto("cantidad-seguidos", seguidos.length);
+    ponerTexto("cantidad-seguidores", seguidores.length);
+
+    mostrarActividadPerfil(usuario);
 
     const cursos = ["ingles", "aleman", "chino"];
 
