@@ -1,6 +1,6 @@
 import { obtenerUsuarios, requerirSesion, guardarUsuario, cerrarSesion, CLAVE_SESION } from "./sesion.js";
 import { obtenerCompletadas, porcentajeCurso, reiniciarProgreso } from "./progreso.js";
-import { obtenerLeccionesDeCurso, COMUNIDAD } from "./datos.js";
+import { obtenerCurso, obtenerLeccionesDeCurso } from "./datos.js";
 
 const RUTA_AVATARES = "../img/";
 
@@ -65,6 +65,13 @@ const traducciones = {
         ingles: "Inglés",
         aleman: "Alemán",
         chino: "Chino mandarín",
+        italiano: "Italiano",
+        frances: "Francés",
+        japones: "Japonés",
+        arabe: "Árabe",
+        portugues: "Portugués",
+        ruso: "Ruso",
+        sinCursos: "Todavía no empezaste ningún curso.",
 
         seguidos: "Seguidos",
         seguidores: "Seguidores",
@@ -161,6 +168,13 @@ const traducciones = {
         ingles: "English",
         aleman: "German",
         chino: "Mandarin Chinese",
+        italiano: "Italian",
+        frances: "French",
+        japones: "Japanese",
+        arabe: "Arabic",
+        portugues: "Portuguese",
+        ruso: "Russian",
+        sinCursos: "You have not started any courses yet.",
 
         seguidos: "Following",
         seguidores: "Followers",
@@ -256,6 +270,13 @@ const traducciones = {
         ingles: "Inglês",
         aleman: "Alemão",
         chino: "Chinês mandarim",
+        italiano: "Italiano",
+        frances: "Francês",
+        japones: "Japonês",
+        arabe: "Árabe",
+        portugues: "Português",
+        ruso: "Russo",
+        sinCursos: "Você ainda não começou nenhum curso.",
 
         seguidos: "Seguindo",
         seguidores: "Seguidores",

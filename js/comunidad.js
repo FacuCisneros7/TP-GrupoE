@@ -29,14 +29,14 @@ if (usuarioActivo) {
         if (usuario.usuario === "juan_perez") {
             return SEGUIDOS_DEMO;
         }
-        return usuario.seguidos || [];
+        return Array.isArray(usuario.seguidos) ? usuario.seguidos : [];
     }
 
     function obtenerSeguidoresUsuario(usuario) {
         if (usuario.usuario === "juan_perez") {
             return SEGUIDORES_DEMO;
         }
-        return usuario.seguidores || [];
+        return Array.isArray(usuario.seguidores) ? usuario.seguidores : [];
     }
 
     function buscarPersonas(nombresUsuarios) {
@@ -81,22 +81,19 @@ if (usuarioActivo) {
             const mensaje = document.createElement("p");
             mensaje.className = "mensaje_vacio";
             mensaje.textContent = mensajeVacio;
-        }
-
-        if (nodoVolver !== null) {
             nodoVolver.before(mensaje);
+            return;
         }
-        return;
-    }
 
-    personas.forEach(function (persona) {
-        if (plantillaPersona != null) {
-            nodoVolver.before(crearPersona(plantillaPersona, persona));
-        }
-        if (plantillaActividad !== null) {
-            nodoVolver.before(crearActividad(plantillaActividad, persona));
-        }
-    });
+        personas.forEach(function (persona) {
+            if (plantillaPersona !== null) {
+                nodoVolver.before(crearPersona(plantillaPersona, persona));
+            }
+            if (plantillaActividad !== null) {
+                nodoVolver.before(crearActividad(plantillaActividad, persona));
+            }
+        });
+    }
 }
 
 function crearPersona(plantilla, persona) {
