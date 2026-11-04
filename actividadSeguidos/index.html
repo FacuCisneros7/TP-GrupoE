@@ -26,16 +26,16 @@
             <a href="../dashboard/index.html">Cursos</a>
             <a href="../perfil/index.html" class="activo">Perfil</a>
             <a href="../ranking/index.html">Clasificación</a>
-            <a href="../tienda/index.html">Tienda</a>
+            <a href="../tienda/index.html">Rachas/Tienda</a>
 
         </nav>
 
 
         <div class="resumen_usuario">
 
-            <span>🔥 5 Días</span>
-            <span>⚡ 350 XP</span>
-            <span>💎 120</span>
+            <span id="racha">🔥 0 Días</span>
+            <span id="xp-total">⚡ 0 XP</span>
+            <span id="gemas">💎 0</span>
         </div>
 
     </header>
@@ -50,54 +50,6 @@
 
             <p class="actividad-completa-subtitulo">Últimos logros y avances de las personas que seguís.</p>
 
-            <article class="actividad-completa-item">
-                <img src="../img/Avatar_panda.jpg" alt="Avatar de Maria_23" class="actividad-feed-avatar">
-                <h2>Maria_23</h2>
-                <small>Hoy</small>
-                <p>¡Quedó en el puesto #1 de la División Bronce esta semana!</p>
-                <span class="actividad-feed-premio">🥇</span>
-            </article>
-
-
-
-            <article class="actividad-completa-item">
-                <img src="../img/Avatar_gato.jpg" alt="Avatar de Carlos_Dev" class="actividad-feed-avatar">
-                <h2>Carlos_Dev</h2>
-                <small>Ayer</small>
-                <p>¡Quedó entre los 3 primeros de la División Bronce 2 veces!</p>
-                <span class="actividad-feed-premio">🥉</span>
-            </article>
-
-
-
-            <article class="actividad-completa-item">
-                <img src="../img/Avatar_perro.jpg" alt="Avatar de Lili78" class="actividad-feed-avatar">
-                <h2>Lili78</h2>
-                <small>Hace 2 días</small>
-                <p>Completó 3 lecciones seguidas de Inglés.</p>
-                <span class="actividad-feed-premio">📚</span>
-            </article>
-
-
-
-            <article class="actividad-completa-item">
-                <img src="../img/Avatar_leon.jpg" alt="Avatar de Lucas_93" class="actividad-feed-avatar">
-                <h2>Lucas_93</h2>
-                <small>Hace 3 días</small>
-                <p>Alcanzó una racha de 7 días de aprendizaje.</p>
-                <span class="actividad-feed-premio">🔥</span>
-            </article>
-
-
-
-            <article class="actividad-completa-item">
-                <img src="../img/Avatar_tiburón.jpg" alt="Avatar de MiaSanchez" class="actividad-feed-avatar">
-                <h2>MiaSanchez</h2>
-                <small>Hace 4 días</small>
-                <p>Completó una nueva unidad de Chino mandarín.</p>
-                <span class="actividad-feed-premio">⭐</span>
-            </article>
-
             <a href="../perfil/index.html" class="volver-perfil">
                 ← Volver al Perfil
             </a>
@@ -105,8 +57,21 @@
 
     </main>
     <footer>
-        <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
+        <p>2026 LingoWeb — Trabajo Práctico N.º 2, Programación Web 1, UNLaM</p>
     </footer>
+    <!-- Plantilla de una actividad (el navegador no la muestra) -->
+    <template id="plantilla-actividad">
+        <article class="actividad-completa-item">
+            <img src="" alt="" class="actividad-feed-avatar">
+            <h2></h2>
+            <small></small>
+            <p></p>
+            <span class="actividad-feed-premio"></span>
+        </article>
+    </template>
+
+    <script type="module" src="../js/comunidad.js"></script>
+
 </body>
 
 </html>

@@ -19,14 +19,14 @@
             <a href="index.html" class="activo">Cursos</a>
             <a href="../perfil/index.html">Perfil</a>
             <a href="../ranking/index.html">Clasificación</a>
-            <a href="../tienda/index.html">Tienda</a>
+            <a href="../tienda/index.html">Rachas/Tienda</a>
         </nav>
 
         <div class="resumen_usuario">
-            <span>🔥 5 Días</span>
-            <span>⚡ 350 XP</span>
-            <span>💎 120</span>
-            <a href="../index.html" class="btn">Cerrar sesión</a>
+            <span id="racha">🔥 0 Días</span>
+            <span id="xp-total">⚡ 0 XP</span>
+            <span id="gemas">💎 0</span>
+            <a href="../index.html" class="btn cerrar-sesion">Cerrar sesión</a>
         </div>
     </header>
 
@@ -34,44 +34,24 @@
 
         <h2>Mis Cursos de Idiomas</h2>
 
+        <!-- Estado inicial: se muestra solo si la cuenta todavía no tiene actividad -->
+        <p class="invitacion" id="invitacion" hidden>
+            ¡Te damos la bienvenida! Todavía no tenés actividad.
+            <a href="#"></a>
+        </p>
+
         <section class="seccion_dashboard">
 
-            <div class="lista_cursos">
-
-                <article class="tarjeta_curso">
-                    <img class="bandera_curso" src="../img/Flag_of_the_United_Kingdom_(1-2).svg.webp" alt="bandera_de_reino_unido">
-                    <h3>Inglés desde Español</h3>
-                    <p>Progreso: 45%</p>
-                    <p>Nivel: Intermedio (B1)</p>
-                    <a href="../unidades/unidades.html?id=ingles" class="btn">Continuar</a>
-                    <a href="oculto-ingles.html" class="enlace_secundario">Ocultar curso</a>
-                </article>
-
-                <article class="tarjeta_curso">
-                    <img class="bandera_curso" src="../img/Flag_of_Germany_(3-2).svg.webp" alt="bandera_de_alemania">
-                    <h3>Alemán desde Español</h3>
-                    <p>Progreso: 30%</p>
-                    <p>Nivel: Principiante (A1)</p>
-                    <a href="../unidades/index2.html" class="btn">Continuar</a>
-                    <a href="oculto-aleman.html" class="enlace_secundario">Ocultar curso</a>
-                </article>
-
-                <article class="tarjeta_curso">
-                    <img class="bandera_curso" src="../img/Flag_of_the_People's_Republic_of_China.svg" alt="bandera_de_china">
-                    <h3>Chino desde Español</h3>
-                    <p>Progreso: 0%</p>
-                    <p>Nivel: Inicial (HSK 1)</p>
-                    <a href="../unidades/index3.html" class="btn">Empezar</a>
-                    <a href="oculto-chino.html" class="enlace_secundario">Ocultar curso</a>
-                </article>
-
-            </div>
+            <!-- Las tarjetas las genera dashboard.js a partir de los datos -->
+            <div class="lista_cursos" id="lista_cursos"></div>
 
             <aside class="tarjeta_estadisticas">
                 <img class="mascota" src="../img/mascota.webp" alt="mascota_de_lingoweb">
                 <h3>Estadísticas</h3>
-                <p>🏆 Liga Bronce</p>
-                <p>🎯 Meta: 50 XP/día</p>
+                <p id="resumen_racha"></p>
+                <p id="resumen_xp"></p>
+                <p id="resumen_meta"></p>
+                <p id="resumen_liga"></p>
             </aside>
 
         </section>
@@ -79,14 +59,38 @@
         <section class="seccion_ocultos">
             <h2>Cursos ocultos</h2>
 
-            <p class="mensaje_vacio">No tenés cursos ocultos. Podés ocultar un curso desde "Mis Cursos de Idiomas" si querés dejarlo de lado por ahora.</p>
+            <div class="lista_ocultos" id="lista_ocultos"></div>
+
+            <p class="mensaje_vacio" id="sin_ocultos">No tenés cursos ocultos. Podés ocultar un curso desde "Mis Cursos de Idiomas" si querés dejarlo de lado por ahora.</p>
         </section>
 
     </main>
 
     <footer>
-        <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
+        <p>2026 LingoWeb — Trabajo Práctico N.º 2, Programación Web 1, UNLaM</p>
     </footer>
+
+    <!-- Plantilla de la tarjeta de un curso (el navegador no la muestra) -->
+    <template id="plantilla-curso">
+        <article class="tarjeta_curso">
+            <img class="bandera_curso" src="" alt="">
+            <h3></h3>
+            <p class="curso_progreso"></p>
+            <p class="curso_nivel"></p>
+            <a href="#" class="btn"></a>
+            <button type="button" class="enlace_secundario">Ocultar curso</button>
+        </article>
+    </template>
+
+    <!-- Plantilla de un curso oculto -->
+    <template id="plantilla-oculto">
+        <article class="tarjeta_oculta">
+            <p></p>
+            <button type="button" class="enlace_secundario">Restaurar</button>
+        </article>
+    </template>
+
+    <script type="module" src="../js/dashboard.js"></script>
 
 </body>
 </html>

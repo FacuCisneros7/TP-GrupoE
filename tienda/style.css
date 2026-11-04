@@ -80,6 +80,15 @@
     white-space: nowrap;
 }
 
+.tienda-estado[hidden] {
+    display: none;
+}
+
+#saldo {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
 .tienda-boton:disabled {
     background-color: #e5e5e0;
     color: #888;

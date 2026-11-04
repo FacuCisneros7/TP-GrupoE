@@ -1,5 +1,5 @@
 import { obtenerLeccion, obtenerEjercicios, obtenerCurso, armarBanco } from './datos.js';
-import { requerirSesion } from './sesion.js';
+import { requerirSesion, guardarUsuario } from './sesion.js';
 import { obtenerCompletadas, obtenerIdEnCurso, calcularEstado, completarLeccion } from './progreso.js';
 
 const VIDAS_INICIALES = 3;
@@ -139,10 +139,39 @@ function iniciarLeccion(usuarioInicial) {
     nodos.abandonarSeguir.addEventListener('click', function () {
         nodos.dialogo.close();
     });
+    nodos.abandonarSalir.addEventListener('click', borrarPartida);
 
-    // 6. Primer ejercicio
+    // 6. Si se recargó la página, se sigue donde estaba
+    recuperarPartida();
     actualizarVidas();
-    mostrarEjercicio();
+
+    if (vidas === 0) {
+        finalizar(false);
+    } else {
+        mostrarEjercicio();
+    }
+}
+
+/* ---------- Partida guardada ---------- */
+
+// La partida en curso se guarda dentro del usuario para poder retomarla al recargar
+function guardarPartida() {
+    usuario.partida = { leccionId: leccionId, indice: indice, vidas: vidas, errores: errores };
+    guardarUsuario(usuario);
+}
+
+function borrarPartida() {
+    usuario.partida = null;
+    guardarUsuario(usuario);
+}
+
+function recuperarPartida() {
+    const partida = usuario.partida;
+    if (!partida || partida.leccionId !== leccionId || partida.indice >= ejercicios.length) return;
+
+    indice = partida.indice;
+    vidas = partida.vidas;
+    errores = partida.errores;
 }
 
 /* ---------- Ejercicio ---------- */
@@ -156,6 +185,7 @@ function mostrarEjercicio() {
     nodos.infoEjercicio.textContent = 'Ejercicio ' + (indice + 1) + ' de ' + ejercicios.length;
     actualizarProgreso(indice);
 
+    guardarPartida();
     prepararIntento();
 }
 
@@ -256,6 +286,7 @@ function comprobar() {
     vidas--;
     errores++;
     actualizarVidas();
+    guardarPartida();
 
     if (vidas === 0) {
         nodos.detalleIncorrecto.textContent = 'Te quedaste sin vidas. La respuesta era: ' + respuesta.join(' ') + '.';
@@ -313,6 +344,7 @@ function finalizar(exito) {
 
     if (exito) {
         actualizarProgreso(ejercicios.length);
+        usuario.partida = null;   // completarLeccion guarda al usuario
         const resultado = completarLeccion(usuario, cursoId, leccionId, errores);
 
         let mensaje = 'Terminaste "' + leccionDatos.titulo + '".';
@@ -329,6 +361,7 @@ function finalizar(exito) {
         nodos.finalGemas.textContent = '+' + resultado.gemas + ' gemas';
         nodos.finalRepetir.hidden = true;
     } else {
+        borrarPartida();
         nodos.finalTitulo.textContent = 'Te quedaste sin vidas';
         nodos.finalMensaje.textContent = 'Esta vez el avance no se guardó. Podés intentarlo de nuevo cuando quieras.';
         nodos.finalXp.textContent = '+0 XP';

@@ -19,14 +19,14 @@
             <a href="../dashboard/index.html">Cursos</a>
             <a href="../perfil/index.html">Perfil</a>
             <a href="../ranking/index.html">Clasificación</a>
-            <a href="../tienda/index.html">Tienda</a>
+            <a href="../tienda/index.html">Rachas/Tienda</a>
         </nav>
 
         <div class="resumen_usuario">
-            <span>🔥 5 Días</span>
-            <span>⚡ 350 XP</span>
-            <span>💎 120</span>
-            <a href="../index.html" class="btn">Cerrar sesión</a>
+            <span id="racha">🔥 0 Días</span>
+            <span id="xp-total">⚡ 0 XP</span>
+            <span id="gemas">💎 0</span>
+            <a href="../index.html" class="btn cerrar-sesion">Cerrar sesión</a>
         </div>
     </header>
     <main class="confirmacion-page">
@@ -36,12 +36,14 @@
         <p>¿Estás seguro de que querés continuar?</p>
         <nav class="confirmacion-acciones">
             <a href="index.html" class="btn-cancelar">Cancelar</a>
-            <a href="eliminado.html" class="btn-confirmar-eliminar">Eliminar cuenta</a>
+            <a href="eliminado.html" id="confirmar_eliminar" class="btn-confirmar-eliminar">Eliminar cuenta</a>
         </nav>
         </section>
     </main>
     <footer>
-        <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
+        <p>2026 LingoWeb — Trabajo Práctico N.º 2, Programación Web 1, UNLaM</p>
     </footer>
+    <script type="module" src="../js/eliminar.js"></script>
+
 </body>
 </html>

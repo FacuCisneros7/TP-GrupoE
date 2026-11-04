@@ -1,6 +1,7 @@
 import { obtenerCurso, obtenerUnidadesDeCurso } from './datos.js';
 import { requerirSesion } from './sesion.js';
 import { obtenerCompletadas, obtenerIdEnCurso, calcularEstado } from './progreso.js';
+import { mostrarOpiniones } from './opiniones.js';
 
 const nodoMapa = document.querySelector('.main');
 const plantillaUnidad = document.querySelector('#plantilla-unidad');
@@ -19,7 +20,7 @@ if (usuarioActivo) {
 }
 
 function mostrarCurso(usuario) {
-    // 1. Qué curso se pidió (viaja en la URL: ?curso=ingles)
+    // 1. Qué curso se pidió (viaja en la URL: ?id=ingles)
     const url = new URL(window.location.href);
     const cursoId = url.searchParams.get('id');
 
@@ -42,6 +43,26 @@ function mostrarCurso(usuario) {
     // 4. Una unidad por cada elemento de los datos
     unidades.forEach(function (unidad) {
         nodoMapa.appendChild(crearUnidad(unidad, completadas, idEnCurso));
+    });
+
+    // 5. Valoraciones y comentarios del curso
+    mostrarOpiniones(usuario, cursoId);
+
+    // 6. Al volver al mapa se conserva la posición donde estaba la persona
+    conservarPosicion(cursoId);
+}
+
+function conservarPosicion(cursoId) {
+    const clave = 'posicion_mapa_' + cursoId;
+    const posicion = sessionStorage.getItem(clave);
+
+    if (posicion) {
+        window.scrollTo(0, Number(posicion));
+    }
+
+    // pagehide: la página se está por cerrar o se va a otra
+    window.addEventListener('pagehide', function () {
+        sessionStorage.setItem(clave, window.scrollY);
     });
 }
 
@@ -117,7 +138,7 @@ function crearLeccion(leccion, estado) {
 }
 
 function mostrarCursoNoEncontrado() {
-    document.querySelector('#curso').textContent = 'Curso no encontrado';
+    document.querySelector('#idioma').textContent = 'Curso no encontrado';
     document.title = 'Curso no encontrado';
     document.querySelector('#curso_no_encontrado').hidden = false;
 }
