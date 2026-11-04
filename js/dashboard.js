@@ -1,7 +1,7 @@
 import { CURSOS } from './datos.js';
 import { requerirSesion, guardarUsuario } from './sesion.js';
-import { cargarHeader, mostrarPopup } from './ui.js';
-import { porcentajeCurso } from './progreso.js';
+import { cargarHeader, actualizarHeader, mostrarPopup } from './ui.js';
+import { porcentajeCurso, reiniciarProgreso } from './progreso.js';
 
 const nodoMisCursos = document.querySelector('#mis_cursos');
 const nodoOtrosCursos = document.querySelector('#otros_cursos');
@@ -17,8 +17,27 @@ if (usuarioActivo) {
     cargarHeader(usuarioActivo);
     mostrarResumen(usuarioActivo);
     mostrarCursos(usuarioActivo);
+
+    document.querySelector('#reiniciar_progreso').addEventListener('click', function () {
+        confirmarReinicio(usuarioActivo);
+    });
 }
 
+function confirmarReinicio(usuario) {
+    if (!window.confirm('Se van a borrar tu XP, racha, gemas, productos y el avance de todos los cursos. Tu cuenta y tus opiniones se conservan. ¿Querés continuar?')) {
+        return;
+    }
+
+    if (!reiniciarProgreso(usuario)) {
+        mostrarPopup('No se pudo reiniciar el progreso. Revisá si tu navegador permite almacenamiento.', 'error');
+        return;
+    }
+
+    actualizarHeader(usuario);
+    mostrarResumen(usuario);
+    mostrarCursos(usuario);
+    mostrarPopup('Tu progreso fue reiniciado.', 'exito');
+}
 
 function mostrarResumen(usuario) {
     const racha = usuario.racha || 0;

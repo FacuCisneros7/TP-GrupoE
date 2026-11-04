@@ -1,6 +1,6 @@
 import { obtenerUsuarios, requerirSesion, guardarUsuario, cerrarSesion, CLAVE_SESION } from "./sesion.js";
 
-import { obtenerCompletadas, porcentajeCurso } from "./progreso.js";
+import { obtenerCompletadas, porcentajeCurso, reiniciarProgreso } from "./progreso.js";
 
 import { obtenerLeccionesDeCurso, COMUNIDAD, obtenerCurso } from "./datos.js";
 
@@ -77,6 +77,9 @@ const traducciones = {
         verLogros: "Ver mis logros",
         cerrarSesion: "Cerrar sesión",
         eliminarCuenta: "Eliminar mi cuenta",
+        reiniciarProgreso: "Reiniciar progreso",
+        confirmarReinicio: "Se van a borrar tu XP, racha, gemas, productos y el avance de todos los cursos. Tu cuenta y tus opiniones se conservan. ¿Querés continuar?",
+        progresoReiniciado: "Tu progreso fue reiniciado.",
 
         misLogros: "Mis logros",
         obtenido: "Obtenido:",
@@ -168,6 +171,9 @@ const traducciones = {
         verLogros: "View my achievements",
         cerrarSesion: "Log out",
         eliminarCuenta: "Delete my account",
+        reiniciarProgreso: "Reset progress",
+        confirmarReinicio: "Your XP, streak, gems, products and progress in every course will be deleted. Your account and reviews will be kept. Do you want to continue?",
+        progresoReiniciado: "Your progress was reset.",
 
         misLogros: "My achievements",
         obtenido: "Obtained:",
@@ -260,6 +266,9 @@ const traducciones = {
         verLogros: "Ver minhas conquistas",
         cerrarSesion: "Sair",
         eliminarCuenta: "Excluir minha conta",
+        reiniciarProgreso: "Reiniciar progresso",
+        confirmarReinicio: "Seu XP, ofensiva, gemas, produtos e o avanço de todos os cursos serão apagados. Sua conta e suas avaliações serão mantidas. Deseja continuar?",
+        progresoReiniciado: "Seu progresso foi reiniciado.",
 
         misLogros: "Minhas conquistas",
         obtenido: "Obtido:",
@@ -435,6 +444,8 @@ function aplicarIdioma(idioma) {
         acciones[2].textContent = traducir("cerrarSesion", idioma);
         acciones[3].textContent = traducir("eliminarCuenta", idioma);
     }
+
+    ponerTexto("reiniciar-progreso", traducir("reiniciarProgreso", idioma));
 
     //Logros
     ponerTexto("titulo-logros", traducir("misLogros", idioma));
@@ -835,6 +846,30 @@ function configurarCerrarSesion() {
     });
 }
 
+function configurarReiniciarProgreso(usuarioActivo) {
+    const boton = document.getElementById("reiniciar-progreso");
+
+    if (boton === null) {
+        return;
+    }
+
+    boton.addEventListener("click", function () {
+        const idioma = usuarioActivo.idiomaInterfaz || "es";
+
+        if (!window.confirm(traducir("confirmarReinicio", idioma))) {
+            return;
+        }
+
+        if (!reiniciarProgreso(usuarioActivo)) {
+            mostrarMensaje(traducir("errorGuardar", idioma), false);
+            return;
+        }
+
+        mostrarUsuario(usuarioActivo);
+        mostrarMensaje(traducir("progresoReiniciado", idioma), true);
+    });
+}
+
 function iniciarSelectorAvatar(usuario) {
     const contenedor = document.getElementById("selector-avatar");
     const mensaje = document.getElementById("mensaje-avatar");
@@ -938,5 +973,6 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarUsuario(usuarioActivo);
     iniciarSelectorAvatar(usuarioActivo);
     configurarFormulario(usuarioActivo);
+    configurarReiniciarProgreso(usuarioActivo);
     configurarCerrarSesion();
 });
