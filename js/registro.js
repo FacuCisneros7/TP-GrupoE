@@ -52,7 +52,7 @@ formulario.addEventListener('submit', function (e) {
 
     // Se avisa y, al cerrar el popup, se vuelve al login para que la persona inicie sesión
     mostrarPopup('Tu cuenta fue creada. Ya podés iniciar sesión.', 'exito', function () {
-        window.location.href = '../../index.html';
+        window.location.href = '../index.html';
     });
 });
 
@@ -126,11 +126,13 @@ function crearUsuario(usuario, email, password) {
         racha: 0,
         ultimaActividad: null,
         metaDiaria: 50,
-        monedas: 0,
+        gemas: 0,
         liga: 'bronce',
         idiomaInterfaz: 'es',
         logros: [],
         inventario: [],
+        ocultos: [],
+        partida: null,
         progreso: {
             ingles: { completadas: [], resultados: {} },
             aleman: { completadas: [], resultados: {} },

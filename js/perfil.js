@@ -423,7 +423,6 @@ function aplicarIdioma(idioma) {
 
     //Ajustes - Idioma
     ponerTextoSelector(".grupo-ajuste:nth-child(3) h3", traducir("idiomaInterfaz", idioma));
-
     ponerTextoSelector('label[for="idioma"]', traducir("idiomaPreferido", idioma));
 
     ponerTexto("texto-guardar", traducir("guardar", idioma));
@@ -510,7 +509,7 @@ function mostrarLogros(usuario) {
 
     const idioma = usuario.idiomaInterfaz || "es";
 
-    const logros = Array.isArray(usuario.logros) ? usuario.logros : [];
+    const logros = usuario.logros || [];
 
     if (logros.length === 0) {
         const mensaje = document.createElement("p");
@@ -522,7 +521,7 @@ function mostrarLogros(usuario) {
         return;
     }
 
-    usuario.logros.forEach(function (logro) {
+    logros.forEach(function (logro) {
         const articulo = document.createElement("article");
 
         articulo.classList.add("logro");
@@ -630,7 +629,8 @@ function mostrarUsuario(usuario) {
 
     ponerTexto("estadistica-lecciones-detalle", leccionesCompletadas + " de " + totalLecciones + " " + traducir("disponibles", idioma));
 
-    ponerTexto("estadistica-logros", Array.isArray(usuario.logros) ? usuario.logros.length : 0);
+    const logros = usuario.logros || [];
+    ponerTexto("estadistica-logros", logros.length);
 
     ponerValor("nombre", usuario.nombre);
     ponerValor("usuario", usuario.usuario);

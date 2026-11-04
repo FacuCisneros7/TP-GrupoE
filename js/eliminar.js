@@ -1,4 +1,4 @@
-import { requerirSesion, cerrarSesion, eliminarUsuarioActual } from "./sesion.js";
+import { requerirSesion, cerrarSesion, eliminarUsuarioActual, obtenerOpiniones, guardarOpiniones } from "./sesion.js";
 
 import { mostrarPopup } from "./ui.js";
 
@@ -11,14 +11,10 @@ if (usuarioActivo) {
     configurarCerrarSesion();
 }
 
-
-
 function mostrarDatosUsuario(usuario) {
 
     const racha = usuario.racha || 0;
     const xp = usuario.xp || 0;
-
-    // Compatible mientras el grupo cambia monedas por gemas
     const gemas = usuario.gemas || 0;
 
     const textoDias = racha === 1 ? "Día" : "Días";
@@ -42,6 +38,19 @@ function configurarEliminarCuenta() {
 
         evento.preventDefault();
 
+        const opinionesRestantes = obtenerOpiniones().filter(function (opinion) {
+            return opinion.usuario !== usuarioActivo.usuario;
+        });
+
+        // Elimina las opiniones publicadas por este usuario
+        const opinionesGuardadas = guardarOpiniones(opinionesRestantes);
+
+        if (!opinionesGuardadas) {
+            mostrarPopup("No se pudieron eliminar los datos de la cuenta. Intentá nuevamente.", "error");
+            return;
+        }
+
+        // Elimina solamente la cuenta activa
         const eliminado = eliminarUsuarioActual();
 
         if (eliminado) {

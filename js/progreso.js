@@ -1,8 +1,10 @@
-import { obtenerLeccionesDeCurso, obtenerEjercicios } from './datos.js';
+import { CURSOS, obtenerLeccionesDeCurso, obtenerEjercicios } from './datos.js';
 import { guardarUsuario } from './sesion.js';
 
 const XP_POR_EJERCICIO = 10;
 const XP_BONUS_SIN_ERRORES = 5;
+const GEMAS_POR_LECCION = 5;
+const GEMAS_BONUS_SIN_ERRORES = 5;
 
 // Ids de las lecciones completadas del curso. Si la cuenta no tiene progreso, es una lista vacía.
 export function obtenerCompletadas(usuario, cursoId) {
@@ -49,6 +51,60 @@ function diasEntre(desde, hasta) {
     return Math.round((Date.UTC(b[0], b[1] - 1, b[2]) - Date.UTC(a[0], a[1] - 1, a[2])) / msPorDia);
 }
 
+// XP doble: el canje guarda hasta qué hora dura
+export function xpDobleActivo(usuario) {
+    return Date.now() < (usuario.xpDobleHasta || 0);
+}
+
+// Experiencia ganada hoy. Si la última actividad fue otro día, todavía no ganó nada hoy.
+export function obtenerXpHoy(usuario) {
+    const ultima = usuario.ultimaActividad ? String(usuario.ultimaActividad).slice(0, 10) : null;
+    return ultima === fechaHoy() ? (usuario.xpHoy || 0) : 0;
+}
+
+// Racha vigente: si pasó más de un día sin actividad, ya se cortó
+export function obtenerRacha(usuario) {
+    if (!usuario.ultimaActividad) return 0;
+    return diasEntre(String(usuario.ultimaActividad), fechaHoy()) <= 1 ? (usuario.racha || 0) : 0;
+}
+
+// Cantidad de lecciones completadas sumando todos los cursos
+export function contarCompletadas(usuario) {
+    let total = 0;
+    CURSOS.forEach(function (curso) {
+        total += obtenerCompletadas(usuario, curso.id).length;
+    });
+    return total;
+}
+
+// Cantidad de lecciones disponibles sumando todos los cursos
+export function contarLecciones() {
+    let total = 0;
+    CURSOS.forEach(function (curso) {
+        total += obtenerLeccionesDeCurso(curso.id).length;
+    });
+    return total;
+}
+
+// Logros que ya consiguió la cuenta, calculados a partir de su progreso
+export function calcularLogros(usuario) {
+    const lecciones = contarCompletadas(usuario);
+    const cursoCompleto = CURSOS.some(function (curso) {
+        return porcentajeCurso(usuario, curso.id) === 100;
+    });
+
+    const logros = [
+        { icono: '📚', titulo: 'Primera lección', descripcion: 'Completaste tu primera lección.', logrado: lecciones >= 1 },
+        { icono: '🏆', titulo: 'Cinco lecciones', descripcion: 'Completaste cinco lecciones.', logrado: lecciones >= 5 },
+        { icono: '⚡', titulo: 'Experiencia acumulada', descripcion: 'Superaste los 100 XP en la plataforma.', logrado: (usuario.xp || 0) >= 100 },
+        { icono: '🎓', titulo: 'Curso completo', descripcion: 'Completaste todas las lecciones de un curso.', logrado: cursoCompleto }
+    ];
+
+    return logros.filter(function (logro) {
+        return logro.logrado;
+    });
+}
+
 // Suma experiencia y actualiza la racha del usuario (no lo guarda: lo hace quien la llama)
 function registrarActividad(usuario, xp) {
     const hoy = fechaHoy();
@@ -78,17 +134,22 @@ export function completarLeccion(usuario, cursoId, leccionId, errores) {
     if (!progreso.resultados) progreso.resultados = {};
 
     const yaCompletada = progreso.completadas.includes(leccionId);
+
     let xp = 0;
+    let gemas = 0;
 
     if (!yaCompletada) {
         const cantidad = obtenerEjercicios(leccionId).length;
         xp = cantidad * XP_POR_EJERCICIO + (errores === 0 ? XP_BONUS_SIN_ERRORES : 0);
+        if (xpDobleActivo(usuario)) xp *= 2;
+        gemas = GEMAS_POR_LECCION + (errores === 0 ? GEMAS_BONUS_SIN_ERRORES : 0);
         progreso.completadas.push(leccionId);
-        progreso.resultados[leccionId] = { xp: xp, errores: errores };
+        progreso.resultados[leccionId] = { xp: xp, gemas: gemas, errores: errores };
+        usuario.gemas = (usuario.gemas || 0) + gemas;
     }
 
     registrarActividad(usuario, xp);
     const guardado = guardarUsuario(usuario);
 
-    return { xp: xp, yaCompletada: yaCompletada, guardado: guardado };
+    return { xp: xp, gemas: gemas, yaCompletada: yaCompletada, guardado: guardado };
 }

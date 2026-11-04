@@ -22,6 +22,32 @@
         <!-- Las unidades y lecciones las genera curso.js a partir de los datos -->
     </main>
 
+    <!-- Valoraciones y comentarios: se muestra solo si el curso existe -->
+    <section class="seccion_opiniones" id="seccion_opiniones" hidden>
+        <h2>Opiniones del curso</h2>
+        <p id="opiniones_promedio" hidden></p>
+
+        <form id="formulario_opinion" novalidate>
+            <label for="opinion_estrellas">Calificación</label>
+            <select id="opinion_estrellas">
+                <option value="">Elegí una opción</option>
+                <option value="5">5 - Excelente</option>
+                <option value="4">4 - Muy bueno</option>
+                <option value="3">3 - Bueno</option>
+                <option value="2">2 - Regular</option>
+                <option value="1">1 - Malo</option>
+            </select>
+
+            <label for="opinion_texto">Comentario</label>
+            <textarea id="opinion_texto" rows="3"></textarea>
+
+            <button type="submit" class="btn">Publicar</button>
+        </form>
+
+        <div id="lista_opiniones"></div>
+        <p id="sin_opiniones">Todavía no hay opiniones. ¡Publicá la primera!</p>
+    </section>
+
     <!-- Se muestra solo si el curso de la URL no existe -->
     <section id="curso_no_encontrado" hidden>
         <h2>Curso no encontrado</h2>
@@ -30,7 +56,7 @@
     </section>
 
     <footer>
-        <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
+        <p>2026 LingoWeb — Trabajo Práctico N.º 2, Programación Web 1, UNLaM</p>
     </footer>
 
     <!-- Plantilla de una unidad (el navegador no la muestra) -->
@@ -64,6 +90,15 @@
                 <ul></ul>
             </div>
             <a href="#" class="btn"></a>
+        </article>
+    </template>
+
+    <!-- Plantilla de una opinión -->
+    <template id="plantilla-opinion">
+        <article class="opinion">
+            <p><strong></strong> · <span class="opinion_fecha"></span></p>
+            <p class="opinion_estrellas"></p>
+            <p class="opinion_texto"></p>
         </article>
     </template>
 

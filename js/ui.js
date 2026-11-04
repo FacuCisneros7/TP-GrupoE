@@ -1,3 +1,12 @@
+import { cerrarSesion } from './sesion.js';
+import { obtenerRacha } from './progreso.js';
+
+// Textos del menú en cada idioma de interfaz
+const TEXTOS = {
+    es: { menu: ['Cursos', 'Perfil', 'Clasificación', 'Rachas/Tienda'], cerrar: 'Cerrar sesión' },
+    en: { menu: ['Courses', 'Profile', 'Leaderboard', 'Streaks/Shop'], cerrar: 'Log out' },
+    pt: { menu: ['Cursos', 'Perfil', 'Classificação', 'Ofensivas/Loja'], cerrar: 'Sair' }
+};
 
 // Muestra un mensaje en un nodo. tipo: 'error' | 'exito'
 // El prefijo en texto hace que el mensaje no dependa solo del color.
@@ -57,4 +66,44 @@ export function mostrarPopup(texto, tipo, alCerrar) {
     dialogo.onclose = alCerrar || null;
 
     dialogo.showModal();
+}
+
+// Muestra en el header los datos y el idioma de la cuenta activa.
+// Algunas páginas no tienen resumen: por eso se revisa que cada nodo exista.
+export function actualizarHeader(usuario) {
+    const nodoRacha = document.querySelector('#racha');
+    const nodoXp = document.querySelector('#xp-total');
+    const nodoGemas = document.querySelector('#gemas');
+
+    if (nodoRacha) {
+        const racha = obtenerRacha(usuario);
+        nodoRacha.textContent = '🔥 ' + racha + (racha === 1 ? ' Día' : ' Días');
+    }
+    if (nodoXp) {
+        nodoXp.textContent = '⚡ ' + (usuario.xp || 0) + ' XP';
+    }
+    if (nodoGemas) {
+        nodoGemas.textContent = '💎 ' + (usuario.gemas || 0);
+    }
+
+    const idioma = usuario.idiomaInterfaz || 'es';
+    const textos = TEXTOS[idioma] || TEXTOS.es;
+
+    document.documentElement.lang = idioma;
+    document.querySelectorAll('.menu_principal a').forEach(function (enlace, i) {
+        enlace.textContent = textos.menu[i];
+    });
+    document.querySelectorAll('.cerrar-sesion').forEach(function (boton) {
+        boton.textContent = textos.cerrar;
+    });
+}
+
+// Se llama una vez por página: muestra el header y conecta los botones "Cerrar sesión"
+export function cargarHeader(usuario) {
+    actualizarHeader(usuario);
+
+    // El enlace lleva a ../index.html; antes se cierra la sesión
+    document.querySelectorAll('.cerrar-sesion').forEach(function (boton) {
+        boton.addEventListener('click', cerrarSesion);
+    });
 }

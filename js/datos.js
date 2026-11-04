@@ -405,3 +405,20 @@ export function armarBanco(ejercicio) {
     }
     return banco;
 }
+
+// Elementos de la tienda. categoria: 'vidas' | 'potenciadores'
+export const PRODUCTOS = [
+    { id: 'rellenar-vidas', icono: '❤️', nombre: 'Rellenar vidas', descripcion: 'Recuperá tus vidas al instante para seguir practicando.', precio: 10, categoria: 'vidas' },
+    { id: 'vidas-ilimitadas', icono: '♾️', nombre: 'Vidas ilimitadas', descripcion: 'Practicá sin límites, incluso si te equivocás.', precio: 30, categoria: 'vidas' },
+    { id: 'congelar-racha', icono: '🧊', nombre: 'Congelar racha', descripcion: 'Mantiene tu racha activa aunque te saltees un día.', precio: 15, categoria: 'potenciadores' },
+    { id: 'xp-doble', icono: '⚡', nombre: 'XP doble', descripcion: 'Ganá el doble de experiencia durante 15 minutos.', precio: 20, categoria: 'potenciadores' }
+];
+
+// Personas de demostración que aparecen en seguidos, seguidores y actividad
+export const COMUNIDAD = [
+    { usuario: 'Maria_23', avatar: 'Avatar_panda.jpg', xp: 850, cuando: 'Hoy', actividad: '¡Quedó en el puesto #1 de la División Bronce esta semana!', premio: '🥇' },
+    { usuario: 'Carlos_Dev', avatar: 'Avatar_gato.jpg', xp: 610, cuando: 'Ayer', actividad: '¡Quedó entre los 3 primeros de la División Bronce 2 veces!', premio: '🥉' },
+    { usuario: 'Lili78', avatar: 'Avatar_perro.jpg', xp: 550, cuando: 'Hace 2 días', actividad: 'Completó 3 lecciones seguidas de Inglés.', premio: '📚' },
+    { usuario: 'Lucas_93', avatar: 'Avatar_leon.jpg', xp: 430, cuando: 'Hace 3 días', actividad: 'Alcanzó una racha de 7 días de aprendizaje.', premio: '🔥' },
+    { usuario: 'MiaSanchez', avatar: 'Avatar_tiburon.jpg', xp: 360, cuando: 'Hace 4 días', actividad: 'Completó una nueva unidad de Chino mandarín.', premio: '⭐' }
+];

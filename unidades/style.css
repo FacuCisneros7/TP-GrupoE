@@ -26,6 +26,51 @@ body {
     gap: 1rem;
 }
 
+.seccion_opiniones {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto 2rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.seccion_opiniones[hidden] {
+    display: none;
+}
+
+.seccion_opiniones h2 {
+    color: #1a6b1a;
+}
+
+#formulario_opinion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+#formulario_opinion select,
+#formulario_opinion textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 0.3rem;
+}
+
+.opinion {
+    padding: 0.75rem 0;
+    border-top: 1px solid #e5e5e0;
+}
+
+.opinion_estrellas {
+    color: #8a5a00;
+}
+
 .btn-volver {
     font-size: 1rem;
     font-weight: bold;

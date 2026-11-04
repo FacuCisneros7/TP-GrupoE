@@ -1,4 +1,5 @@
-import { obtenerUsuarios, requerirSesion, cerrarSesion } from './sesion.js';
+import { obtenerUsuarios, requerirSesion } from './sesion.js';
+import { cargarHeader } from './ui.js';
 
 const usuarioLogueado = requerirSesion('../index.html');
 
@@ -218,14 +219,8 @@ const mostrarRanking = (ligaId) => {
     });
 };
 
-// Resumen del header con los datos reales del usuario
 const iniciar = () => {
-    document.querySelector("#racha").textContent = `🔥 ${conDefecto(usuarioLogueado.racha, 0)} Días`;
-    document.querySelector("#xp-total").textContent = `⚡ ${conDefecto(usuarioLogueado.xp, 0)} XP`;
-    document.querySelector("#gemas").textContent = `💎 ${conDefecto(usuarioLogueado.gemas, 0)}`;
-
-    // El enlace lleva a ../index.html; antes se cierra la sesión
-    document.querySelector("#btn-cerrar-sesion").addEventListener("click", cerrarSesion);
+    cargarHeader(usuarioLogueado);
 
     LIGAS.forEach(liga => {
         const opcion = document.createElement("option");

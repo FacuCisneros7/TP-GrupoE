@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
+    <title>Rachas y tienda</title>
     <link rel="stylesheet" href="../dashboard/style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
@@ -20,14 +20,14 @@
             <a href="../dashboard/index.html">Cursos</a>
             <a href="../perfil/index.html">Perfil</a>
             <a href="../ranking/index.html">Clasificación</a>
-            <a href="index.html" class="activo">Tienda</a>
+            <a href="index.html" class="activo">Rachas/Tienda</a>
         </nav>
 
         <div class="resumen_usuario">
-            <span>🔥 5 Días</span>
-            <span>⚡ 350 XP</span>
-            <span>💎 120</span>
-            <a href="../index.html" class="btn">Cerrar sesión</a>
+            <span id="racha">🔥 0 Días</span>
+            <span id="xp-total">⚡ 0 XP</span>
+            <span id="gemas">💎 0</span>
+            <a href="../index.html" class="btn cerrar-sesion">Cerrar sesión</a>
         </div>
     </header>
 
@@ -36,65 +36,45 @@
         <section class="tienda-banner">
             <img class="mascota_banner" src="../img/mascota.webp" alt="mascota_de_lingoweb">
             <div class="banner-texto">
-                <h2>Probá LingoWeb Plus gratis por 7 días</h2>
-                <p>Sin vidas limitadas y con tu racha siempre protegida.</p>
-            </div>
-            <a href="../pruebaGratis/index.html" class="btn">Empezar prueba gratis</a>
-        </section>
-
-        <section class="tienda-seccion">
-            <h2>Vidas</h2>
-
-            <div class="tienda-item">
-                <span class="tienda-icono">❤️</span>
-                <div class="tienda-info">
-                    <h3>Rellenar vidas</h3>
-                    <p>Recuperá tus vidas al instante para seguir practicando sin esperar.</p>
-                </div>
-                <button class="btn tienda-boton" disabled>Completo</button>
-            </div>
-
-            <hr>
-
-            <div class="tienda-item">
-                <span class="tienda-icono">♾️</span>
-                <div class="tienda-info">
-                    <h3>Vidas ilimitadas</h3>
-                    <p>Practicá sin límites, incluso si te equivocás.</p>
-                </div>
-                <a href="../vidasIlimitadas/index.html" class="btn tienda-boton">Probar gratis</a>
+                <h2 id="tienda_racha"></h2>
+                <p id="tienda_meta"></p>
             </div>
         </section>
 
         <section class="tienda-seccion">
-            <h2>Potenciadores</h2>
+            <h2>Tienda</h2>
+            <p id="saldo"></p>
 
-            <div class="tienda-item">
-                <span class="tienda-icono">🧊</span>
-                <div class="tienda-info">
-                    <h3>Congelar racha <span class="tienda-estado">2/2 equipados</span></h3>
-                    <p>Mantiene tu racha activa aunque te saltees un día.</p>
-                </div>
-                <button class="btn tienda-boton" disabled>Equipado</button>
-            </div>
+            <label for="filtro_productos">Mostrar:</label>
+            <select id="filtro_productos">
+                <option value="todos">Todos</option>
+                <option value="vidas">Vidas</option>
+                <option value="potenciadores">Potenciadores</option>
+            </select>
 
-            <hr>
-
-            <div class="tienda-item">
-                <span class="tienda-icono">⚡</span>
-                <div class="tienda-info">
-                    <h3>XP doble</h3>
-                    <p>Ganá el doble de experiencia durante 15 minutos.</p>
-                </div>
-                <a href="../xpDoble.html/index.html" class="btn tienda-boton">💎 200</a>
-            </div>
+            <!-- Los productos los genera tienda.js a partir de los datos -->
+            <div id="lista_productos"></div>
         </section>
 
     </main>
 
     <footer>
-        <p>2026 LingoWeb — Trabajo Práctico N.º 1, Programación Web 1, UNLaM</p>
+        <p>2026 LingoWeb — Trabajo Práctico N.º 2, Programación Web 1, UNLaM</p>
     </footer>
+
+    <!-- Plantilla de un producto (el navegador no la muestra) -->
+    <template id="plantilla-producto">
+        <div class="tienda-item">
+            <span class="tienda-icono" aria-hidden="true"></span>
+            <div class="tienda-info">
+                <h3><span class="tienda-nombre"></span> <span class="tienda-estado"></span></h3>
+                <p></p>
+            </div>
+            <button type="button" class="btn tienda-boton"></button>
+        </div>
+    </template>
+
+    <script type="module" src="../js/tienda.js"></script>
 
 </body>
 </html>

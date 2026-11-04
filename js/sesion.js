@@ -1,6 +1,7 @@
 
 export const CLAVE_USUARIOS = 'usuarios';
 export const CLAVE_SESION = 'usuario_actual';
+export const CLAVE_OPINIONES = 'opiniones';
 
 // Devuelve siempre un array, aunque la clave no exista o esté dañada
 export function obtenerUsuarios() {
@@ -58,6 +59,7 @@ export function cerrarSesion() {
     localStorage.removeItem(CLAVE_SESION);
 }
 
+
 //Elimina solamente la cuenta que tiene la sesión activa
 export function eliminarUsuarioActual() {
     const usuarioActual = localStorage.getItem(CLAVE_SESION);
@@ -86,3 +88,24 @@ export function eliminarUsuarioActual() {
 
     return true;
 }
+
+// Opiniones de todos los cursos. Cada una guarda su curso y quién la publicó.
+export function obtenerOpiniones() {
+    try {
+        const guardadas = JSON.parse(localStorage.getItem(CLAVE_OPINIONES));
+        return Array.isArray(guardadas) ? guardadas : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+// Guarda la lista completa de opiniones. Devuelve true si se guardó.
+export function guardarOpiniones(opiniones) {
+    try {
+        localStorage.setItem(CLAVE_OPINIONES, JSON.stringify(opiniones));
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
+
