@@ -2,7 +2,7 @@ import { obtenerUsuarios, requerirSesion, guardarUsuario, cerrarSesion, CLAVE_SE
 
 import { obtenerCompletadas, porcentajeCurso } from "./progreso.js";
 
-import { obtenerLeccionesDeCurso } from "./datos.js";
+import { obtenerLeccionesDeCurso, COMUNIDAD } from "./datos.js";
 
 const traducciones = {
     es: {
@@ -610,8 +610,8 @@ function mostrarUsuario(usuario) {
     ponerTexto("resumen-xp", "⚡ " + (usuario.xp || 0) + " XP");
     ponerTexto("resumen-gemas", "💎 " + (usuario.gemas || 0));
 
-    ponerTexto("cantidad-seguidos", usuario.seguidos || 0);
-    ponerTexto("cantidad-seguidores", usuario.seguidores || 0);
+    ponerTexto("cantidad-seguidos", usuario.seguidos = COMUNIDAD.length|| 0);
+    ponerTexto("cantidad-seguidores", usuario.seguidores = COMUNIDAD.length || 0);
 
     const cursos = ["ingles", "aleman", "chino"];
 

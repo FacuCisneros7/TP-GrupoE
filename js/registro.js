@@ -107,7 +107,7 @@ function existeUsuarioOEmail(valor) {
     const buscado = valor.toLowerCase();
     return obtenerUsuarios().some(function (u) {
         return String(u.usuario).toLowerCase() === buscado ||
-               String(u.email).toLowerCase() === buscado;
+                String(u.email).toLowerCase() === buscado;
     });
 }
 
@@ -137,7 +137,9 @@ function crearUsuario(usuario, email, password) {
             ingles: { completadas: [], resultados: {} },
             aleman: { completadas: [], resultados: {} },
             chino:  { completadas: [], resultados: {} }
-        }
+        },
+        seguidos: 0,
+        seguidores: 0 
     };
 }
 
